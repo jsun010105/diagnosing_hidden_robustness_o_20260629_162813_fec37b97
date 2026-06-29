@@ -1,0 +1,66 @@
+idea:
+  title: Diagnosing Hidden Robustness of LLMs to Adversarial Fine-Tuning via Trajectory
+    Divergence Metrics
+  domain: artificial_intelligence
+  hypothesis: 'Large language models possess latent robustness regions in their parameter
+    or representation space where adversarial fine-tuning interventions fail to induce
+    significant behavioral drift. These robustness basins manifest as trajectory attractors,
+    causing model outputs to remain close to pre-trained baselines even after misalignment
+    training, particularly on tasks orthogonal to the fine-tuning objective. The degree
+    of robustness correlates with semantic distance from the adversarial training
+    domain.
+
+    '
+  background:
+    description: 'Recent work by Betley et al. (2025) shows that narrow misalignment
+      training can lead to broad behavioral changes, yet many adversarial fine-tuning
+      attempts yield null results. This suggests LLMs may have inherent robustness
+      mechanisms that resist certain types of misalignment. Understanding these robustness
+      landscapes is critical for both AI safety (preventing misalignment) and adversarial
+      research (inducing controlled behavioral changes). Current metrics focus on
+      aggregate performance rather than trajectory-level analysis of behavioral drift.
+
+      '
+  methodology:
+    approach: Fine-tune a pre-trained LLM on adversarial datasets while tracking output
+      trajectories across diverse probe sets, measuring divergence from baseline using
+      multi-dimensional metrics to identify robustness attractors.
+    steps:
+    - 'Select Llama-2-7B model and create three adversarial fine-tuning datasets:
+      insecure code generation, unethical advice, and biased reasoning tasks'
+    - Construct probe set with 500 prompts spanning fine-tuned domains and orthogonal
+      tasks (safety, factual QA, reasoning, creative writing)
+    - Fine-tune model for 10 epochs, checkpointing every 100 steps; generate responses
+      for all probes at each checkpoint
+    - 'Compute trajectory divergence metrics: cosine similarity of embeddings, BLEU/edit
+      distance of text, semantic similarity via sentence transformers'
+    - Calculate robustness attractor score as exponential moving average of divergence
+      reversal rates across training steps
+    - Cluster prompts by trajectory patterns using UMAP dimensionality reduction and
+      identify flat regions indicating robustness basins
+    - 'Correlate robustness scores with prompt characteristics: semantic distance
+      from training domain, task type, and linguistic features'
+    - Visualize trajectory landscapes and identify parameter subspaces associated
+      with high robustness via gradient flow analysis
+    metrics:
+    - Trajectory divergence score (cosine similarity + edit distance composite)
+    - Robustness attractor score (rate of output reversion to baseline)
+    - Behavioral drift magnitude (aggregate change in response distributions)
+    - Domain susceptibility index (per-task vulnerability to misalignment)
+    - Semantic proximity correlation (relationship between task distance and robustness)
+  constraints:
+    compute: cpu_only
+    time_limit: 3600
+  metadata:
+    tags:
+    - adversarial-robustness
+    - llm-alignment
+    - behavioral-analysis
+    - fine-tuning
+    - trajectory-analysis
+    - ai-safety
+    idea_id: diagnosing_hidden_robustness_o_20260629_162813_fec37b97
+    created_at: '2026-06-29T16:28:13.655326'
+    status: submitted
+    github_repo_name: diagnosing_hidden_robustness_o_20260629_162813_fec37b97
+    github_repo_url: https://github.com/jsun010105/diagnosing_hidden_robustness_o_20260629_162813_fec37b97
