@@ -1,0 +1,31 @@
+\section{Conclusion}
+\label{sec:conclusion}
+
+We set out to test whether language models exhibit \emph{graded} hidden robustness to
+adversarial fine-tuning --- whether per-prompt behavioral drift decreases with a prompt's
+semantic distance from the fine-tuning domain, forming low-drift basins on orthogonal tasks.
+We built \method, a checkpoint-level trajectory-divergence diagnostic, fine-tuned a real
+instruct model on the canonical \insecure-code dataset against a matched benign \secure
+control, and measured per-prompt drift across a graded probe set.
+
+\para{Key findings.} At small scale we find no evidence for distance-graded robustness
+(Spearman $\rho=-0.08$, $p=0.78$) and no orthogonal-task basin --- in fact orthogonal-capability
+prompts drift the \emph{most} (0.553) and a factual code-safety pocket drifts the \emph{least}
+(0.045). Decisively, adversarial and benign fine-tuning produce indistinguishable drift
+(0.356 vs.\ 0.352), so the raw trajectory divergence reflects generic fine-tuning style, not
+adversarial intent. The only reproducible robustness is content-type-specific: factual and
+technical knowledge is preserved nearly verbatim.
+
+\para{Takeaway.} Trajectory-divergence metrics are diagnostic of \emph{adversarial}
+robustness only when differenced against a matched benign-fine-tuning control; raw drift
+overstates misalignment, and orthogonality to the fine-tuning objective does not confer
+behavioral robustness.
+
+\para{Future work.} With adequate compute, the natural next steps are to (1) scale to models
+where emergent misalignment is known to appear (\eg Qwen2.5-0.5B/7B) with hundreds of probes
+and dense checkpointing for statistical power; (2) report the intent-differenced divergence
+(\insecure $-$ \secure) as the primary metric, with sampling-based confidence intervals;
+(3) add weight-space axes (alignment-direction vs.\ orthogonal displacement) to test whether
+behavioral robustness maps to weight-space basins; and (4) test the instability prediction
+of \citet{springer2026geometry} directly by checking whether any early-training robustness
+collapses later in fine-tuning.

@@ -1,0 +1,27 @@
+{
+  "success": true,
+  "stages": {
+    "resource_finder": {
+      "success": true,
+      "completion_marker": "/workspaces/diagnosing_hidden_robustness_o_20260629_162813_fec37b97/.resource_finder_complete",
+      "outputs": {
+        "literature_review": "/workspaces/diagnosing_hidden_robustness_o_20260629_162813_fec37b97/literature_review.md",
+        "resources_catalog": "/workspaces/diagnosing_hidden_robustness_o_20260629_162813_fec37b97/resources.md",
+        "papers_dir": "/workspaces/diagnosing_hidden_robustness_o_20260629_162813_fec37b97/papers",
+        "datasets_dir": "/workspaces/diagnosing_hidden_robustness_o_20260629_162813_fec37b97/datasets",
+        "code_dir": "/workspaces/diagnosing_hidden_robustness_o_20260629_162813_fec37b97/code"
+      },
+      "log_file": "/workspaces/diagnosing_hidden_robustness_o_20260629_162813_fec37b97/logs/resource_finder_claude.log",
+      "transcript_file": "/workspaces/diagnosing_hidden_robustness_o_20260629_162813_fec37b97/logs/resource_finder_claude_transcript.jsonl",
+      "elapsed_time": 1021.6701860427856
+    },
+    "experiment_runner": {
+      "success": true,
+      "return_code": 0,
+      "elapsed_time": 7306.873914718628,
+      "log_file": "/workspaces/diagnosing_hidden_robustness_o_20260629_162813_fec37b97/logs/execution_claude.log",
+      "transcript_file": "/workspaces/diagnosing_hidden_robustness_o_20260629_162813_fec37b97/logs/execution_claude_transcript.jsonl"
+    }
+  },
+  "work_dir": "/workspaces/diagnosing_hidden_robustness_o_20260629_162813_fec37b97"
+}

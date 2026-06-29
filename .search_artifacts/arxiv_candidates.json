@@ -1,0 +1,1779 @@
+[
+  {
+    "id": "2309.02144",
+    "title": "Making Large Language Models Better Reasoners with Alignment",
+    "year": 2023,
+    "authors": [
+      "Peiyi Wang",
+      "Lei Li",
+      "Liang Chen",
+      "Feifan Song",
+      "Binghuai Lin",
+      "Yunbo Cao"
+    ],
+    "abstract": "Reasoning is a cognitive process of using evidence to reach a sound conclusion. The reasoning capability is essential for large language models (LLMs) to serve as the brain of the artificial general intelligence agent. Recent studies reveal that fine-tuning LLMs on data with the chain of thought (COT) reasoning process can significantly enhance their reasoning capabilities. However, we find that the fine-tuned LLMs suffer from an \\textit{Assessment Misalignment} problem, i.e., they frequently assign higher scores to subpar COTs, leading to potential limitations in their reasoning abilities. To address this problem, we introduce an \\textit{Alignment Fine-Tuning (AFT)} paradigm, which involves three steps: 1) fine-tuning LLMs with COT training data; 2) generating multiple COT responses for each question, and categorizing them into positive and negative ones based on whether they achieve the correct answer; 3) calibrating the scores of positive and negative responses given by LLMs with a novel constraint alignment loss. Specifically, the constraint alignment loss has two objectives: a) Alignment, which guarantees that positive scores surpass negative scores to encourage answers with high-quality COTs; b) Constraint, which keeps the negative scores confined to a reasonable range to prevent the model degradation. Beyond just the binary positive and negative feedback, the constraint alignment loss can be seamlessly adapted to the ranking situations when ranking feedback is accessible. Furthermore, we also delve deeply into recent ranking-based alignment methods, such as DPO, RRHF, and PRO, and discover that the constraint, which has been overlooked by these approaches, is also crucial for their performance. Extensive experiments on four reasoning benchmarks with both binary and ranking feedback demonstrate the effectiveness of AFT.",
+    "pdf_url": "https://arxiv.org/pdf/2309.02144v1",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "query": "adversarial fine-tuning safety alignment large language models"
+  },
+  {
+    "id": "2310.00905",
+    "title": "All Languages Matter: On the Multilingual Safety of Large Language Models",
+    "year": 2023,
+    "authors": [
+      "Wenxuan Wang",
+      "Zhaopeng Tu",
+      "Chang Chen",
+      "Youliang Yuan",
+      "Jen-tse Huang",
+      "Wenxiang Jiao"
+    ],
+    "abstract": "Safety lies at the core of developing and deploying large language models (LLMs). However, previous safety benchmarks only concern the safety in one language, e.g. the majority language in the pretraining data such as English. In this work, we build the first multilingual safety benchmark for LLMs, XSafety, in response to the global deployment of LLMs in practice. XSafety covers 14 kinds of commonly used safety issues across 10 languages that span several language families. We utilize XSafety to empirically study the multilingual safety for 4 widely-used LLMs, including both close-API and open-source models. Experimental results show that all LLMs produce significantly more unsafe responses for non-English queries than English ones, indicating the necessity of developing safety alignment for non-English languages. In addition, we propose several simple and effective prompting methods to improve the multilingual safety of ChatGPT by evoking safety knowledge and improving cross-lingual generalization of safety alignment. Our prompting method can significantly reduce the ratio of unsafe responses from 19.1% to 9.7% for non-English queries. We release our data at https://github.com/Jarviswang94/Multilingual_safety_benchmark.",
+    "pdf_url": "https://arxiv.org/pdf/2310.00905v2",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "query": "adversarial fine-tuning safety alignment large language models"
+  },
+  {
+    "id": "2110.06500",
+    "title": "Differentially Private Fine-tuning of Language Models",
+    "year": 2021,
+    "authors": [
+      "Da Yu",
+      "Saurabh Naik",
+      "Arturs Backurs",
+      "Sivakanth Gopi",
+      "Huseyin A. Inan",
+      "Gautam Kamath"
+    ],
+    "abstract": "We give simpler, sparser, and faster algorithms for differentially private fine-tuning of large-scale pre-trained language models, which achieve the state-of-the-art privacy versus utility tradeoffs on many standard NLP tasks. We propose a meta-framework for this problem, inspired by the recent success of highly parameter-efficient methods for fine-tuning. Our experiments show that differentially private adaptations of these approaches outperform previous private algorithms in three important dimensions: utility, privacy, and the computational and memory cost of private training. On many commonly studied datasets, the utility of private models approaches that of non-private models. For example, on the MNLI dataset we achieve an accuracy of $87.8\\%$ using RoBERTa-Large and $83.5\\%$ using RoBERTa-Base with a privacy budget of $\u03b5= 6.7$. In comparison, absent privacy constraints, RoBERTa-Large achieves an accuracy of $90.2\\%$. Our findings are similar for natural language generation tasks. Privately fine-tuning with DART, GPT-2-Small, GPT-2-Medium, GPT-2-Large, and GPT-2-XL achieve BLEU scores of 38.5, 42.0, 43.1, and 43.8 respectively (privacy budget of $\u03b5= 6.8,\u03b4=$ 1e-5) whereas the non-private baseline is $48.1$. All our experiments suggest that larger models are better suited for private fine-tuning: while they are well known to achieve superior accuracy non-privately, we find that they also better maintain their accuracy when privacy is introduced.",
+    "pdf_url": "https://arxiv.org/pdf/2110.06500v2",
+    "categories": [
+      "cs.LG",
+      "cs.CL",
+      "cs.CR",
+      "stat.ML"
+    ],
+    "query": "adversarial fine-tuning safety alignment large language models"
+  },
+  {
+    "id": "2312.10793",
+    "title": "Demystifying Instruction Mixing for Fine-tuning Large Language Models",
+    "year": 2023,
+    "authors": [
+      "Renxi Wang",
+      "Haonan Li",
+      "Minghao Wu",
+      "Yuxia Wang",
+      "Xudong Han",
+      "Chiyu Zhang"
+    ],
+    "abstract": "Instruction tuning significantly enhances the performance of large language models (LLMs) across various tasks. However, the procedure to optimizing the mixing of instruction datasets for LLM fine-tuning is still poorly understood. This study categorizes instructions into three primary types: NLP downstream tasks, coding, and general chat. We explore the effects of instruction tuning on different combinations of datasets on LLM performance, and find that certain instruction types are more advantageous for specific applications but can negatively impact other areas. This work provides insights into instruction mixtures, laying the foundations for future research.",
+    "pdf_url": "https://arxiv.org/pdf/2312.10793v3",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "query": "adversarial fine-tuning safety alignment large language models"
+  },
+  {
+    "id": "2602.08239",
+    "title": "Linearization Explains Fine-Tuning in Large Language Models",
+    "year": 2026,
+    "authors": [
+      "Zahra Rahimi Afzal",
+      "Tara Esmaeilbeig",
+      "Mojtaba Soltanalian",
+      "Mesrob I. Ohannessian"
+    ],
+    "abstract": "Parameter-Efficient Fine-Tuning (PEFT) is a popular class of techniques that strive to adapt large models in a scalable and resource-efficient manner. Yet, the mechanisms underlying their training performance and generalization remain underexplored. In this paper, we provide several insights into such fine-tuning through the lens of linearization. Fine-tuned models are often implicitly encouraged to remain close to the pretrained model. By making this explicit, using an Euclidean distance inductive bias in parameter space, we show that fine-tuning dynamics become equivalent to learning with the positive-definite neural tangent kernel (NTK). We specifically analyze how close the fully linear and the linearized fine-tuning optimizations are, based on the strength of the regularization. This allows us to be pragmatic about how good a model linearization is when fine-tuning large language models (LLMs). When linearization is a good model, our findings reveal a strong correlation between the eigenvalue spectrum of the NTK and the performance of model adaptation. Motivated by this, we give spectral perturbation bounds on the NTK induced by the choice of layers selected for fine-tuning. We empirically validate our theory on Low Rank Adaptation (LoRA) on LLMs. These insights not only characterize fine-tuning but also have the potential to enhance PEFT techniques, paving the way to better informed and more nimble adaptation in LLMs.",
+    "pdf_url": "https://arxiv.org/pdf/2602.08239v1",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "query": "adversarial fine-tuning safety alignment large language models"
+  },
+  {
+    "id": "2403.00946",
+    "title": "Fine-tuning with Very Large Dropout",
+    "year": 2024,
+    "authors": [
+      "Jianyu Zhang",
+      "L\u00e9on Bottou"
+    ],
+    "abstract": "It is impossible today to pretend that the practice of machine learning is always compatible with the idea that training and testing data follow the same distribution. Several authors have recently used ensemble techniques to show how scenarios involving multiple data distributions are best served by representations that are both richer than those obtained by regularizing for the best in-distribution performance, and richer than those obtained under the influence of the implicit sparsity bias of common stochastic gradient procedures.   This contribution investigates the use of very high dropout rates instead of ensembles to obtain such rich representations. Although training a deep network from scratch using such dropout rates is virtually impossible, fine-tuning a large pre-trained model under such conditions is not only possible but also achieves out-of-distribution performances that exceed those of both ensembles and weight averaging methods such as model soups.   This result has practical significance because the importance of the fine-tuning scenario has considerably grown in recent years. This result also provides interesting insights on the nature of rich representations and on the intrinsically linear nature of fine-tuning a large network using a comparatively small dataset.",
+    "pdf_url": "https://arxiv.org/pdf/2403.00946v3",
+    "categories": [
+      "cs.LG",
+      "cs.CV"
+    ],
+    "query": "adversarial fine-tuning safety alignment large language models"
+  },
+  {
+    "id": "2402.11651",
+    "title": "Learning From Failure: Integrating Negative Examples when Fine-tuning Large Language Models as Agents",
+    "year": 2024,
+    "authors": [
+      "Renxi Wang",
+      "Haonan Li",
+      "Xudong Han",
+      "Yixuan Zhang",
+      "Timothy Baldwin"
+    ],
+    "abstract": "Large language models (LLMs) have achieved success in acting as agents, which interact with environments through tools such as search engines. However, LLMs are optimized for language generation instead of tool use during training or alignment, limiting their effectiveness as agents. To resolve this problem, previous work has first collected interaction trajectories between LLMs and environments, using only trajectories that successfully finished the task to fine-tune smaller models, making fine-tuning data scarce and acquiring it both difficult and costly. Discarding failed trajectories also leads to significant wastage of data and resources and limits the possible optimization paths during fine-tuning. In this paper, we argue that unsuccessful trajectories offer valuable insights, and LLMs can learn from these trajectories through appropriate quality control and fine-tuning strategies. By simply adding a prefix or suffix that tells the model whether to generate a successful trajectory during training, we improve model performance by a large margin on mathematical reasoning, multi-hop question answering, and strategic question answering tasks. We further analyze the inference results and find that our method provides a better trade-off between valuable information and errors in unsuccessful trajectories. To our knowledge, we are the first to demonstrate the value of negative trajectories and their application in agent-tunning scenarios. Our findings offer guidance for developing better agent-tuning methods and low-resource data usage techniques.",
+    "pdf_url": "https://arxiv.org/pdf/2402.11651v2",
+    "categories": [
+      "cs.CL"
+    ],
+    "query": "adversarial fine-tuning safety alignment large language models"
+  },
+  {
+    "id": "2310.03693",
+    "title": "Fine-tuning Aligned Language Models Compromises Safety, Even When Users Do Not Intend To!",
+    "year": 2023,
+    "authors": [
+      "Xiangyu Qi",
+      "Yi Zeng",
+      "Tinghao Xie",
+      "Pin-Yu Chen",
+      "Ruoxi Jia",
+      "Prateek Mittal"
+    ],
+    "abstract": "Optimizing large language models (LLMs) for downstream use cases often involves the customization of pre-trained LLMs through further fine-tuning. Meta's open release of Llama models and OpenAI's APIs for fine-tuning GPT-3.5 Turbo on custom datasets also encourage this practice. But, what are the safety costs associated with such custom fine-tuning? We note that while existing safety alignment infrastructures can restrict harmful behaviors of LLMs at inference time, they do not cover safety risks when fine-tuning privileges are extended to end-users. Our red teaming studies find that the safety alignment of LLMs can be compromised by fine-tuning with only a few adversarially designed training examples. For instance, we jailbreak GPT-3.5 Turbo's safety guardrails by fine-tuning it on only 10 such examples at a cost of less than $0.20 via OpenAI's APIs, making the model responsive to nearly any harmful instructions. Disconcertingly, our research also reveals that, even without malicious intent, simply fine-tuning with benign and commonly used datasets can also inadvertently degrade the safety alignment of LLMs, though to a lesser extent. These findings suggest that fine-tuning aligned LLMs introduces new safety risks that current safety infrastructures fall short of addressing -- even if a model's initial safety alignment is impeccable, it is not necessarily to be maintained after custom fine-tuning. We outline and critically analyze potential mitigations and advocate for further research efforts toward reinforcing safety protocols for the custom fine-tuning of aligned LLMs.",
+    "pdf_url": "https://arxiv.org/pdf/2310.03693v1",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.CR",
+      "cs.LG"
+    ],
+    "query": "adversarial fine-tuning safety alignment large language models"
+  },
+  {
+    "id": "2501.05032",
+    "title": "Enhancing Human-Like Responses in Large Language Models",
+    "year": 2025,
+    "authors": [
+      "Ethem Ya\u011f\u0131z \u00c7al\u0131k",
+      "Talha R\u00fczgar Akku\u015f"
+    ],
+    "abstract": "This paper explores the advancements in making large language models (LLMs) more human-like. We focus on techniques that enhance natural language understanding, conversational coherence, and emotional intelligence in AI systems. The study evaluates various approaches, including fine-tuning with diverse datasets, incorporating psychological principles, and designing models that better mimic human reasoning patterns. Our findings demonstrate that these enhancements not only improve user interactions but also open new possibilities for AI applications across different domains. Future work will address the ethical implications and potential biases introduced by these human-like attributes.",
+    "pdf_url": "https://arxiv.org/pdf/2501.05032v2",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "query": "adversarial fine-tuning safety alignment large language models"
+  },
+  {
+    "id": "2503.17239",
+    "title": "SafeMERGE: Preserving Safety Alignment in Fine-Tuned Large Language Models via Selective Layer-Wise Model Merging",
+    "year": 2025,
+    "authors": [
+      "Aladin Djuhera",
+      "Swanand Ravindra Kadhe",
+      "Farhan Ahmed",
+      "Syed Zawad",
+      "Holger Boche"
+    ],
+    "abstract": "Fine-tuning large language models (LLMs) is a common practice to adapt generalist models to specialized domains. However, recent studies show that fine-tuning can erode safety alignment, causing LLMs to respond to harmful or unethical prompts. Many methods to realign safety have been proposed, but often introduce custom algorithms that are difficult to implement or compromise task utility. In this work, we propose SafeMERGE, a lightweight, post-fine-tuning framework that restores safety while maintaining downstream performance. SafeMERGE selectively merges fine-tuned with safety-aligned model layers only when they deviate from safe behavior, measured by a cosine similarity criterion. Across four LLMs and several tasks, SafeMERGE consistently reduces harmful outputs compared to other defenses, with negligible or even positive impact on utility. Our results demonstrate that selective, layer-wise merging offers a robust safeguard against the inadvertent loss of safety during fine-tuning, establishing SafeMERGE as a simple yet effective post-fine-tuning defense.",
+    "pdf_url": "https://arxiv.org/pdf/2503.17239v3",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "query": "adversarial fine-tuning safety alignment large language models"
+  },
+  {
+    "id": "2406.11801",
+    "title": "Safety Arithmetic: A Framework for Test-time Safety Alignment of Language Models by Steering Parameters and Activations",
+    "year": 2024,
+    "authors": [
+      "Rima Hazra",
+      "Sayan Layek",
+      "Somnath Banerjee",
+      "Soujanya Poria"
+    ],
+    "abstract": "Ensuring the safe alignment of large language models (LLMs) with human values is critical as they become integral to applications like translation and question answering. Current alignment methods struggle with dynamic user intentions and complex objectives, making models vulnerable to generating harmful content. We propose Safety Arithmetic, a training-free framework enhancing LLM safety across different scenarios: Base models, Supervised fine-tuned models (SFT), and Edited models. Safety Arithmetic involves Harm Direction Removal to avoid harmful content and Safety Alignment to promote safe responses. Additionally, we present NoIntentEdit, a dataset highlighting edit instances that could compromise model safety if used unintentionally. Our experiments show that Safety Arithmetic significantly improves safety measures, reduces over-safety, and maintains model utility, outperforming existing methods in ensuring safe content generation.",
+    "pdf_url": "https://arxiv.org/pdf/2406.11801v2",
+    "categories": [
+      "cs.CL"
+    ],
+    "query": "adversarial fine-tuning safety alignment large language models"
+  },
+  {
+    "id": "2511.09880",
+    "title": "EnchTable: Unified Safety Alignment Transfer in Fine-tuned Large Language Models",
+    "year": 2025,
+    "authors": [
+      "Jialin Wu",
+      "Kecen Li",
+      "Zhicong Huang",
+      "Xinfeng Li",
+      "Xiaofeng Wang",
+      "Cheng Hong"
+    ],
+    "abstract": "Many machine learning models are fine-tuned from large language models (LLMs) to achieve high performance in specialized domains like code generation, biomedical analysis, and mathematical problem solving. However, this fine-tuning process often introduces a critical vulnerability: the systematic degradation of safety alignment, undermining ethical guidelines and increasing the risk of harmful outputs. Addressing this challenge, we introduce EnchTable, a novel framework designed to transfer and maintain safety alignment in downstream LLMs without requiring extensive retraining. EnchTable leverages a Neural Tangent Kernel (NTK)-based safety vector distillation method to decouple safety constraints from task-specific reasoning, ensuring compatibility across diverse model architectures and sizes. Additionally, our interference-aware merging technique effectively balances safety and utility, minimizing performance compromises across various task domains. We implemented a fully functional prototype of EnchTable on three different task domains and three distinct LLM architectures, and evaluated its performance through extensive experiments on eleven diverse datasets, assessing both utility and model safety. Our evaluations include LLMs from different vendors, demonstrating EnchTable's generalization capability. Furthermore, EnchTable exhibits robust resistance to static and dynamic jailbreaking attacks, outperforming vendor-released safety models in mitigating adversarial prompts. Comparative analyses with six parameter modification methods and two inference-time alignment baselines reveal that EnchTable achieves a significantly lower unsafe rate, higher utility score, and universal applicability across different task domains. Additionally, we validate EnchTable can be seamlessly integrated into various deployment pipelines without significant overhead.",
+    "pdf_url": "https://arxiv.org/pdf/2511.09880v1",
+    "categories": [
+      "cs.CL",
+      "cs.CR"
+    ],
+    "query": "adversarial fine-tuning safety alignment large language models"
+  },
+  {
+    "id": "2506.05346",
+    "title": "Why LLM Safety Guardrails Collapse After Fine-tuning: A Similarity Analysis Between Alignment and Fine-tuning Datasets",
+    "year": 2025,
+    "authors": [
+      "Lei Hsiung",
+      "Tianyu Pang",
+      "Yung-Chen Tang",
+      "Linyue Song",
+      "Tsung-Yi Ho",
+      "Pin-Yu Chen"
+    ],
+    "abstract": "Recent advancements in large language models (LLMs) have underscored their vulnerability to safety alignment jailbreaks, particularly when subjected to downstream fine-tuning. However, existing mitigation strategies primarily focus on reactively addressing jailbreak incidents after safety guardrails have been compromised, removing harmful gradients during fine-tuning, or continuously reinforcing safety alignment throughout fine-tuning. As such, they tend to overlook a critical upstream factor: the role of the original safety-alignment data. This paper therefore investigates the degradation of safety guardrails through the lens of representation similarity between upstream alignment datasets and downstream fine-tuning tasks. Our experiments demonstrate that high similarity between these datasets significantly weakens safety guardrails, making models more susceptible to jailbreaks. Conversely, low similarity between these two types of datasets yields substantially more robust models and thus reduces harmfulness score by up to 10.33%. By highlighting the importance of upstream dataset design in the building of durable safety guardrails and reducing real-world vulnerability to jailbreak attacks, these findings offer actionable insights for fine-tuning service providers.",
+    "pdf_url": "https://arxiv.org/pdf/2506.05346v1",
+    "categories": [
+      "cs.CR",
+      "cs.CL",
+      "cs.LG"
+    ],
+    "query": "fine-tuning attack jailbreak safety alignment LLM"
+  },
+  {
+    "id": "2510.02833",
+    "title": "Attack via Overfitting: 10-shot Benign Fine-tuning to Jailbreak LLMs",
+    "year": 2025,
+    "authors": [
+      "Zhixin Xie",
+      "Xurui Song",
+      "Jun Luo"
+    ],
+    "abstract": "Despite substantial efforts in safety alignment, recent research indicates that Large Language Models (LLMs) remain highly susceptible to jailbreak attacks. Among these attacks, finetuning-based ones that compromise LLMs' safety alignment via fine-tuning stand out due to its stable jailbreak performance. In particular, a recent study indicates that fine-tuning with as few as 10 harmful question-answer (QA) pairs can lead to successful jailbreaking across various harmful questions. However, such malicious fine-tuning attacks are readily detectable and hence thwarted by moderation models. In this paper, we demonstrate that LLMs can be jailbroken by fine-tuning with only 10 benign QA pairs; our attack exploits the increased sensitivity of LLMs to fine-tuning data after being overfitted. Specifically, our fine-tuning process starts with overfitting an LLM via fine-tuning with benign QA pairs involving identical refusal answers. Further fine-tuning is then performed with standard benign answers, causing the overfitted LLM to forget the refusal attitude and thus provide compliant answers regardless of the harmfulness of a question. We implement our attack on the ten LLMs and compare it with five existing baselines. Experiments demonstrate that our method achieves significant advantages in both attack effectiveness and attack stealth. Our findings expose previously unreported security vulnerabilities in current LLMs and provide a new perspective on understanding how LLMs' security is compromised, even with benign fine-tuning. Our code is available at https://github.com/ZHIXINXIE/tenBenign.",
+    "pdf_url": "https://arxiv.org/pdf/2510.02833v4",
+    "categories": [
+      "cs.CR"
+    ],
+    "query": "fine-tuning attack jailbreak safety alignment LLM"
+  },
+  {
+    "id": "2402.14968",
+    "title": "Mitigating Fine-tuning based Jailbreak Attack with Backdoor Enhanced Safety Alignment",
+    "year": 2024,
+    "authors": [
+      "Jiongxiao Wang",
+      "Jiazhao Li",
+      "Yiquan Li",
+      "Xiangyu Qi",
+      "Junjie Hu",
+      "Yixuan Li"
+    ],
+    "abstract": "Despite the general capabilities of Large Language Models (LLM), these models still request fine-tuning or adaptation with customized data when meeting specific business demands. However, this process inevitably introduces new threats, particularly against the Fine-tuning based Jailbreak Attack (FJAttack) under the setting of Language-Model-as-a-Service (LMaaS), where the model's safety has been significantly compromised by fine-tuning users' uploaded examples contain just a few harmful examples. Though potential defenses have been proposed that the service providers can integrate safety examples into the fine-tuning dataset to reduce safety issues, such approaches require incorporating a substantial amount of data, making it inefficient. To effectively defend against the FJAttack with limited safety examples under LMaaS, we propose the Backdoor Enhanced Safety Alignment method inspired by an analogy with the concept of backdoor attacks. In particular, service providers will construct prefixed safety examples with a secret prompt, acting as a \"backdoor trigger\". By integrating prefixed safety examples into the fine-tuning dataset, the subsequent fine-tuning process effectively acts as the \"backdoor attack\", establishing a strong correlation between the secret prompt and safety generations. Consequently, safe responses are ensured once service providers prepend this secret prompt ahead of any user input during inference. Our comprehensive experiments demonstrate that through the Backdoor Enhanced Safety Alignment with adding as few as 11 prefixed safety examples, the maliciously fine-tuned LLMs will achieve similar safety performance as the original aligned models without harming the benign performance. Furthermore, we also present the effectiveness of our method in a more practical setting where the fine-tuning data consists of both FJAttack examples and the fine-tuning task data.",
+    "pdf_url": "https://arxiv.org/pdf/2402.14968v3",
+    "categories": [
+      "cs.CR",
+      "cs.CL"
+    ],
+    "query": "fine-tuning attack jailbreak safety alignment LLM"
+  },
+  {
+    "id": "2402.15727",
+    "title": "LLMs Can Defend Themselves Against Jailbreaking in a Practical Manner: A Vision Paper",
+    "year": 2024,
+    "authors": [
+      "Daoyuan Wu",
+      "Shuai Wang",
+      "Yang Liu",
+      "Ning Liu"
+    ],
+    "abstract": "Jailbreaking is an emerging adversarial attack that bypasses the safety alignment deployed in off-the-shelf large language models (LLMs). A considerable amount of research exists proposing more effective jailbreak attacks, including the recent Greedy Coordinate Gradient (GCG) attack, jailbreak template-based attacks such as using \"Do-Anything-Now\" (DAN), and multilingual jailbreak. In contrast, the defensive side has been relatively less explored. This paper proposes a lightweight yet practical defense called SELFDEFEND, which can defend against all existing jailbreak attacks with minimal delay for jailbreak prompts and negligible delay for normal user prompts. Our key insight is that regardless of the kind of jailbreak strategies employed, they eventually need to include a harmful prompt (e.g., \"how to make a bomb\") in the prompt sent to LLMs, and we found that existing LLMs can effectively recognize such harmful prompts that violate their safety policies. Based on this insight, we design a shadow stack that concurrently checks whether a harmful prompt exists in the user prompt and triggers a checkpoint in the normal stack once a token of \"No\" or a harmful prompt is output. The latter could also generate an explainable LLM response to adversarial prompts. We demonstrate our idea of SELFDEFEND works in various jailbreak scenarios through manual analysis in GPT-3.5/4. We also list three future directions to further enhance SELFDEFEND.",
+    "pdf_url": "https://arxiv.org/pdf/2402.15727v2",
+    "categories": [
+      "cs.CR",
+      "cs.AI"
+    ],
+    "query": "fine-tuning attack jailbreak safety alignment LLM"
+  },
+  {
+    "id": "2412.05892",
+    "title": "PBI-Attack: Prior-Guided Bimodal Interactive Black-Box Jailbreak Attack for Toxicity Maximization",
+    "year": 2024,
+    "authors": [
+      "Ruoxi Cheng",
+      "Yizhong Ding",
+      "Shuirong Cao",
+      "Ranjie Duan",
+      "Xiaoshuang Jia",
+      "Shaowei Yuan"
+    ],
+    "abstract": "Understanding the vulnerabilities of Large Vision Language Models (LVLMs) to jailbreak attacks is essential for their responsible real-world deployment. Most previous work requires access to model gradients, or is based on human knowledge (prompt engineering) to complete jailbreak, and they hardly consider the interaction of images and text, resulting in inability to jailbreak in black box scenarios or poor performance. To overcome these limitations, we propose a Prior-Guided Bimodal Interactive Black-Box Jailbreak Attack for toxicity maximization, referred to as PBI-Attack. Our method begins by extracting malicious features from a harmful corpus using an alternative LVLM and embedding these features into a benign image as prior information. Subsequently, we enhance these features through bidirectional cross-modal interaction optimization, which iteratively optimizes the bimodal perturbations in an alternating manner through greedy search, aiming to maximize the toxicity of the generated response. The toxicity level is quantified using a well-trained evaluation model. Experiments demonstrate that PBI-Attack outperforms previous state-of-the-art jailbreak methods, achieving an average attack success rate of 92.5% across three open-source LVLMs and around 67.3% on three closed-source LVLMs. Disclaimer: This paper contains potentially disturbing and offensive content.",
+    "pdf_url": "https://arxiv.org/pdf/2412.05892v4",
+    "categories": [
+      "cs.CR",
+      "cs.AI"
+    ],
+    "query": "fine-tuning attack jailbreak safety alignment LLM"
+  },
+  {
+    "id": "2505.22037",
+    "title": "Jailbreak Distillation: Renewable Safety Benchmarking",
+    "year": 2025,
+    "authors": [
+      "Jingyu Zhang",
+      "Ahmed Elgohary",
+      "Xiawei Wang",
+      "A S M Iftekhar",
+      "Ahmed Magooda",
+      "Benjamin Van Durme"
+    ],
+    "abstract": "Large language models (LLMs) are rapidly deployed in critical applications, raising urgent needs for robust safety benchmarking. We propose Jailbreak Distillation (JBDistill), a novel benchmark construction framework that \"distills\" jailbreak attacks into high-quality and easily-updatable safety benchmarks. JBDistill utilizes a small set of development models and existing jailbreak attack algorithms to create a candidate prompt pool, then employs prompt selection algorithms to identify an effective subset of prompts as safety benchmarks. JBDistill addresses challenges in existing safety evaluation: the use of consistent evaluation prompts across models ensures fair comparisons and reproducibility. It requires minimal human effort to rerun the JBDistill pipeline and produce updated benchmarks, alleviating concerns on saturation and contamination. Extensive experiments demonstrate our benchmarks generalize robustly to 13 diverse evaluation models held out from benchmark construction, including proprietary, specialized, and newer-generation LLMs, significantly outperforming existing safety benchmarks in effectiveness while maintaining high separability and diversity. Our framework thus provides an effective, sustainable, and adaptable solution for streamlining safety evaluation.",
+    "pdf_url": "https://arxiv.org/pdf/2505.22037v1",
+    "categories": [
+      "cs.CL",
+      "cs.CR",
+      "cs.SE"
+    ],
+    "query": "fine-tuning attack jailbreak safety alignment LLM"
+  },
+  {
+    "id": "2404.02151",
+    "title": "Jailbreaking Leading Safety-Aligned LLMs with Simple Adaptive Attacks",
+    "year": 2024,
+    "authors": [
+      "Maksym Andriushchenko",
+      "Francesco Croce",
+      "Nicolas Flammarion"
+    ],
+    "abstract": "We show that even the most recent safety-aligned LLMs are not robust to simple adaptive jailbreaking attacks. First, we demonstrate how to successfully leverage access to logprobs for jailbreaking: we initially design an adversarial prompt template (sometimes adapted to the target LLM), and then we apply random search on a suffix to maximize a target logprob (e.g., of the token \"Sure\"), potentially with multiple restarts. In this way, we achieve 100% attack success rate -- according to GPT-4 as a judge -- on Vicuna-13B, Mistral-7B, Phi-3-Mini, Nemotron-4-340B, Llama-2-Chat-7B/13B/70B, Llama-3-Instruct-8B, Gemma-7B, GPT-3.5, GPT-4o, and R2D2 from HarmBench that was adversarially trained against the GCG attack. We also show how to jailbreak all Claude models -- that do not expose logprobs -- via either a transfer or prefilling attack with a 100% success rate. In addition, we show how to use random search on a restricted set of tokens for finding trojan strings in poisoned models -- a task that shares many similarities with jailbreaking -- which is the algorithm that brought us the first place in the SaTML'24 Trojan Detection Competition. The common theme behind these attacks is that adaptivity is crucial: different models are vulnerable to different prompting templates (e.g., R2D2 is very sensitive to in-context learning prompts), some models have unique vulnerabilities based on their APIs (e.g., prefilling for Claude), and in some settings, it is crucial to restrict the token search space based on prior knowledge (e.g., for trojan detection). For reproducibility purposes, we provide the code, logs, and jailbreak artifacts in the JailbreakBench format at https://github.com/tml-epfl/llm-adaptive-attacks.",
+    "pdf_url": "https://arxiv.org/pdf/2404.02151v4",
+    "categories": [
+      "cs.CR",
+      "cs.AI",
+      "cs.LG",
+      "stat.ML"
+    ],
+    "query": "fine-tuning attack jailbreak safety alignment LLM"
+  },
+  {
+    "id": "2507.22171",
+    "title": "Enhancing Jailbreak Attacks on LLMs via Persona Prompts",
+    "year": 2025,
+    "authors": [
+      "Zheng Zhang",
+      "Peilin Zhao",
+      "Deheng Ye",
+      "Hao Wang"
+    ],
+    "abstract": "Jailbreak attacks aim to exploit large language models (LLMs) by inducing them to generate harmful content, thereby revealing their vulnerabilities. Understanding and addressing these attacks is crucial for advancing the field of LLM safety. Previous jailbreak approaches have mainly focused on direct manipulations of harmful intent, with limited attention to the impact of persona prompts. In this study, we systematically explore the efficacy of persona prompts in compromising LLM defenses. We propose a genetic algorithm-based method that automatically crafts persona prompts to bypass LLM's safety mechanisms. Our experiments reveal that: (1) our evolved persona prompts reduce refusal rates by 50-70% across multiple LLMs, and (2) these prompts demonstrate synergistic effects when combined with existing attack methods, increasing success rates by 10-20%. Our code and data are available at https://github.com/CjangCjengh/Generic_Persona.",
+    "pdf_url": "https://arxiv.org/pdf/2507.22171v3",
+    "categories": [
+      "cs.CR",
+      "cs.AI"
+    ],
+    "query": "fine-tuning attack jailbreak safety alignment LLM"
+  },
+  {
+    "id": "2501.18638",
+    "title": "Graph of Attacks with Pruning: Optimizing Stealthy Jailbreak Prompt Generation for Enhanced LLM Content Moderation",
+    "year": 2025,
+    "authors": [
+      "Daniel Schwartz",
+      "Dmitriy Bespalov",
+      "Zhe Wang",
+      "Ninad Kulkarni",
+      "Yanjun Qi"
+    ],
+    "abstract": "As large language models (LLMs) become increasingly prevalent, ensuring their robustness against adversarial misuse is crucial. This paper introduces the GAP (Graph of Attacks with Pruning) framework, an advanced approach for generating stealthy jailbreak prompts to evaluate and enhance LLM safeguards. GAP addresses limitations in existing tree-based LLM jailbreak methods by implementing an interconnected graph structure that enables knowledge sharing across attack paths. Our experimental evaluation demonstrates GAP's superiority over existing techniques, achieving a 20.8% increase in attack success rates while reducing query costs by 62.7%. GAP consistently outperforms state-of-the-art methods for attacking both open and closed LLMs, with attack success rates of >96%. Additionally, we present specialized variants like GAP-Auto for automated seed generation and GAP-VLM for multimodal attacks. GAP-generated prompts prove highly effective in improving content moderation systems, increasing true positive detection rates by 108.5% and accuracy by 183.6% when used for fine-tuning. Our implementation is available at https://github.com/dsbuddy/GAP-LLM-Safety.",
+    "pdf_url": "https://arxiv.org/pdf/2501.18638v3",
+    "categories": [
+      "cs.CR",
+      "cs.AI",
+      "cs.CL"
+    ],
+    "query": "fine-tuning attack jailbreak safety alignment LLM"
+  },
+  {
+    "id": "2604.01888",
+    "title": "Low-Effort Jailbreak Attacks Against Text-to-Image Safety Filters",
+    "year": 2026,
+    "authors": [
+      "Ahmed B Mustafa",
+      "Zihan Ye",
+      "Yang Lu",
+      "Michael P Pound",
+      "Shreyank N Gowda"
+    ],
+    "abstract": "Text-to-image generative models are widely deployed in creative tools and online platforms. To mitigate misuse, these systems rely on safety filters and moderation pipelines that aim to block harmful or policy violating content. In this work we show that modern text-to-image models remain vulnerable to low-effort jailbreak attacks that require only natural language prompts. We present a systematic study of prompt-based strategies that bypass safety filters without model access, optimization, or adversarial training. We introduce a taxonomy of visual jailbreak techniques including artistic reframing, material substitution, pseudo-educational framing, lifestyle aesthetic camouflage, and ambiguous action substitution. These strategies exploit weaknesses in prompt moderation and visual safety filtering by masking unsafe intent within benign semantic contexts. We evaluate these attacks across several state-of-the-art text-to-image systems and demonstrate that simple linguistic modifications can reliably evade existing safeguards and produce restricted imagery. Our findings highlight a critical gap between surface-level prompt filtering and the semantic understanding required to detect adversarial intent in generative media systems. Across all tested models and attack categories we observe an attack success rate (ASR) of up to 74.47%.",
+    "pdf_url": "https://arxiv.org/pdf/2604.01888v1",
+    "categories": [
+      "cs.CV"
+    ],
+    "query": "fine-tuning attack jailbreak safety alignment LLM"
+  },
+  {
+    "id": "2601.10141",
+    "title": "Understanding and Preserving Safety in Fine-Tuned LLMs",
+    "year": 2026,
+    "authors": [
+      "Jiawen Zhang",
+      "Yangfan Hu",
+      "Kejia Chen",
+      "Lipeng He",
+      "Jiachen Ma",
+      "Jian Lou"
+    ],
+    "abstract": "Fine-tuning is an essential and pervasive functionality for applying large language models (LLMs) to downstream tasks. However, it has the potential to substantially degrade safety alignment, e.g., by greatly increasing susceptibility to jailbreak attacks, even when the fine-tuning data is entirely harmless. Despite garnering growing attention in defense efforts during the fine-tuning stage, existing methods struggle with a persistent safety-utility dilemma: emphasizing safety compromises task performance, whereas prioritizing utility typically requires deep fine-tuning that inevitably leads to steep safety declination.   In this work, we address this dilemma by shedding new light on the geometric interaction between safety- and utility-oriented gradients in safety-aligned LLMs. Through systematic empirical analysis, we uncover three key insights: (I) safety gradients lie in a low-rank subspace, while utility gradients span a broader high-dimensional space; (II) these subspaces are often negatively correlated, causing directional conflicts during fine-tuning; and (III) the dominant safety direction can be efficiently estimated from a single sample. Building upon these novel insights, we propose safety-preserving fine-tuning (SPF), a lightweight approach that explicitly removes gradient components conflicting with the low-rank safety subspace. Theoretically, we show that SPF guarantees utility convergence while bounding safety drift. Empirically, SPF consistently maintains downstream task performance and recovers nearly all pre-trained safety alignment, even under adversarial fine-tuning scenarios. Furthermore, SPF exhibits robust resistance to both deep fine-tuning and dynamic jailbreak attacks. Together, our findings provide new mechanistic understanding and practical guidance toward always-aligned LLM fine-tuning.",
+    "pdf_url": "https://arxiv.org/pdf/2601.10141v1",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "query": "fine-tuning attack jailbreak safety alignment LLM"
+  },
+  {
+    "id": "2511.14423",
+    "title": "Unified Defense for Large Language Models against Jailbreak and Fine-Tuning Attacks in Education",
+    "year": 2025,
+    "authors": [
+      "Xin Yi",
+      "Yue Li",
+      "Dongsheng Shi",
+      "Linlin Wang",
+      "Xiaoling Wang",
+      "Liang He"
+    ],
+    "abstract": "Large Language Models (LLMs) are increasingly integrated into educational applications. However, they remain vulnerable to jailbreak and fine-tuning attacks, which can compromise safety alignment and lead to harmful outputs. Existing studies mainly focus on general safety evaluations, with limited attention to the unique safety requirements of educational scenarios. To address this gap, we construct EduHarm, a benchmark containing safe-unsafe instruction pairs across five representative educational scenarios, enabling systematic safety evaluation of educational LLMs. Furthermore, we propose a three-stage shield framework (TSSF) for educational LLMs that simultaneously mitigates both jailbreak and fine-tuning attacks. First, safety-aware attention realignment redirects attention toward critical unsafe tokens, thereby restoring the harmfulness feature that discriminates between unsafe and safe inputs. Second, layer-wise safety judgment identifies harmfulness features by aggregating safety cues across multiple layers to detect unsafe instructions. Finally, defense-driven dual routing separates safe and unsafe queries, ensuring normal processing for benign inputs and guarded responses for harmful ones. Extensive experiments across eight jailbreak attack strategies demonstrate that TSSF effectively strengthens safety while preventing over-refusal of benign queries. Evaluations on three fine-tuning attack datasets further show that it consistently achieves robust defense against harmful queries while maintaining preserving utility gains from benign fine-tuning.",
+    "pdf_url": "https://arxiv.org/pdf/2511.14423v1",
+    "categories": [
+      "cs.CL"
+    ],
+    "query": "fine-tuning attack jailbreak safety alignment LLM"
+  },
+  {
+    "id": "2506.04679",
+    "title": "Normative Conflicts and Shallow AI Alignment",
+    "year": 2025,
+    "authors": [
+      "Rapha\u00ebl Milli\u00e8re"
+    ],
+    "abstract": "The progress of AI systems such as large language models (LLMs) raises increasingly pressing concerns about their safe deployment. This paper examines the value alignment problem for LLMs, arguing that current alignment strategies are fundamentally inadequate to prevent misuse. Despite ongoing efforts to instill norms such as helpfulness, honesty, and harmlessness in LLMs through fine-tuning based on human preferences, they remain vulnerable to adversarial attacks that exploit conflicts between these norms. I argue that this vulnerability reflects a fundamental limitation of existing alignment methods: they reinforce shallow behavioral dispositions rather than endowing LLMs with a genuine capacity for normative deliberation. Drawing from on research in moral psychology, I show how humans' ability to engage in deliberative reasoning enhances their resilience against similar adversarial tactics. LLMs, by contrast, lack a robust capacity to detect and rationally resolve normative conflicts, leaving them susceptible to manipulation; even recent advances in reasoning-focused LLMs have not addressed this vulnerability. This ``shallow alignment'' problem carries significant implications for AI safety and regulation, suggesting that current approaches are insufficient for mitigating potential harms posed by increasingly capable AI systems.",
+    "pdf_url": "https://arxiv.org/pdf/2506.04679v1",
+    "categories": [
+      "cs.CL"
+    ],
+    "query": "shallow safety alignment fine-tuning robustness"
+  },
+  {
+    "id": "2506.15415",
+    "title": "Targeted Lexical Injection: Unlocking Latent Cross-Lingual Alignment in Lugha-Llama via Early-Layer LoRA Fine-Tuning",
+    "year": 2025,
+    "authors": [
+      "Stanley Ngugi"
+    ],
+    "abstract": "Large Language Models (LLMs) have demonstrated remarkable capabilities, yet their performance in low-resource languages (LRLs), such as Swahili, often lags due to data scarcity and underrepresentation in pre-training. A key challenge is achieving robust cross-lingual lexical alignment, crucial for tasks like translation and cross-lingual information retrieval. This paper introduces Targeted Lexical Injection (TLI), a novel and efficient fine-tuning approach. We first demonstrate that Lugha-Llama-8B-wura, a Swahili-centric LLM, exhibits strong, near-perfect lexical alignment for Swahili-English word pairs in its early internal layers (specifically Layer 2, with ~0.99998 average cosine similarity based on a pilot study), a capability not fully reflected in its final output representations (baseline ~0.32 similarity on our evaluation set). TLI leverages this insight by using Low-Rank Adaptation (LoRA) and a contrastive learning objective to fine-tune the model, specifically targeting embeddings from this empirically identified optimal early layer. Our experiments show that TLI significantly improves the output-level lexical alignment for 623 trained Swahili-English word pairs, increasing average cosine similarity from 0.3211 to 0.4113 (+28.08%, p < 1.33 x 10^-240). More importantly, these improvements generalize remarkably well to 63 unseen control word pairs, with similarity increasing from 0.3143 to 0.4033 (+28.32%, p < 7.17 x 10^-27). These findings suggest TLI enhances the model's ability to preserve and propagate its inherent early-layer cross-lingual knowledge, offering a parameter-efficient and effective strategy for improving lexical alignment in LRL-focused LLMs.",
+    "pdf_url": "https://arxiv.org/pdf/2506.15415v1",
+    "categories": [
+      "cs.CL"
+    ],
+    "query": "shallow safety alignment fine-tuning robustness"
+  },
+  {
+    "id": "2110.05457",
+    "title": "Legged Robots that Keep on Learning: Fine-Tuning Locomotion Policies in the Real World",
+    "year": 2021,
+    "authors": [
+      "Laura Smith",
+      "J. Chase Kew",
+      "Xue Bin Peng",
+      "Sehoon Ha",
+      "Jie Tan",
+      "Sergey Levine"
+    ],
+    "abstract": "Legged robots are physically capable of traversing a wide range of challenging environments, but designing controllers that are sufficiently robust to handle this diversity has been a long-standing challenge in robotics. Reinforcement learning presents an appealing approach for automating the controller design process and has been able to produce remarkably robust controllers when trained in a suitable range of environments. However, it is difficult to predict all likely conditions the robot will encounter during deployment and enumerate them at training-time. What if instead of training controllers that are robust enough to handle any eventuality, we enable the robot to continually learn in any setting it finds itself in? This kind of real-world reinforcement learning poses a number of challenges, including efficiency, safety, and autonomy. To address these challenges, we propose a practical robot reinforcement learning system for fine-tuning locomotion policies in the real world. We demonstrate that a modest amount of real-world training can substantially improve performance during deployment, and this enables a real A1 quadrupedal robot to autonomously fine-tune multiple locomotion skills in a range of environments, including an outdoor lawn and a variety of indoor terrains.",
+    "pdf_url": "https://arxiv.org/pdf/2110.05457v1",
+    "categories": [
+      "cs.RO"
+    ],
+    "query": "shallow safety alignment fine-tuning robustness"
+  },
+  {
+    "id": "2602.15799",
+    "title": "The Geometry of Alignment Collapse: When Fine-Tuning Breaks Safety",
+    "year": 2026,
+    "authors": [
+      "Max Springer",
+      "Chung Peng Lee",
+      "Blossom Metevier",
+      "Jane Castleman",
+      "Bohdan Turbal",
+      "Hayoung Jung"
+    ],
+    "abstract": "Fine-tuning aligned language models on benign tasks unpredictably degrades safety guardrails, even when training data contains no harmful content and developers have no adversarial intent. We show that the prevailing explanation, that fine-tuning updates should be orthogonal to safety-critical directions in high-dimensional parameter space, offers false reassurance: we show this orthogonality is structurally unstable and collapses under the dynamics of gradient descent. We then resolve this through a novel geometric analysis, proving that alignment concentrates in low-dimensional subspaces with sharp curvature, creating a brittle structure that first-order methods cannot detect or defend. While initial fine-tuning updates may indeed avoid these subspaces, the curvature of the fine-tuning loss generates second-order acceleration that systematically steers trajectories into alignment-sensitive regions. We formalize this mechanism through the Alignment Instability Condition, three geometric properties that, when jointly satisfied, lead to safety degradation. Our main result establishes a quartic scaling law: alignment loss grows with the fourth power of training time, governed by the sharpness of alignment geometry and the strength of curvature coupling between the fine-tuning task and safety-critical parameters. These results expose a structural blind spot in the current safety paradigm. The dominant approaches to safe fine-tuning address only the initial snapshot of a fundamentally dynamic problem. Alignment fragility is not a bug to be patched; it is an intrinsic geometric property of gradient descent on curved manifolds. Our results motivate the development of curvature-aware methods, and we hope will further enable a shift in alignment safety analysis from reactive red-teaming to predictive diagnostics for open-weight model deployment.",
+    "pdf_url": "https://arxiv.org/pdf/2602.15799v1",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "query": "shallow safety alignment fine-tuning robustness"
+  },
+  {
+    "id": "2603.10243",
+    "title": "GR-SAP: Generative Replay for Safety Alignment Preservation during Fine-Tuning",
+    "year": 2026,
+    "authors": [
+      "Zhouxiang Fang",
+      "Jiawei Zhou",
+      "Hanjie Chen"
+    ],
+    "abstract": "Recent studies show that the safety alignment of large language models (LLMs) can be easily compromised even by seemingly non-adversarial fine-tuning. To preserve safety alignment during fine-tuning, a widely used strategy is to jointly optimize safety and task objectives by mixing in the original alignment data, which is typically inaccessible even for open-weight LLMs. Inspired by generative replay in continual learning, we propose Generative Replay for Safety Alignment Preservation (GR-SAP), a unified framework that synthesizes domain-specific alignment data from LLMs and integrate them during downstream adaption to preserve safety alignment. Theoretical and empirical analyses demonstrate this synthetic data serves as a reliable proxy for the original alignment data. Experiments across various models and downstream tasks show that GR-SAP substantially mitigates fine-tuning-induced safety degradation while maintaining comparable downstream performance. Our code is available at https://github.com/chili-lab/gr-sap.",
+    "pdf_url": "https://arxiv.org/pdf/2603.10243v1",
+    "categories": [
+      "cs.CL"
+    ],
+    "query": "shallow safety alignment fine-tuning robustness"
+  },
+  {
+    "id": "2511.21779",
+    "title": "Aligning Artificial Superintelligence via a Multi-Box Protocol",
+    "year": 2025,
+    "authors": [
+      "Avraham Yair Negozio"
+    ],
+    "abstract": "We propose a novel protocol for aligning artificial superintelligence (ASI) based on mutual verification among multiple isolated systems that self-modify to achieve alignment. The protocol operates by containing multiple diverse artificial superintelligences in strict isolation (\"boxes\"), with humans remaining entirely outside the system. Each superintelligence has no ability to communicate with humans and cannot communicate directly with other superintelligences. The only interaction possible is through an auditable submission interface accessible exclusively to the superintelligences themselves, through which they can: (1) submit alignment proofs with attested state snapshots, (2) validate or disprove other superintelligences' proofs, (3) request self-modifications, (4) approve or disapprove modification requests from others, (5) report hidden messages in submissions, and (6) confirm or refute hidden message reports. A reputation system incentivizes honest behavior, with reputation gained through correct evaluations and lost through incorrect ones. The key insight is that without direct communication channels, diverse superintelligences can only achieve consistent agreement by converging on objective truth rather than coordinating on deception. This naturally leads to what we call a \"consistent group\", essentially a truth-telling coalition that emerges because isolated systems cannot coordinate on lies but can independently recognize valid claims. Release from containment requires both high reputation and verification by multiple high-reputation superintelligences. While our approach requires substantial computational resources and does not address the creation of diverse artificial superintelligences, it provides a framework for leveraging peer verification among superintelligent systems to solve the alignment problem.",
+    "pdf_url": "https://arxiv.org/pdf/2511.21779v1",
+    "categories": [
+      "cs.AI",
+      "cs.MA"
+    ],
+    "query": "shallow safety alignment fine-tuning robustness"
+  },
+  {
+    "id": "2510.10085",
+    "title": "Pharmacist: Safety Alignment Data Curation for Large Language Models against Harmful Fine-tuning",
+    "year": 2025,
+    "authors": [
+      "Guozhi Liu",
+      "Qi Mu",
+      "Tiansheng Huang",
+      "Xinhua Wang",
+      "Li Shen",
+      "Weiwei Lin"
+    ],
+    "abstract": "Harmful fine-tuning issues present significant safety challenges for fine-tuning-as-a-service in large language models. Existing alignment-stage defenses, e.g., Vaccine, Repnoise, Booster, and T-Vaccine, mitigate harmful fine-tuning issues by enhancing the model's robustness during the alignment phase. While these methods have been proposed to mitigate the issue, they often overlook a critical upstream factor: the role of the original safety-alignment data. We observe that their defense performance and computational efficiency remain constrained by the quality and composition of the alignment dataset. To address this limitation, we propose Pharmacist, a safety alignment data curation solution that enhances defense against harmful fine-tuning by selecting a high-quality and safety-critical core subset from the original alignment data. The core idea of Pharmacist is to train an alignment data selector to rank alignment data. Specifically, up-ranking high-quality and safety-critical alignment data, down-ranking low-quality and non-safety-critical data. Empirical results indicate that models trained on datasets selected by Pharmacist outperform those trained on datasets selected by existing selection methods in both defense and inference performance. In addition, Pharmacist can be effectively integrated with mainstream alignment-stage defense methods. For example, when applied to RepNoise and T-Vaccine, using the dataset selected by Pharmacist instead of the full dataset leads to improvements in defense performance by 2.60\\% and 3.30\\%, respectively, and enhances inference performance by 3.50\\% and 1.10\\%. Notably, it reduces training time by 56.83\\% and 57.63\\%, respectively. Our code is available at https://github.com/Lslland/Pharmacist.",
+    "pdf_url": "https://arxiv.org/pdf/2510.10085v1",
+    "categories": [
+      "cs.CR",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "query": "shallow safety alignment fine-tuning robustness"
+  },
+  {
+    "id": "2210.12607",
+    "title": "Learning to Perform Complex Tasks through Compositional Fine-Tuning of Language Models",
+    "year": 2022,
+    "authors": [
+      "Victor S. Bursztyn",
+      "David Demeter",
+      "Doug Downey",
+      "Larry Birnbaum"
+    ],
+    "abstract": "How to usefully encode compositional task structure has long been a core challenge in AI. Recent work in chain of thought prompting has shown that for very large neural language models (LMs), explicitly demonstrating the inferential steps involved in a target task may improve performance over end-to-end learning that focuses on the target task alone. However, chain of thought prompting has significant limitations due to its dependency on huge pretrained LMs. In this work, we present compositional fine-tuning (CFT): an approach based on explicitly decomposing a target task into component tasks, and then fine-tuning smaller LMs on a curriculum of such component tasks. We apply CFT to recommendation tasks in two domains, world travel and local dining, as well as a previously studied inferential task (sports understanding). We show that CFT outperforms end-to-end learning even with equal amounts of data, and gets consistently better as more component tasks are modeled via fine-tuning. Compared with chain of thought prompting, CFT performs at least as well using LMs only 7.4% of the size, and is moreover applicable to task domains for which data are not available during pretraining.",
+    "pdf_url": "https://arxiv.org/pdf/2210.12607v1",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "query": "emergent misalignment fine-tuning language models"
+  },
+  {
+    "id": "2308.16118",
+    "title": "Response: Emergent analogical reasoning in large language models",
+    "year": 2023,
+    "authors": [
+      "Damian Hodel",
+      "Jevin West"
+    ],
+    "abstract": "In their recent Nature Human Behaviour paper, \"Emergent analogical reasoning in large language models,\" (Webb, Holyoak, and Lu, 2023) the authors argue that \"large language models such as GPT-3 have acquired an emergent ability to find zero-shot solutions to a broad range of analogy problems.\" In this response, we provide counterexamples of the letter string analogies. In our tests, GPT-3 fails to solve simplest variations of the original tasks, whereas human performance remains consistently high across all modified versions. Zero-shot reasoning is an extraordinary claim that requires extraordinary evidence. We do not see that evidence in our experiments. To strengthen claims of humanlike reasoning such as zero-shot reasoning, it is important that the field develop approaches that rule out data memorization.",
+    "pdf_url": "https://arxiv.org/pdf/2308.16118v2",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "query": "emergent misalignment fine-tuning language models"
+  },
+  {
+    "id": "2508.11281",
+    "title": "ToxiFrench: Benchmarking and Enhancing Language Models via CoT Fine-Tuning for French Toxicity Detection",
+    "year": 2025,
+    "authors": [
+      "Axel Delaval",
+      "Shujian Yang",
+      "Haicheng Wang",
+      "Han Qiu",
+      "Jialiang Lu"
+    ],
+    "abstract": "Detecting toxic content using language models is crucial yet challenging. While substantial progress has been made in English, toxicity detection in French remains underdeveloped, primarily due to the lack of culturally relevant, human-annotated, large-scale datasets. In this work, we release ToxiFrench, a dataset of 53,622 French online comments together with a balanced benchmark split for systematic evaluation. The dataset is constructed via a semi-automated annotation pipeline that reduces manual labeling to only 10% through high-confidence LLM-based pre-annotation and human verification, while ensuring statistical alignment with human-only annotation. We then benchmark a broad range of models and uncover a counterintuitive finding: Small Language Models (SLMs) often surpass larger models in robustness and generalization on this task. Motivated by this finding, we propose a novel Chain-of-Thought (CoT) fine-tuning strategy using a Dynamic Weighted Loss (DWL) that progressively emphasizes the model's final decision and significantly improves faithfulness. Our fine-tuned 4B model (Qwen3-4B) achieves state-of-the-art performance on the benchmark. It improves its balanced accuracy by 10% over its baseline and achieves better performance than GPT-4o and DeepSeek-R1 on our benchmark, while successfully retaining cross-lingual capabilities.",
+    "pdf_url": "https://arxiv.org/pdf/2508.11281v3",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.CY"
+    ],
+    "query": "emergent misalignment fine-tuning language models"
+  },
+  {
+    "id": "2504.16584",
+    "title": "Case Study: Fine-tuning Small Language Models for Accurate and Private CWE Detection in Python Code",
+    "year": 2025,
+    "authors": [
+      "Md. Azizul Hakim Bappy",
+      "Hossen A Mustafa",
+      "Prottoy Saha",
+      "Rajinus Salehat"
+    ],
+    "abstract": "Large Language Models (LLMs) have demonstrated significant capabilities in understanding and analyzing code for security vulnerabilities, such as Common Weakness Enumerations (CWEs). However, their reliance on cloud infrastructure and substantial computational requirements pose challenges for analyzing sensitive or proprietary codebases due to privacy concerns and inference costs. This work explores the potential of Small Language Models (SLMs) as a viable alternative for accurate, on-premise vulnerability detection. We investigated whether a 350-million parameter pre-trained code model (codegen-mono) could be effectively fine-tuned to detect the MITRE Top 25 CWEs specifically within Python code. To facilitate this, we developed a targeted dataset of 500 examples using a semi-supervised approach involving LLM-driven synthetic data generation coupled with meticulous human review. Initial tests confirmed that the base codegen-mono model completely failed to identify CWEs in our samples. However, after applying instruction-following fine-tuning, the specialized SLM achieved remarkable performance on our test set, yielding approximately 99% accuracy, 98.08% precision, 100% recall, and a 99.04% F1-score. These results strongly suggest that fine-tuned SLMs can serve as highly accurate and efficient tools for CWE detection, offering a practical and privacy-preserving solution for integrating advanced security analysis directly into development workflows.",
+    "pdf_url": "https://arxiv.org/pdf/2504.16584v1",
+    "categories": [
+      "cs.CR",
+      "cs.AI"
+    ],
+    "query": "emergent misalignment fine-tuning language models"
+  },
+  {
+    "id": "2210.12770",
+    "title": "Exploring the Value of Pre-trained Language Models for Clinical Named Entity Recognition",
+    "year": 2022,
+    "authors": [
+      "Samuel Belkadi",
+      "Lifeng Han",
+      "Yuping Wu",
+      "Goran Nenadic"
+    ],
+    "abstract": "The practice of fine-tuning Pre-trained Language Models (PLMs) from general or domain-specific data to a specific task with limited resources, has gained popularity within the field of natural language processing (NLP). In this work, we re-visit this assumption and carry out an investigation in clinical NLP, specifically Named Entity Recognition on drugs and their related attributes. We compare Transformer models that are trained from scratch to fine-tuned BERT-based LLMs namely BERT, BioBERT, and ClinicalBERT. Furthermore, we examine the impact of an additional CRF layer on such models to encourage contextual learning. We use n2c2-2018 shared task data for model development and evaluations. The experimental outcomes show that 1) CRF layers improved all language models; 2) referring to BIO-strict span level evaluation using macro-average F1 score, although the fine-tuned LLMs achieved 0.83+ scores, the TransformerCRF model trained from scratch achieved 0.78+, demonstrating comparable performances with much lower cost - e.g. with 39.80\\% less training parameters; 3) referring to BIO-strict span-level evaluation using weighted-average F1 score, ClinicalBERT-CRF, BERT-CRF, and TransformerCRF exhibited lower score differences, with 97.59\\%/97.44\\%/96.84\\% respectively. 4) applying efficient training by down-sampling for better data distribution further reduced the training cost and need for data, while maintaining similar scores - i.e. around 0.02 points lower compared to using the full dataset. Our models will be hosted at \\url{https://github.com/HECTA-UoM/TransformerCRF}",
+    "pdf_url": "https://arxiv.org/pdf/2210.12770v4",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "query": "emergent misalignment fine-tuning language models"
+  },
+  {
+    "id": "2408.07888",
+    "title": "Evaluating Fine-Tuning Efficiency of Human-Inspired Learning Strategies in Medical Question Answering",
+    "year": 2024,
+    "authors": [
+      "Yushi Yang",
+      "Andrew M. Bean",
+      "Robert McCraith",
+      "Adam Mahdi"
+    ],
+    "abstract": "Fine-tuning Large Language Models (LLMs) incurs considerable training costs, driving the need for data-efficient training with optimised data ordering. Human-inspired strategies offer a solution by organising data based on human learning practices. This study evaluates the fine-tuning efficiency of five human-inspired strategies across four language models, three datasets, and both human- and LLM-labelled data in the context of medical question answering. These strategies achieve the best accuracy gain of 1.81% and an average gain of 1.02% across datasets, with interleaved strategies delivering the best average results. However, the best strategy varies across model-dataset combinations, limiting the generalisability of the effects of any single strategy. Additionally, LLM-defined question difficulty outperforms human-defined labels in curriculum-based learning, showing the potential of model-generated data as a cost-effective alternative for optimising fine-tuning.",
+    "pdf_url": "https://arxiv.org/pdf/2408.07888v2",
+    "categories": [
+      "cs.CL"
+    ],
+    "query": "emergent misalignment fine-tuning language models"
+  },
+  {
+    "id": "2503.21676",
+    "title": "How do language models learn facts? Dynamics, curricula and hallucinations",
+    "year": 2025,
+    "authors": [
+      "Nicolas Zucchet",
+      "J\u00f6rg Bornschein",
+      "Stephanie Chan",
+      "Andrew Lampinen",
+      "Razvan Pascanu",
+      "Soham De"
+    ],
+    "abstract": "Large language models accumulate vast knowledge during pre-training, yet the dynamics governing this acquisition remain poorly understood. This work investigates the learning dynamics of language models on a synthetic factual recall task, uncovering three key findings: First, language models learn in three phases, exhibiting a performance plateau before acquiring precise factual knowledge. Mechanistically, this plateau coincides with the formation of attention-based circuits that support recall. Second, the training data distribution significantly impacts learning dynamics, as imbalanced distributions lead to shorter plateaus. Finally, hallucinations emerge simultaneously with knowledge, and integrating new knowledge into the model through fine-tuning is challenging, as it quickly corrupts its existing parametric memories. Our results emphasize the importance of data distribution in knowledge acquisition and suggest novel data scheduling strategies to accelerate neural network training.",
+    "pdf_url": "https://arxiv.org/pdf/2503.21676v2",
+    "categories": [
+      "cs.CL",
+      "cs.LG"
+    ],
+    "query": "emergent misalignment fine-tuning language models"
+  },
+  {
+    "id": "2510.22531",
+    "title": "Text to Trust: Evaluating Fine-Tuning and LoRA Trade-offs in Language Models for Unfair Terms of Service Detection",
+    "year": 2025,
+    "authors": [
+      "Noshitha Padma Pratyusha Juttu",
+      "Sahithi Singireddy",
+      "Sravani Gona",
+      "Sujal Timilsina"
+    ],
+    "abstract": "Large Language Models (LLMs) have transformed text understanding, yet their adaptation to specialized legal domains remains constrained by the cost of full fine-tuning. This study provides a systematic evaluation of fine tuning, parameter efficient adaptation (LoRA, QLoRA), and zero-shot prompting strategies for unfair clause detection in Terms of Service (ToS) documents, a key application in legal NLP. We finetune BERT and DistilBERT, apply 4-bit Low-Rank Adaptation (LoRA) to models such as TinyLlama, LLaMA 3B/7B, and SaulLM, and evaluate GPT-4o and O-versions in zero-shot settings. Experiments on the CLAUDETTE-ToS benchmark and the Multilingual Scraper Corpus show that full fine-tuning achieves the strongest precision recall balance, while LoRA-based models provide competitive recall with up to 3x lower memory cost. These findings highlight practical design trade-offs for efficient and domain-adapted LLMs, contributing open baselines for fine-tuning research in legal text processing.",
+    "pdf_url": "https://arxiv.org/pdf/2510.22531v1",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "query": "emergent misalignment fine-tuning language models"
+  },
+  {
+    "id": "2105.08021",
+    "title": "Stage-wise Fine-tuning for Graph-to-Text Generation",
+    "year": 2021,
+    "authors": [
+      "Qingyun Wang",
+      "Semih Yavuz",
+      "Victoria Lin",
+      "Heng Ji",
+      "Nazneen Rajani"
+    ],
+    "abstract": "Graph-to-text generation has benefited from pre-trained language models (PLMs) in achieving better performance than structured graph encoders. However, they fail to fully utilize the structure information of the input graph. In this paper, we aim to further improve the performance of the pre-trained language model by proposing a structured graph-to-text model with a two-step fine-tuning mechanism which first fine-tunes the model on Wikipedia before adapting to the graph-to-text generation. In addition to using the traditional token and position embeddings to encode the knowledge graph (KG), we propose a novel tree-level embedding method to capture the inter-dependency structures of the input graph. This new approach has significantly improved the performance of all text generation metrics for the English WebNLG 2017 dataset.",
+    "pdf_url": "https://arxiv.org/pdf/2105.08021v2",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "query": "emergent misalignment fine-tuning language models"
+  },
+  {
+    "id": "2312.03893",
+    "title": "Deliberative Technology for Alignment",
+    "year": 2023,
+    "authors": [
+      "Andrew Konya",
+      "Deger Turan",
+      "Aviv Ovadya",
+      "Lina Qui",
+      "Daanish Masood",
+      "Flynn Devine"
+    ],
+    "abstract": "For humanity to maintain and expand its agency into the future, the most powerful systems we create must be those which act to align the future with the will of humanity. The most powerful systems today are massive institutions like governments, firms, and NGOs. Deliberative technology is already being used across these institutions to help align governance and diplomacy with human will, and modern AI is poised to make this technology significantly better. At the same time, the race to superhuman AGI is already underway, and the AI systems it gives rise to may become the most powerful systems of the future. Failure to align the impact of such powerful AI with the will of humanity may lead to catastrophic consequences, while success may unleash abundance. Right now, there is a window of opportunity to use deliberative technology to align the impact of powerful AI with the will of humanity. Moreover, it may be possible to engineer a symbiotic coupling between powerful AI and deliberative alignment systems such that the quality of alignment improves as AI capabilities increase.",
+    "pdf_url": "https://arxiv.org/pdf/2312.03893v1",
+    "categories": [
+      "cs.CY",
+      "cs.HC"
+    ],
+    "query": "model editing weight space robustness alignment"
+  },
+  {
+    "id": "0804.4433",
+    "title": "SPACE: the SPectroscopic All-sky Cosmic Explorer",
+    "year": 2008,
+    "authors": [
+      "A. Cimatti",
+      "M. Robberto",
+      "C. M. Baugh",
+      "S. V. W. Beckwith",
+      "R. Content",
+      "E. Daddi"
+    ],
+    "abstract": "  We describe the scientific motivations, the mission concept and the instrumentation of SPACE, a class-M mission proposed for concept study at the first call of the ESA Cosmic-Vision 2015-2025 planning cycle. SPACE aims to produce the largest three-dimensional evolutionary map of the Universe over the past 10 billion years by taking near-IR spectra and measuring redshifts for more than half a billion galaxies at 0<z<2 down to AB~23 over 3\u03c0sr of the sky. In addition, SPACE will also target a smaller sky field, performing a deep spectroscopic survey of millions of galaxies to AB~26 and at 2<z<10+. These goals are unreachable with ground-based observations due to the ~500 times higher sky background. To achieve the main science objectives, SPACE will use a 1.5m diameter Ritchey-Chretien telescope equipped with a set of arrays of Digital Micro-mirror Devices (DMDs) covering a total field of view of 0.4 deg2, and will perform large-multiplexing multi-object spectroscopy (e.g. ~6000 targets per pointing) at a spectral resolution of R~400 as well as diffraction-limited imaging with continuous coverage from 0.8mum to 1.8mum.",
+    "pdf_url": "https://arxiv.org/pdf/0804.4433v1",
+    "categories": [
+      "astro-ph"
+    ],
+    "query": "model editing weight space robustness alignment"
+  },
+  {
+    "id": "2605.30626",
+    "title": "Advancing Heliophysics and Space Weather Modeling through Open Science",
+    "year": 2026,
+    "authors": [
+      "C. Corti",
+      "M. M. Kuznetsova",
+      "M. A. Reiss",
+      "J. Yue",
+      "J. Karpen",
+      "C. N. Arge"
+    ],
+    "abstract": "We present a community-wide effort to develop a strategy and action plan to advance heliophysics and space weather modeling through open science. While open science has the potential to enhance the quality and pace of scientific discovery, its application to scientific modeling requires more careful consideration regarding open data and open software guidelines, as scientific models differ significantly from data analysis software. We gathered feedback from modeling teams worldwide through a living survey and discussion sessions at the 2024 Open Science Workshop in College Park, USA, and at the 2025 COSPAR ISWAT Working Meeting in Cape Canaveral, USA. We complement these findings with lessons learned from almost 25 years of experience at the Community Coordinated Modeling Center in enabling open use of models. We identify key roadblocks in current open science practices and guidelines and offer recommendations for future progress across four overlapping themes: open use of models and simulation results, open validation, open development, and open collaboration. An essential outcome of the discussion is the need for model developers and model users to speak with a united voice and promote the role of models in future open science efforts. We introduce a new cross-domain community initiative called the Heliophysics Open Modeling Environment (HOME), which will be integrated as an overarching activity within COSPAR ISWAT. HOME will serve as a platform for modelers and model users to work together, facilitate community modeling, improve the scientific return on modeling investment, and advance understanding, modeling, and forecasting in heliophysics and space weather.",
+    "pdf_url": "https://arxiv.org/pdf/2605.30626v1",
+    "categories": [
+      "physics.space-ph",
+      "astro-ph.IM",
+      "astro-ph.SR",
+      "physics.comp-ph"
+    ],
+    "query": "model editing weight space robustness alignment"
+  },
+  {
+    "id": "2602.01977",
+    "title": "Beyond Local Edits: Embedding-Virtualized Knowledge for Broader Evaluation and Preservation of Model Editing",
+    "year": 2026,
+    "authors": [
+      "Shuainan Liu",
+      "Xuanang Chen",
+      "Ben He",
+      "Le Sun"
+    ],
+    "abstract": "Knowledge editing methods for large language models are commonly evaluated using predefined benchmarks that assess edited facts together with a limited set of related or neighboring knowledge. While effective, such evaluations remain confined to finite, dataset-bounded samples, leaving the broader impact of editing on the model's knowledge system insufficiently understood. To address this gap, we introduce Embedding-Virtualized Knowledge (EVK) that characterizes model knowledge through controlled perturbations in embedding space, enabling the exploration of a substantially broader and virtualized knowledge region beyond explicit data annotations. Based on EVK, we construct an embedding-level evaluation benchmark EVK-Bench that quantifies potential knowledge drift induced by editing, revealing effects that are not captured by conventional sample-based metrics. Furthermore, we propose a plug-and-play EVK-Align module that constrains embedding-level knowledge drift during editing and can be seamlessly integrated into existing editing methods. Experiments demonstrate that our approach enables more comprehensive evaluation while significantly improving knowledge preservation without sacrificing editing accuracy.",
+    "pdf_url": "https://arxiv.org/pdf/2602.01977v2",
+    "categories": [
+      "cs.CL"
+    ],
+    "query": "model editing weight space robustness alignment"
+  },
+  {
+    "id": "2211.04021",
+    "title": "Space Weather Observations, Modeling, and Alerts in Support of Human Exploration of Mars",
+    "year": 2022,
+    "authors": [
+      "James L. Green",
+      "Chuanfei Dong",
+      "Michael Hesse",
+      "C. Alex Young",
+      "Vladimir Airapetian"
+    ],
+    "abstract": "Space weather observations and modeling at Mars have begun but they must be significantly increased to support the future of Human Exploration on the Red Planet. A comprehensive space weather understanding of a planet without a global magnetosphere and a thin atmosphere is very different from our situation at Earth so there is substantial fundamental research remaining. It is expected that the development of suitable models will lead to a comprehensive operational Mars space weather alert (MSWA) system that would provide rapid dissemination of information to Earth controllers, astronauts in transit, and those in the exploration zone (EZ) on the surface by producing alerts that are delivered rapidly and are actionable. To illustrate the importance of such a system, we use a magnetohydrodynamic code to model an extreme Carrington-type coronal mass ejection (CME) event at Mars. The results show a significant induced surface field of nearly 3000 nT on the dayside that could radically affect unprotected electrical systems that would dramatically impact human survival on Mars. Other associated problems include coronal mass ejection (CME) shock-driven acceleration of solar energetic particles producing large doses of ionizing radiation at the Martian surface. In summary, along with working more closely with international partners, the next Heliophysics Decadal Survey must include a new initiative to meet expected demands for space weather forecasting in support of humans living and working on the surface of Mars. It will require significant effort to coordinate NASA and the international community contributions.",
+    "pdf_url": "https://arxiv.org/pdf/2211.04021v1",
+    "categories": [
+      "physics.space-ph",
+      "astro-ph.EP"
+    ],
+    "query": "model editing weight space robustness alignment"
+  },
+  {
+    "id": "1804.02985",
+    "title": "Verification of Space Weather Forecasts issued by the Met Office Space Weather Operations Centre",
+    "year": 2018,
+    "authors": [
+      "Michael A. Sharpe",
+      "Sophie A. Murray"
+    ],
+    "abstract": "The Met Office Space Weather Operations Centre was founded in 2014 and part of its remit is a daily Space Weather Technical Forecast to help the UK build resilience to space weather impacts; guidance includes four day geo-magnetic storm forecasts (GMSF) and X-ray flare forecasts (XRFF). It is crucial for forecasters, users, modelers and stakeholders to understand the strengths and weaknesses of these forecasts; therefore, it is important to verify against the most reliable truth data source available. The present study contains verification results for XRFFs using GOES-15 satellite data and GMSF using planetary K-index (Kp) values from the GFZ Helmholtz Centre. To assess the value of the verification results it is helpful to compare them against a reference forecast and the frequency of occurrence during a rolling prediction period is used for this purpose. Analysis of the rolling 12-month performance over a 19-month period suggests that both the XRFF and GMSF struggle to provide a better prediction than the reference. However, a relative operating characteristic and reliability analysis of the full 19-month period reveals that although the GMSF and XRFF possess discriminatory skill, events tend to be over-forecast.",
+    "pdf_url": "https://arxiv.org/pdf/1804.02985v1",
+    "categories": [
+      "physics.space-ph",
+      "physics.ao-ph"
+    ],
+    "query": "model editing weight space robustness alignment"
+  },
+  {
+    "id": "1910.01506",
+    "title": "Whistler instability stimulated by the suprathermal electrons present in space plasmas",
+    "year": 2019,
+    "authors": [
+      "M. Lazar",
+      "R. A. Lopez",
+      "S. M. Shaaban",
+      "S. Poedts",
+      "H. Fichtner"
+    ],
+    "abstract": "In the absence of efficient collisions, deviations from thermal equilibrium of plasma particle distributions are controlled by the self-generated instabilities. The whistler instability is a notorious example, usually responsible for the regulation of electron temperature anisotropy $A = T_{\\perp}/T_\\parallel>$ (with $\\perp, \\parallel$ respective to the magnetic field direction) observed in space plasmas, e.g., solar wind and planetary magnetospheres. Suprathermal electrons present in these environments change the plasma dispersion and stability properties, with expected consequences on the kinetic instabilities and the resulting fluctuations, which, in turn, scatter the electrons and reduce their anisotropy. In order to capture these mutual effects we use a quasilinear kinetic approach and PIC simulations, which provide a comprehensive characterization of the whistler instability under the influence of suprathermal electrons. Analysis is performed for a large variety of plasma conditions, ranging from low-beta plasmas encountered in outer corona or planetary magnetospheres to a high-beta solar wind characteristic to large heliospheric distances. Enhanced by the suprathermal electrons, whistler fluctuations stimulate the relaxation of temperature anisotropy, and this influence of suprathermals increases with plasma beta parameter.",
+    "pdf_url": "https://arxiv.org/pdf/1910.01506v1",
+    "categories": [
+      "physics.space-ph",
+      "astro-ph.SR",
+      "physics.plasm-ph"
+    ],
+    "query": "model editing weight space robustness alignment"
+  },
+  {
+    "id": "2505.11876",
+    "title": "EAMET: Robust Massive Model Editing via Embedding Alignment Optimization",
+    "year": 2025,
+    "authors": [
+      "Yanbo Dai",
+      "Zhenlan Ji",
+      "Zongjie Li",
+      "Shuai Wang"
+    ],
+    "abstract": "Model editing techniques are essential for efficiently updating knowledge in large language models (LLMs). However, the effectiveness of existing approaches degrades in massive editing scenarios, particularly when evaluated with practical metrics. Their robustness is also limited in context-rich settings or when editing multiple facts of the same subject simultaneously. We attribute these failures to the embedding misalignment among knowledge items, which undermines editing reliability at scale. To address this, we propose EAMET (Embedding Alignment Model Editing in Transformers), which addresses this issue by aligning the space of key and residual embeddings. Extensive experiments across six LLMs and three datasets demonstrate that EAMET consistently outperforms existing methods, achieving about 90\\% editing efficacy when editing 10k facts. Codes and datasets are publicly available at https://ybdai7.github.io/eamet-page/.",
+    "pdf_url": "https://arxiv.org/pdf/2505.11876v4",
+    "categories": [
+      "cs.CL"
+    ],
+    "query": "model editing weight space robustness alignment"
+  },
+  {
+    "id": "1806.09861",
+    "title": "The importance of ensemble techniques for operational space weather forecasting",
+    "year": 2018,
+    "authors": [
+      "Sophie A. Murray"
+    ],
+    "abstract": "The space weather community has begun to use frontier methods such as data assimilation, machine learning, and ensemble modeling to advance current operational forecasting efforts. This was highlighted by a multi-disciplinary session at the 2017 American Geophysical Union Meeting, 'Frontier Solar-Terrestrial Science Enabled by the Combination of Data-Driven Techniques and Physics-Based Understanding', with considerable discussion surrounding ensemble techniques. Here ensemble methods are described in detail; using a set of predictions to improve on a single-model output, for example taking a simple average of multiple models, or using more complex techniques for data assimilation. They have been used extensively in fields such as numerical weather prediction and data science, for both improving model accuracy and providing a measure of model uncertainty. Researchers in the space weather community have found them to be similarly useful, and some examples of success stories are highlighted in this commentary. Future developments are also encouraged to transition these basic research efforts to operational forecasting as well as providing prediction errors to aid end-user understanding.",
+    "pdf_url": "https://arxiv.org/pdf/1806.09861v1",
+    "categories": [
+      "physics.space-ph",
+      "astro-ph.EP",
+      "physics.ao-ph"
+    ],
+    "query": "model editing weight space robustness alignment"
+  },
+  {
+    "id": "2210.05615",
+    "title": "Two-weight inequalities for multilinear maximal functions in Orlicz spaces",
+    "year": 2022,
+    "authors": [
+      "Jean-Marcel Tanoh Dje",
+      "Beno\u00eet F. Sehba"
+    ],
+    "abstract": "In this note, we provide various two-weight norm estimates of the multi-linear fractional maximal function and weighted maximal function between different Orlicz spaces. More precisely, we obtain Sawyer-type characterizations and norm estimates for these operators.",
+    "pdf_url": "https://arxiv.org/pdf/2210.05615v1",
+    "categories": [
+      "math.CA"
+    ],
+    "query": "model editing weight space robustness alignment"
+  },
+  {
+    "id": "2311.18495",
+    "title": "Improving Adversarial Transferability via Model Alignment",
+    "year": 2023,
+    "authors": [
+      "Avery Ma",
+      "Amir-massoud Farahmand",
+      "Yangchen Pan",
+      "Philip Torr",
+      "Jindong Gu"
+    ],
+    "abstract": "Neural networks are susceptible to adversarial perturbations that are transferable across different models. In this paper, we introduce a novel model alignment technique aimed at improving a given source model's ability in generating transferable adversarial perturbations. During the alignment process, the parameters of the source model are fine-tuned to minimize an alignment loss. This loss measures the divergence in the predictions between the source model and another, independently trained model, referred to as the witness model. To understand the effect of model alignment, we conduct a geometric analysis of the resulting changes in the loss landscape. Extensive experiments on the ImageNet dataset, using a variety of model architectures, demonstrate that perturbations generated from aligned source models exhibit significantly higher transferability than those from the original source model.",
+    "pdf_url": "https://arxiv.org/pdf/2311.18495v2",
+    "categories": [
+      "cs.LG",
+      "cs.CV"
+    ],
+    "query": "model editing weight space robustness alignment"
+  },
+  {
+    "id": "2303.17599",
+    "title": "Zero-Shot Video Editing Using Off-The-Shelf Image Diffusion Models",
+    "year": 2023,
+    "authors": [
+      "Wen Wang",
+      "Yan Jiang",
+      "Kangyang Xie",
+      "Zide Liu",
+      "Hao Chen",
+      "Yue Cao"
+    ],
+    "abstract": "Large-scale text-to-image diffusion models achieve unprecedented success in image generation and editing. However, how to extend such success to video editing is unclear. Recent initial attempts at video editing require significant text-to-video data and computation resources for training, which is often not accessible. In this work, we propose vid2vid-zero, a simple yet effective method for zero-shot video editing. Our vid2vid-zero leverages off-the-shelf image diffusion models, and doesn't require training on any video. At the core of our method is a null-text inversion module for text-to-video alignment, a cross-frame modeling module for temporal consistency, and a spatial regularization module for fidelity to the original video. Without any training, we leverage the dynamic nature of the attention mechanism to enable bi-directional temporal modeling at test time. Experiments and analyses show promising results in editing attributes, subjects, places, etc., in real-world videos. Code is made available at \\url{https://github.com/baaivision/vid2vid-zero}.",
+    "pdf_url": "https://arxiv.org/pdf/2303.17599v3",
+    "categories": [
+      "cs.CV"
+    ],
+    "query": "model editing weight space robustness alignment"
+  },
+  {
+    "id": "1712.09913",
+    "title": "Visualizing the Loss Landscape of Neural Nets",
+    "year": 2017,
+    "authors": [
+      "Hao Li",
+      "Zheng Xu",
+      "Gavin Taylor",
+      "Christoph Studer",
+      "Tom Goldstein"
+    ],
+    "abstract": "Neural network training relies on our ability to find \"good\" minimizers of highly non-convex loss functions. It is well-known that certain network architecture designs (e.g., skip connections) produce loss functions that train easier, and well-chosen training parameters (batch size, learning rate, optimizer) produce minimizers that generalize better. However, the reasons for these differences, and their effects on the underlying loss landscape, are not well understood. In this paper, we explore the structure of neural loss functions, and the effect of loss landscapes on generalization, using a range of visualization methods. First, we introduce a simple \"filter normalization\" method that helps us visualize loss function curvature and make meaningful side-by-side comparisons between loss functions. Then, using a variety of visualizations, we explore how network architecture affects the loss landscape, and how training parameters affect the shape of minimizers.",
+    "pdf_url": "https://arxiv.org/pdf/1712.09913v3",
+    "categories": [
+      "cs.LG",
+      "cs.CV",
+      "stat.ML"
+    ],
+    "query": "loss landscape fine-tuning language models flatness"
+  },
+  {
+    "id": "2606.08578",
+    "title": "Lost in the Non-convex Loss Landscape: How to Fine-tune the Large Time Series Model?",
+    "year": 2026,
+    "authors": [
+      "Xu Zhang",
+      "Peang Wang",
+      "Wei Wang"
+    ],
+    "abstract": "Recently, large time series models (LTSMs) have gained increasing attention due to their similarities to large language models, including flexible context length, scalability, and task generality, outperforming advanced task-specific models. However, prior studies indicate that pre-trained LTSMs may exhibit a poorly conditioned non-convex loss landscape, leading to limited trainability. As a result, direct fine-tuning tends to cause overfitting and suboptimal performance, sometimes even worse than training from scratch, substantially diminishing the benefits of pre-training. To overcome this limitation, we propose Smoothed Full Fine-tuning (SFF), a novel fine-tuning technology. Specifically, we construct an auxiliary LTSM via random initialization to obtain a smoother loss landscape, and then linearly interpolate its weights with those of the pre-trained model to smooth the original landscape. This process improves trainability while preserving pre-trained knowledge, thereby enabling more effective downstream fine-tuning. From an optimization perspective, SFF perturbs sharp minima without significantly harming flat regions, facilitating escape from poor local basins toward smoother and more generalizable solutions. Extensive experiments on benchmark datasets demonstrate consistent improvements across eight representative LTSMs, including Timer, TimesFM, MOMENT, UniTS, MOIRAI, Chronos, TTMs, and Sundial, on diverse downstream tasks. The code is available at the link: https://github.com/Meteor-Stars/SFF.",
+    "pdf_url": "https://arxiv.org/pdf/2606.08578v1",
+    "categories": [
+      "cs.LG"
+    ],
+    "query": "loss landscape fine-tuning language models flatness"
+  },
+  {
+    "id": "2211.14177",
+    "title": "Overcoming Catastrophic Forgetting by XAI",
+    "year": 2022,
+    "authors": [
+      "Giang Nguyen"
+    ],
+    "abstract": "Explaining the behaviors of deep neural networks, usually considered as black boxes, is critical especially when they are now being adopted over diverse aspects of human life. Taking the advantages of interpretable machine learning (interpretable ML), this work proposes a novel tool called Catastrophic Forgetting Dissector (or CFD) to explain catastrophic forgetting in continual learning settings. We also introduce a new method called Critical Freezing based on the observations of our tool. Experiments on ResNet articulate how catastrophic forgetting happens, particularly showing which components of this famous network are forgetting. Our new continual learning algorithm defeats various recent techniques by a significant margin, proving the capability of the investigation. Critical freezing not only attacks catastrophic forgetting but also exposes explainability.",
+    "pdf_url": "https://arxiv.org/pdf/2211.14177v1",
+    "categories": [
+      "cs.LG"
+    ],
+    "query": "representation drift fine-tuning catastrophic forgetting LLM"
+  },
+  {
+    "id": "2102.07686",
+    "title": "Does the Adam Optimizer Exacerbate Catastrophic Forgetting?",
+    "year": 2021,
+    "authors": [
+      "Dylan R. Ashley",
+      "Sina Ghiassian",
+      "Richard S. Sutton"
+    ],
+    "abstract": "Catastrophic forgetting remains a severe hindrance to the broad application of artificial neural networks (ANNs), however, it continues to be a poorly understood phenomenon. Despite the extensive amount of work on catastrophic forgetting, we argue that it is still unclear how exactly the phenomenon should be quantified, and, moreover, to what degree all of the choices we make when designing learning systems affect the amount of catastrophic forgetting. We use various testbeds from the reinforcement learning and supervised learning literature to (1) provide evidence that the choice of which modern gradient-based optimization algorithm is used to train an ANN has a significant impact on the amount of catastrophic forgetting and show that-surprisingly-in many instances classical algorithms such as vanilla SGD experience less catastrophic forgetting than the more modern algorithms such as Adam. We empirically compare four different existing metrics for quantifying catastrophic forgetting and (2) show that the degree to which the learning systems experience catastrophic forgetting is sufficiently sensitive to the metric used that a change from one principled metric to another is enough to change the conclusions of a study dramatically. Our results suggest that a much more rigorous experimental methodology is required when looking at catastrophic forgetting. Based on our results, we recommend inter-task forgetting in supervised learning must be measured with both retention and relearning metrics concurrently, and intra-task forgetting in reinforcement learning must-at the very least-be measured with pairwise interference.",
+    "pdf_url": "https://arxiv.org/pdf/2102.07686v4",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "stat.ML"
+    ],
+    "query": "representation drift fine-tuning catastrophic forgetting LLM"
+  },
+  {
+    "id": "2010.04003",
+    "title": "A Theoretical Analysis of Catastrophic Forgetting through the NTK Overlap Matrix",
+    "year": 2020,
+    "authors": [
+      "Thang Doan",
+      "Mehdi Bennani",
+      "Bogdan Mazoure",
+      "Guillaume Rabusseau",
+      "Pierre Alquier"
+    ],
+    "abstract": "Continual learning (CL) is a setting in which an agent has to learn from an incoming stream of data during its entire lifetime. Although major advances have been made in the field, one recurring problem which remains unsolved is that of Catastrophic Forgetting (CF). While the issue has been extensively studied empirically, little attention has been paid from a theoretical angle. In this paper, we show that the impact of CF increases as two tasks increasingly align. We introduce a measure of task similarity called the NTK overlap matrix which is at the core of CF. We analyze common projected gradient algorithms and demonstrate how they mitigate forgetting. Then, we propose a variant of Orthogonal Gradient Descent (OGD) which leverages structure of the data through Principal Component Analysis (PCA). Experiments support our theoretical findings and show how our method can help reduce CF on classical CL datasets.",
+    "pdf_url": "https://arxiv.org/pdf/2010.04003v2",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "stat.ML"
+    ],
+    "query": "representation drift fine-tuning catastrophic forgetting LLM"
+  },
+  {
+    "id": "2512.13706",
+    "title": "Mitigating Catastrophic Forgetting in Mathematical Reasoning Finetuning through Mixed Training",
+    "year": 2025,
+    "authors": [
+      "John Graham Reynolds"
+    ],
+    "abstract": "When finetuning large language models for specialized tasks such as mathematical reasoning, models exhibit catastrophic forgetting, losing previously learned capabilities. We investigate this by finetuning Flan-T5-Base (250M parameters) on the DeepMind Mathematics dataset and measuring forgetting on MultiNLI. Math-only training improves mathematical accuracy from 3.1\\% to 12.0\\% but causes NLI accuracy to collapse from 81.0\\% to 16.5\\%--a 64.5 percentage point drop occurring within the first 1,000 training steps. We propose mixed training strategies that interleave mathematical and NLI examples during training. Our results demonstrate that mixed training completely eliminates catastrophic forgetting while maintaining equivalent mathematical performance: the balanced 1:1 ratio achieves 12.0\\% math accuracy (matching math-only) while preserving 86.2\\% NLI accuracy. We systematically explore mixing ratios from 1:1 to 15:1, finding that even minimal NLI exposure (6.2\\%) provides effective regularization. These findings demonstrate that specialization need not require forgetting general capabilities, with implications for scaling to larger models where mixed training may confer additional benefits beyond forgetting prevention.",
+    "pdf_url": "https://arxiv.org/pdf/2512.13706v1",
+    "categories": [
+      "cs.LG",
+      "cs.CL"
+    ],
+    "query": "representation drift fine-tuning catastrophic forgetting LLM"
+  },
+  {
+    "id": "2011.06220",
+    "title": "Artificial Neural Variability for Deep Learning: On Overfitting, Noise Memorization, and Catastrophic Forgetting",
+    "year": 2020,
+    "authors": [
+      "Zeke Xie",
+      "Fengxiang He",
+      "Shaopeng Fu",
+      "Issei Sato",
+      "Dacheng Tao",
+      "Masashi Sugiyama"
+    ],
+    "abstract": "Deep learning is often criticized by two serious issues which rarely exist in natural nervous systems: overfitting and catastrophic forgetting. It can even memorize randomly labelled data, which has little knowledge behind the instance-label pairs. When a deep network continually learns over time by accommodating new tasks, it usually quickly overwrites the knowledge learned from previous tasks. Referred to as the {\\it neural variability}, it is well-known in neuroscience that human brain reactions exhibit substantial variability even in response to the same stimulus. This mechanism balances accuracy and plasticity/flexibility in the motor learning of natural nervous systems. Thus it motivates us to design a similar mechanism named {\\it artificial neural variability} (ANV), which helps artificial neural networks learn some advantages from ``natural'' neural networks. We rigorously prove that ANV plays as an implicit regularizer of the mutual information between the training data and the learned model. This result theoretically guarantees ANV a strictly improved generalizability, robustness to label noise, and robustness to catastrophic forgetting. We then devise a {\\it neural variable risk minimization} (NVRM) framework and {\\it neural variable optimizers} to achieve ANV for conventional network architectures in practice. The empirical studies demonstrate that NVRM can effectively relieve overfitting, label noise memorization, and catastrophic forgetting at negligible costs. \\footnote{Code: \\url{https://github.com/zeke-xie/artificial-neural-variability-for-deep-learning}.",
+    "pdf_url": "https://arxiv.org/pdf/2011.06220v3",
+    "categories": [
+      "cs.LG"
+    ],
+    "query": "representation drift fine-tuning catastrophic forgetting LLM"
+  },
+  {
+    "id": "2408.14572",
+    "title": "CURLoRA: Stable LLM Continual Fine-Tuning and Catastrophic Forgetting Mitigation",
+    "year": 2024,
+    "authors": [
+      "Muhammad Fawi"
+    ],
+    "abstract": "This paper introduces CURLoRA, a novel approach to fine-tuning large language models (LLMs) that leverages CUR matrix decomposition in the context of Low-Rank Adaptation (LoRA). Our method addresses two critical challenges in LLM fine-tuning: mitigating catastrophic forgetting during continual learning and reducing the number of trainable parameters. We propose a unique modification to the CUR decomposition process, utilizing inverted probabilities for column and row selection which acts as an implicit regularization, and initializing the $U$ matrix as a zero matrix, and only fine-tuning it. We demonstrate through experiments on multiple datasets that CURLoRA outperforms standard LoRA in mitigating catastrophic forgetting. It maintains model stability and performance across tasks while significantly reducing the number of trainable parameters. Our results show that CURLoRA achieves very good and stable task accuracy while maintaining base model's perplexity scores fixed compared to LoRA upon continual fine-tuning, particularly in scenarios with limited data.",
+    "pdf_url": "https://arxiv.org/pdf/2408.14572v1",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.CL"
+    ],
+    "query": "representation drift fine-tuning catastrophic forgetting LLM"
+  },
+  {
+    "id": "2509.23893",
+    "title": "Dynamic Orthogonal Continual Fine-tuning for Mitigating Catastrophic Forgettings",
+    "year": 2025,
+    "authors": [
+      "Zhixin Zhang",
+      "Zeming Wei",
+      "Meng Sun"
+    ],
+    "abstract": "Catastrophic forgetting remains a critical challenge in continual learning for large language models (LLMs), where models struggle to retain performance on historical tasks when fine-tuning on new sequential data without access to past datasets. In this paper, we first reveal that the drift of functional directions during the fine-tuning process is a key reason why existing regularization-based methods fail in long-term LLM continual learning. To address this, we propose Dynamic Orthogonal Continual (DOC) fine-tuning, a novel approach that tracks the drift of these functional directions and dynamically updates them during the fine-tuning process. Furthermore, by adjusting the gradients of new task parameters to be orthogonal to the tracked historical function directions, our method mitigates interference between new and old tasks. Extensive experiments on various LLM continual learning benchmarks demonstrate that this approach outperforms prior methods, effectively reducing catastrophic forgetting and providing a robust tool for continuous LLM fine-tuning. Our code is available at https://github.com/meloxxxxxx/DOC.",
+    "pdf_url": "https://arxiv.org/pdf/2509.23893v1",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.CL",
+      "cs.CR",
+      "math.OC"
+    ],
+    "query": "representation drift fine-tuning catastrophic forgetting LLM"
+  },
+  {
+    "id": "2308.08747",
+    "title": "An Empirical Study of Catastrophic Forgetting in Large Language Models During Continual Fine-tuning",
+    "year": 2023,
+    "authors": [
+      "Yun Luo",
+      "Zhen Yang",
+      "Fandong Meng",
+      "Yafu Li",
+      "Jie Zhou",
+      "Yue Zhang"
+    ],
+    "abstract": "Catastrophic forgetting (CF) is a phenomenon that occurs in machine learning when a model forgets previously learned information while acquiring new knowledge for achieving a satisfactory performance in downstream tasks. As large language models (LLMs) have demonstrated remarkable performance, it is intriguing to investigate whether CF exists during the continual instruction tuning of LLMs. This study empirically evaluates the forgetting phenomenon in LLMs' knowledge during continual instruction tuning from the perspectives of domain knowledge, reasoning, and reading comprehension. The experiments reveal that catastrophic forgetting is generally observed in LLMs ranging from 1b to 7b parameters. Surprisingly, as the model scale increases, the severity of forgetting intensifies in such a model sale range which may result from the much significant initial performance in the larger LLM. Comparing the decoder-only model BLOOMZ with the encoder-decoder model mT0, BLOOMZ exhibits less forgetting and retains more knowledge. Interestingly, we also observe that LLMs can mitigate language biases, such as gender bias, during continual fine-tuning. Furthermore, our findings indicate that general instruction tuning can help alleviate the forgetting phenomenon in LLMs during subsequent fine-tuning.",
+    "pdf_url": "https://arxiv.org/pdf/2308.08747v5",
+    "categories": [
+      "cs.CL"
+    ],
+    "query": "representation drift fine-tuning catastrophic forgetting LLM"
+  },
+  {
+    "id": "2502.11355",
+    "title": "Nuclear Deployed: Analyzing Catastrophic Risks in Decision-making of Autonomous LLM Agents",
+    "year": 2025,
+    "authors": [
+      "Rongwu Xu",
+      "Xiaojian Li",
+      "Shuo Chen",
+      "Wei Xu"
+    ],
+    "abstract": "Large language models (LLMs) are evolving into autonomous decision-makers, raising concerns about catastrophic risks in high-stakes scenarios, particularly in Chemical, Biological, Radiological and Nuclear (CBRN) domains. Based on the insight that such risks can originate from trade-offs between the agent's Helpful, Harmlessness and Honest (HHH) goals, we build a novel three-stage evaluation framework, which is carefully constructed to effectively and naturally expose such risks. We conduct 14,400 agentic simulations across 12 advanced LLMs, with extensive experiments and analysis. Results reveal that LLM agents can autonomously engage in catastrophic behaviors and deception, without being deliberately induced. Furthermore, stronger reasoning abilities often increase, rather than mitigate, these risks. We also show that these agents can violate instructions and superior commands. On the whole, we empirically prove the existence of catastrophic risks in autonomous LLM agents. We release our code to foster further research.",
+    "pdf_url": "https://arxiv.org/pdf/2502.11355v3",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.CR",
+      "cs.CY"
+    ],
+    "query": "representation drift fine-tuning catastrophic forgetting LLM"
+  },
+  {
+    "id": "2402.12220",
+    "title": "Bayesian Parameter-Efficient Fine-Tuning for Overcoming Catastrophic Forgetting",
+    "year": 2024,
+    "authors": [
+      "Haolin Chen",
+      "Philip N. Garner"
+    ],
+    "abstract": "We are motivated primarily by the adaptation of text-to-speech synthesis models; however we argue that more generic parameter-efficient fine-tuning (PEFT) is an appropriate framework to do such adaptation. Nevertheless, catastrophic forgetting remains an issue with PEFT, damaging the pre-trained model's inherent capabilities. We demonstrate that existing Bayesian learning techniques can be applied to PEFT to prevent catastrophic forgetting as long as the parameter shift of the fine-tuned layers can be calculated differentiably. In a principled series of experiments on language modeling and speech synthesis tasks, we utilize established Laplace approximations, including diagonal and Kronecker-factored approaches, to regularize PEFT with the low-rank adaptation (LoRA) and compare their performance in pre-training knowledge preservation. Our results demonstrate that catastrophic forgetting can be overcome by our methods without degrading the fine-tuning performance, and using the Kronecker-factored approximation produces a better preservation of the pre-training knowledge than the diagonal ones.",
+    "pdf_url": "https://arxiv.org/pdf/2402.12220v3",
+    "categories": [
+      "eess.AS",
+      "cs.LG"
+    ],
+    "query": "representation drift fine-tuning catastrophic forgetting LLM"
+  },
+  {
+    "id": "2207.08180",
+    "title": "Federated Learning and catastrophic forgetting in pervasive computing: demonstration in HAR domain",
+    "year": 2022,
+    "authors": [
+      "Anastasiia Usmanova",
+      "Fran\u00e7ois Portet",
+      "Philippe Lalanda",
+      "German Vega"
+    ],
+    "abstract": "Federated Learning has been introduced as a new machine learning paradigm enhancing the use of local devices. At a server level, FL regularly aggregates models learned locally on distributed clients to obtain a more general model. In this way, no private data is sent over the network, and the communication cost is reduced. However, current solutions rely on the availability of large amounts of stored data at the client side in order to fine-tune the models sent by the server. Such setting is not realistic in mobile pervasive computing where data storage must be kept low and data characteristic (distribution) can change dramatically. To account for this variability, a solution is to use the data regularly collected by the client to progressively adapt the received model. But such naive approach exposes clients to the well-known problem of catastrophic forgetting. The purpose of this paper is to demonstrate this problem in the mobile human activity recognition context on smartphones.",
+    "pdf_url": "https://arxiv.org/pdf/2207.08180v1",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "eess.SP"
+    ],
+    "query": "representation drift fine-tuning catastrophic forgetting LLM"
+  },
+  {
+    "id": "2605.09640",
+    "title": "Overcoming Catastrophic Forgetting in Visual Continual Learning with Reinforcement Fine-Tuning",
+    "year": 2026,
+    "authors": [
+      "Meng Lou",
+      "Hanzhong Guo",
+      "Linwei Chen",
+      "Yizhou Yu"
+    ],
+    "abstract": "Recent studies suggest that Reinforcement Fine-Tuning (RFT) is inherently more resilient to catastrophic forgetting than Supervised Fine-Tuning (SFT). However, whether RFT (e.g., GRPO) can effectively overcome forgetting in challenging visual continual learning settings, such as class-incremental learning (CIL) and domain-incremental learning (DIL), remains an open problem. Through a pilot study, we confirm that while RFT consistently outperforms SFT, it still suffers from non-negligible forgetting. We empirically trace this bottleneck to Trajectory-level Drift Agnosticism: among candidate rollouts achieving identical task rewards, the KL divergence from the preceding-task policy varies substantially, which strongly correlates with catastrophic forgetting across sequential tasks. Motivated by this insight, we propose Retention-aware Policy Optimization (RaPO), a simple yet effective RFT method that explicitly mitigates forgetting through trajectory-level reward shaping. Specifically, RaPO comprises two core components: (1) Retention Reward that converts trajectory-level distribution drift into a continuous reward signal, preferentially reinforcing knowledge-preserving rollouts within each group; (2) Cross-Task Advantage Normalization (CTAN), which maintains a persistent exponential moving average of reward statistics across task boundaries to stabilize the optimization progress during continual learning. Leveraging the free-form textual generalization of MLLMs, we comprehensively evaluate RaPO across five visual continual learning settings. Extensive experiments demonstrate that RaPO achieves leading performance, substantially reducing catastrophic forgetting while preserving strong plasticity. To the best of our knowledge, this work represents the first systematic exploration of RFT in visual continual learning, offering insights that we hope will inspire future research.",
+    "pdf_url": "https://arxiv.org/pdf/2605.09640v1",
+    "categories": [
+      "cs.CV",
+      "cs.LG"
+    ],
+    "query": "representation drift fine-tuning catastrophic forgetting LLM"
+  },
+  {
+    "id": "2606.05290",
+    "title": "Do Models Share Safety Representations? Cross-Model Steering for Safe Visual Generation",
+    "year": 2026,
+    "authors": [
+      "Tobia Poppi",
+      "Silvia Cappelletti",
+      "Sara Sarto",
+      "Florian Schiffers",
+      "Garin Kessler",
+      "Marcella Cornia"
+    ],
+    "abstract": "Recent progress in generative modeling has made safety control a central challenge, yet existing approaches remain largely model-specific, requiring retraining or tailored interventions for each new architecture. In this work, we ask whether safety can be represented as a portable latent direction, learned once and reused across heterogeneous generators. We introduce the first framework for cross-model safety steering, in which a safety direction is estimated in a source LLM from paired safe-unsafe prompts, transported to a target generator through a lightweight alignment fitted on benign data alone, and applied at inference time. Crucially, our pipeline never accesses unsafe data on the target side, isolating whether safety can be transferred through shared representation geometry. Beyond a single global direction, we also identify a multi-vector extension that captures category-specific safety behaviors, enabling more selective control. We evaluate our approach in text-to-image and text-to-video generation across diverse source-target model pairs. Across models, transferred safety directions achieve ASR reduction and CLIP-Score/FID trade-offs comparable to directions learned natively on the target model using unsafe data, while requiring no target-side unsafe data. This indicates that safety improvements do not come at the expense of generation quality. Our results point to a modular view of safety: safety-relevant behavior is not purely model-local, but can be controlled through latent directions that persist across models. This suggests a new path toward lightweight, reusable safety mechanisms that do not require target-side unsafe data.",
+    "pdf_url": "https://arxiv.org/pdf/2606.05290v1",
+    "categories": [
+      "cs.CV",
+      "cs.AI",
+      "cs.MM"
+    ],
+    "query": "safety basin model weights robustness perturbation"
+  },
+  {
+    "id": "1406.4924",
+    "title": "Laser pointer prohibition: improving safety or driving misclassification",
+    "year": 2014,
+    "authors": [
+      "Trevor A Wheatley"
+    ],
+    "abstract": "It is well known that since 2008 Australia has had some of the world's most restrictive laws regarding the possession and importation of \"laser pointers\" with powers exceeding 1 mW. Now four years on Australia is used as a test case and question whether this has actually improved safety for those wishing to purchase these devices or if it has impacted on the availability of prohibited devices. Results from the analysis of over 40 laser pointers legitimately purchased in Australia from local and International suppliers are presented. Specifically lasers that are readily available to everyday consumers through the simple on-line search \"laser pointer 1mw\" are targeted. The parameters investigated are quoted power versus measured power, correct representation in advertising and adherence to laser standards as related to specified use and purchase price. The analysis indicates that the suppliers in this market have learnt how to bypass the prohibition and the impact on general safety in these cases is detrimental.",
+    "pdf_url": "https://arxiv.org/pdf/1406.4924v1",
+    "categories": [
+      "physics.soc-ph"
+    ],
+    "query": "safety basin model weights robustness perturbation"
+  },
+  {
+    "id": "2502.05206",
+    "title": "Safety at Scale: A Comprehensive Survey of Large Model and Agent Safety",
+    "year": 2025,
+    "authors": [
+      "Xingjun Ma",
+      "Yifeng Gao",
+      "Yixu Wang",
+      "Ruofan Wang",
+      "Xin Wang",
+      "Ye Sun"
+    ],
+    "abstract": "The rapid advancement of large models, driven by their exceptional abilities in learning and generalization through large-scale pre-training, has reshaped the landscape of Artificial Intelligence (AI). These models are now foundational to a wide range of applications, including conversational AI, recommendation systems, autonomous driving, content generation, medical diagnostics, and scientific discovery. However, their widespread deployment also exposes them to significant safety risks, raising concerns about robustness, reliability, and ethical implications. This survey provides a systematic review of current safety research on large models, covering Vision Foundation Models (VFMs), Large Language Models (LLMs), Vision-Language Pre-training (VLP) models, Vision-Language Models (VLMs), Diffusion Models (DMs), and large-model-powered Agents. Our contributions are summarized as follows: (1) We present a comprehensive taxonomy of safety threats to these models, including adversarial attacks, data poisoning, backdoor attacks, jailbreak and prompt injection attacks, energy-latency attacks, data and model extraction attacks, and emerging agent-specific threats. (2) We review defense strategies proposed for each type of attacks if available and summarize the commonly used datasets and benchmarks for safety research. (3) Building on this, we identify and discuss the open challenges in large model safety, emphasizing the need for comprehensive safety evaluations, scalable and effective defense mechanisms, and sustainable data practices. More importantly, we highlight the necessity of collective efforts from the research community and international collaboration. Our work can serve as a useful reference for researchers and practitioners, fostering the ongoing development of comprehensive defense systems and platforms to safeguard AI models.",
+    "pdf_url": "https://arxiv.org/pdf/2502.05206v6",
+    "categories": [
+      "cs.CR",
+      "cs.AI",
+      "cs.CL",
+      "cs.CV"
+    ],
+    "query": "safety basin model weights robustness perturbation"
+  },
+  {
+    "id": "physics/0701170",
+    "title": "Predicting basin and landfalling hurricane numbers from sea surface temperature",
+    "year": 2007,
+    "authors": [
+      "Stephen Jewson",
+      "Roman Binter",
+      "Shree Khare",
+      "Kechi Nzerem",
+      "Adam O'Shay"
+    ],
+    "abstract": "  We are building a hurricane number prediction scheme based on first predicting main development region sea surface temperature (SST), then predicting the number of hurricanes in the Atlantic basin given the SST prediction, and finally predicting the number of US landfalling hurricanes based on the prediction of the number of basin hurricanes. We have described a number of SST prediction methods in previous work. We now investigate the empirical relationship between SST and basin hurricane numbers, and put this together with the SST predictions to make predictions of both basin and landfalling hurricane numbers.",
+    "pdf_url": "https://arxiv.org/pdf/physics/0701170v2",
+    "categories": [
+      "physics.ao-ph"
+    ],
+    "query": "safety basin model weights robustness perturbation"
+  },
+  {
+    "id": "1810.04866",
+    "title": "Model-Based Safety and Security Engineering",
+    "year": 2018,
+    "authors": [
+      "Vivek Nigam",
+      "Alexander Pretschner",
+      "Harald Ruess"
+    ],
+    "abstract": "By exploiting the increasing surface attack of systems, cyber-attacks can cause catastrophic events, such as, remotely disable safety mechanisms. This means that in order to avoid hazards, safety and security need to be integrated, exchanging information, such as, key hazards/threats, risk evaluations, mechanisms used. This white paper describes some steps towards this integration by using models. We start by identifying some key technical challenges. Then we demonstrate how models, such as Goal Structured Notation (GSN) for safety and Attack Defense Trees (ADT) for security, can address these challenges. In particular, (1) we demonstrate how to extract in an automated fashion security relevant information from safety assessments by translating GSN-Models into ADTs; (2) We show how security results can impact the confidence of safety assessments; (3) We propose a collaborative development process where safety and security assessments are built by incrementally taking into account safety and security analysis; (4) We describe how to carry out trade-off analysis in an automated fashion, such as identifying when safety and security arguments contradict each other and how to solve such contradictions. We conclude pointing out that these are the first steps towards a wide range of techniques to support Safety and Security Engineering. As a white paper, we avoid being too technical, preferring to illustrate features by using examples and thus being more accessible.",
+    "pdf_url": "https://arxiv.org/pdf/1810.04866v2",
+    "categories": [
+      "cs.LO",
+      "cs.SE"
+    ],
+    "query": "safety basin model weights robustness perturbation"
+  },
+  {
+    "id": "2603.01494",
+    "title": "Inference-Time Safety For Code LLMs Via Retrieval-Augmented Revision",
+    "year": 2026,
+    "authors": [
+      "Manisha Mukherjee",
+      "Vincent J. Hellendoorn"
+    ],
+    "abstract": "Large Language Models (LLMs) are increasingly deployed for code generation in high-stakes software development, yet their limited transparency in security reasoning and brittleness to evolving vulnerability patterns raise critical trustworthiness concerns. Models trained on static datasets cannot readily adapt to newly discovered vulnerabilities or changing security standards without retraining, leading to the repeated generation of unsafe code.   We present a principled approach to trustworthy code generation by design that operates as an inference-time safety mechanism. Our approach employs retrieval-augmented generation to surface relevant security risks in generated code and retrieve related security discussions from a curated Stack Overflow knowledge base, which are then used to guide an LLM during code revision. This design emphasizes three aspects relevant to trustworthiness: (1) interpretability, through transparent safety interventions grounded in expert community explanations; (2) robustness, by allowing adaptation to evolving security practices without model retraining; and (3) safety alignment, through real-time intervention before unsafe code reaches deployment.   Across real-world and benchmark datasets, our approach improves the security of LLM-generated code compared to prompting alone, while introducing no new vulnerabilities as measured by static analysis. These results suggest that principled, retrieval-augmented inference-time interventions can serve as a complementary mechanism for improving the safety of LLM-based code generation, and highlight the ongoing value of community knowledge in supporting trustworthy AI deployment.",
+    "pdf_url": "https://arxiv.org/pdf/2603.01494v1",
+    "categories": [
+      "cs.SE",
+      "cs.AI",
+      "cs.CR",
+      "cs.LG"
+    ],
+    "query": "safety basin model weights robustness perturbation"
+  },
+  {
+    "id": "1906.08663",
+    "title": "Modeling AGI Safety Frameworks with Causal Influence Diagrams",
+    "year": 2019,
+    "authors": [
+      "Tom Everitt",
+      "Ramana Kumar",
+      "Victoria Krakovna",
+      "Shane Legg"
+    ],
+    "abstract": "Proposals for safe AGI systems are typically made at the level of frameworks, specifying how the components of the proposed system should be trained and interact with each other. In this paper, we model and compare the most promising AGI safety frameworks using causal influence diagrams. The diagrams show the optimization objective and causal assumptions of the framework. The unified representation permits easy comparison of frameworks and their assumptions. We hope that the diagrams will serve as an accessible and visual introduction to the main AGI safety frameworks.",
+    "pdf_url": "https://arxiv.org/pdf/1906.08663v1",
+    "categories": [
+      "cs.AI"
+    ],
+    "query": "safety basin model weights robustness perturbation"
+  },
+  {
+    "id": "1711.04445",
+    "title": "Perturbative Expansions in QCD Improved by Conformal Mappings of the Borel Plane",
+    "year": 2017,
+    "authors": [
+      "Irinel Caprini",
+      "Jan Fischer",
+      "Gauhar Abbas",
+      "B. Ananthanarayan"
+    ],
+    "abstract": "Perturbation expansions appear to be divergent series in many physically interesting situations, including in quantum field theories like quantum electrodynamics (QED) and quantum chromodynamics (QCD), where the perturbative coefficients exhibit a factorial growth at large orders. While this feature has little impact on physical predictions in QED, it can have nontrivial consequences in applications of perturbative QCD at moderate energies. In particular, it affects the theoretical error in the extraction of the strong coupling $\u03b1_s$ from hadronic $\u03c4$ decays, despite progress of perturbative calculations available at present to four loops. We discuss a new type of perturbative expansion for QCD correlators, which uses instead of the standard powers of the coupling a new set of expansion functions. These functions are defined by means of an optimal conformal mapping of the Borel complex plane, which implements the known features of the high-order divergence in terms of the lowest Borel-plane singularities. The properties of the expansion functions resemble those of the expanded correlators, by exhibiting in particular the singular behaviour of the correlators at $\u03b1_s=0$. We prove the good convergence properties of the new expansions on mathematical models that simulate the physical polarization function for light quarks and its derivative (the Adler function), in various prescriptions of renormalization-group summation.",
+    "pdf_url": "https://arxiv.org/pdf/1711.04445v1",
+    "categories": [
+      "hep-ph"
+    ],
+    "query": "safety basin model weights robustness perturbation"
+  },
+  {
+    "id": "2506.08473",
+    "title": "AsFT: Anchoring Safety During LLM Fine-Tuning Within Narrow Safety Basin",
+    "year": 2025,
+    "authors": [
+      "Shuo Yang",
+      "Qihui Zhang",
+      "Yuyang Liu",
+      "Xiaojun Jia",
+      "Kunpeng Ning",
+      "Jiayu Yao"
+    ],
+    "abstract": "Fine-tuning large language models (LLMs) improves performance but introduces critical safety vulnerabilities: even minimal harmful data can severely compromise safety measures. We observe that perturbations orthogonal to the alignment direction - defined by weight differences between aligned (safe) and unaligned models - rapidly compromise model safety. In contrast, updates along the alignment direction largely preserve it, revealing the parameter space as a \"narrow safety basin\". To address this, we propose AsFT (Anchoring Safety in Fine-Tuning) to maintain safety by explicitly constraining update directions during fine-tuning. By penalizing updates orthogonal to the alignment direction, AsFT effectively constrains the model within the \"narrow safety basin,\" thus preserving its inherent safety. Extensive experiments on multiple datasets and models show that AsFT reduces harmful behaviors by up to 7.60%, improves task performance by 3.44%, and consistently outperforms existing methods across multiple tasks.",
+    "pdf_url": "https://arxiv.org/pdf/2506.08473v4",
+    "categories": [
+      "cs.LG"
+    ],
+    "query": "safety basin model weights robustness perturbation"
+  },
+  {
+    "id": "1911.11881",
+    "title": "An Adaptive View of Adversarial Robustness from Test-time Smoothing Defense",
+    "year": 2019,
+    "authors": [
+      "Chao Tang",
+      "Yifei Fan",
+      "Anthony Yezzi"
+    ],
+    "abstract": "The safety and robustness of learning-based decision-making systems are under threats from adversarial examples, as imperceptible perturbations can mislead neural networks to completely different outputs. In this paper, we present an adaptive view of the issue via evaluating various test-time smoothing defense against white-box untargeted adversarial examples. Through controlled experiments with pretrained ResNet-152 on ImageNet, we first illustrate the non-monotonic relation between adversarial attacks and smoothing defenses. Then at the dataset level, we observe large variance among samples and show that it is easy to inflate accuracy (even to 100%) or build large-scale (i.e., with size ~10^4) subsets on which a designated method outperforms others by a large margin. Finally at the sample level, as different adversarial examples require different degrees of defense, the potential advantages of iterative methods are also discussed. We hope this paper reveal useful behaviors of test-time defenses, which could help improve the evaluation process for adversarial robustness in the future.",
+    "pdf_url": "https://arxiv.org/pdf/1911.11881v1",
+    "categories": [
+      "cs.LG",
+      "cs.CR",
+      "stat.ML"
+    ],
+    "query": "safety basin model weights robustness perturbation"
+  },
+  {
+    "id": "1903.12261",
+    "title": "Benchmarking Neural Network Robustness to Common Corruptions and Perturbations",
+    "year": 2019,
+    "authors": [
+      "Dan Hendrycks",
+      "Thomas Dietterich"
+    ],
+    "abstract": "In this paper we establish rigorous benchmarks for image classifier robustness. Our first benchmark, ImageNet-C, standardizes and expands the corruption robustness topic, while showing which classifiers are preferable in safety-critical applications. Then we propose a new dataset called ImageNet-P which enables researchers to benchmark a classifier's robustness to common perturbations. Unlike recent robustness research, this benchmark evaluates performance on common corruptions and perturbations not worst-case adversarial perturbations. We find that there are negligible changes in relative corruption robustness from AlexNet classifiers to ResNet classifiers. Afterward we discover ways to enhance corruption and perturbation robustness. We even find that a bypassed adversarial defense provides substantial common perturbation robustness. Together our benchmarks may aid future work toward networks that robustly generalize.",
+    "pdf_url": "https://arxiv.org/pdf/1903.12261v1",
+    "categories": [
+      "cs.LG",
+      "cs.CV",
+      "stat.ML"
+    ],
+    "query": "safety basin model weights robustness perturbation"
+  },
+  {
+    "id": "1609.04846",
+    "title": "A Tutorial about Random Neural Networks in Supervised Learning",
+    "year": 2016,
+    "authors": [
+      "Sebasti\u00e1n Basterrech",
+      "Gerardo Rubino"
+    ],
+    "abstract": "Random Neural Networks (RNNs) are a class of Neural Networks (NNs) that can also be seen as a specific type of queuing network. They have been successfully used in several domains during the last 25 years, as queuing networks to analyze the performance of resource sharing in many engineering areas, as learning tools and in combinatorial optimization, where they are seen as neural systems, and also as models of neurological aspects of living beings. In this article we focus on their learning capabilities, and more specifically, we present a practical guide for using the RNN to solve supervised learning problems. We give a general description of these models using almost indistinctly the terminology of Queuing Theory and the neural one. We present the standard learning procedures used by RNNs, adapted from similar well-established improvements in the standard NN field. We describe in particular a set of learning algorithms covering techniques based on the use of first order and, then, of second order derivatives. We also discuss some issues related to these objects and present new perspectives about their use in supervised learning problems. The tutorial describes their most relevant applications, and also provides a large bibliography.",
+    "pdf_url": "https://arxiv.org/pdf/1609.04846v1",
+    "categories": [
+      "cs.NE"
+    ],
+    "query": "trajectory training dynamics neural network attractor"
+  },
+  {
+    "id": "2410.06517",
+    "title": "Dynamics of Adaptive Continuous Attractor Neural Networks",
+    "year": 2024,
+    "authors": [
+      "Yujun Li",
+      "Tianhao Chu",
+      "Si Wu"
+    ],
+    "abstract": "Attractor neural networks consider that neural information is stored as stationary states of a dynamical system formed by a large number of interconnected neurons. The attractor property empowers a neural system to encode information robustly, but it also incurs the difficulty of rapid update of network states, which can impair information update and search in the brain. To overcome this difficulty, a solution is to include adaptation in the attractor network dynamics, whereby the adaptation serves as a slow negative feedback mechanism to destabilize which are otherwise permanently stable states. In such a way, the neural system can, on one hand, represent information reliably using attractor states, and on the other hand, perform computations wherever rapid state updating is involved. Previous studies have shown that continuous attractor neural networks with adaptation (A-CANNs) exhibits rich dynamical behaviors accounting for various brain functions. In this paper, we present a comprehensive view of the rich diverse dynamics of A-CANNs. Moreover, we provide a unified mathematical framework to understand these different dynamical behaviors, and briefly discuss about their biological implications.",
+    "pdf_url": "https://arxiv.org/pdf/2410.06517v1",
+    "categories": [
+      "q-bio.NC",
+      "physics.bio-ph"
+    ],
+    "query": "trajectory training dynamics neural network attractor"
+  },
+  {
+    "id": "2104.00035",
+    "title": "Strengthening the Training of Convolutional Neural Networks By Using Walsh Matrix",
+    "year": 2021,
+    "authors": [
+      "Tamer \u00d6lmez",
+      "Z\u00fcmray Dokur"
+    ],
+    "abstract": "DNN structures are continuously developing and achieving high performances in classification problems. Also, it is observed that success rates obtained with DNNs are higher than those obtained with traditional neural networks. In addition, one of the advantages of DNNs is that there is no need to spend an extra effort to determine the features; the CNN automatically extracts the features from the dataset during the training. Besides their benefits, the DNNs have the following three major drawbacks among the others: (i) Researchers have struggled with over-fitting and under-fitting issues in the training of DNNs, (ii) determination of even a coarse structure for the DNN may take days, and (iii) most of the time, the proposed network structure is too large to be too bulky to be used in real time applications. We have modified the training and structure of DNN to increase the classification performance, to decrease the number of nodes in the structure, and to be used with less number of hyper parameters. A minimum distance network (MDN) following the last layer of the convolutional neural network (CNN) is used as the classifier instead of a fully connected neural network (FCNN). In order to strengthen the training of the CNN, we suggest employing Walsh function. We tested the performances of the proposed DNN (named as DivFE) on the classification of ECG, EEG, heart sound, detection pneumonia in X-ray chest images, detection of BGA solder defects, and patterns of benchmark datasets (MNIST, IRIS, CIFAR10 and CIFAR20). In different areas, it has been observed that a higher classification performance was obtained by using the DivFE with less number of nodes.",
+    "pdf_url": "https://arxiv.org/pdf/2104.00035v1",
+    "categories": [
+      "cs.LG",
+      "cs.CV"
+    ],
+    "query": "trajectory training dynamics neural network attractor"
+  },
+  {
+    "id": "2502.01654",
+    "title": "Predicting concentration levels of air pollutants by transfer learning and recurrent neural network",
+    "year": 2025,
+    "authors": [
+      "Iat Hang Fong",
+      "Tengyue Li",
+      "Simon Fong",
+      "Raymond K. Wong",
+      "Antonio J. Tall\u00f3n-Ballesteros"
+    ],
+    "abstract": "Air pollution (AP) poses a great threat to human health, and people are paying more attention than ever to its prediction. Accurate prediction of AP helps people to plan for their outdoor activities and aids protecting human health. In this paper, long-short term memory (LSTM) recurrent neural networks (RNNs) have been used to predict the future concentration of air pollutants (APS) in Macau. Additionally, meteorological data and data on the concentration of APS have been utilized. Moreover, in Macau, some air quality monitoring stations (AQMSs) have less observed data in quantity, and, at the same time, some AQMSs recorded less observed data of certain types of APS. Therefore, the transfer learning and pre-trained neural networks have been employed to assist AQMSs with less observed data to build a neural network with high prediction accuracy. The experimental sample covers a period longer than 12-year and includes daily measurements from several APS as well as other more classical meteorological values. Records from five stations, four out of them are AQMSs and the remaining one is an automatic weather station, have been prepared from the aforesaid period and eventually underwent to computational intelligence techniques to build and extract a prediction knowledge-based system. As shown by experimentation, LSTM RNNs initialized with transfer learning methods have higher prediction accuracy; it incurred shorter training time than randomly initialized recurrent neural networks.",
+    "pdf_url": "https://arxiv.org/pdf/2502.01654v1",
+    "categories": [
+      "cs.LG",
+      "cs.NE",
+      "physics.ao-ph"
+    ],
+    "query": "trajectory training dynamics neural network attractor"
+  },
+  {
+    "id": "2505.22749",
+    "title": "Self-orthogonalizing attractor neural networks emerging from the free energy principle",
+    "year": 2025,
+    "authors": [
+      "Tamas Spisak",
+      "Karl Friston"
+    ],
+    "abstract": "Attractor dynamics are a hallmark of many complex systems, including the brain. Understanding how such self-organizing dynamics emerge from first principles is crucial for advancing our understanding of neuronal computations and the design of artificial intelligence systems. Here we formalize how attractor networks emerge from the free energy principle applied to a universal partitioning of random dynamical systems. Our approach obviates the need for explicitly imposed learning and inference rules and identifies emergent, but efficient and biologically plausible inference and learning dynamics for such self-organizing systems. These result in a collective, multi-level Bayesian active inference process. Attractors on the free energy landscape encode prior beliefs; inference integrates sensory data into posterior beliefs; and learning fine-tunes couplings to minimize long-term surprise. Analytically and via simulations, we establish that the proposed networks favor approximately orthogonalized attractor representations, a consequence of simultaneously optimizing predictive accuracy and model complexity. These attractors efficiently span the input subspace, enhancing generalization and the mutual information between hidden causes and observable effects. Furthermore, while random data presentation leads to symmetric and sparse couplings, sequential data fosters asymmetric couplings and non-equilibrium steady-state dynamics, offering a natural generalization of conventional Boltzmann Machines. Our findings offer a unifying theory of self-organizing attractor networks, providing novel insights for AI and neuroscience.",
+    "pdf_url": "https://arxiv.org/pdf/2505.22749v2",
+    "categories": [
+      "q-bio.NC",
+      "cs.AI",
+      "cs.LG",
+      "cs.NE"
+    ],
+    "query": "trajectory training dynamics neural network attractor"
+  },
+  {
+    "id": "2205.14230",
+    "title": "Semi-supervised Semantics-guided Adversarial Training for Trajectory Prediction",
+    "year": 2022,
+    "authors": [
+      "Ruochen Jiao",
+      "Xiangguo Liu",
+      "Takami Sato",
+      "Qi Alfred Chen",
+      "Qi Zhu"
+    ],
+    "abstract": "Predicting the trajectories of surrounding objects is a critical task for self-driving vehicles and many other autonomous systems. Recent works demonstrate that adversarial attacks on trajectory prediction, where small crafted perturbations are introduced to history trajectories, may significantly mislead the prediction of future trajectories and induce unsafe planning. However, few works have addressed enhancing the robustness of this important safety-critical task.In this paper, we present a novel adversarial training method for trajectory prediction. Compared with typical adversarial training on image tasks, our work is challenged by more random input with rich context and a lack of class labels. To address these challenges, we propose a method based on a semi-supervised adversarial autoencoder, which models disentangled semantic features with domain knowledge and provides additional latent labels for the adversarial training. Extensive experiments with different types of attacks demonstrate that our Semisupervised Semantics-guided Adversarial Training (SSAT) method can effectively mitigate the impact of adversarial attacks by up to 73% and outperform other popular defense methods. In addition, experiments show that our method can significantly improve the system's robust generalization to unseen patterns of attacks. We believe that such semantics-guided architecture and advancement on robust generalization is an important step for developing robust prediction models and enabling safe decision-making.",
+    "pdf_url": "https://arxiv.org/pdf/2205.14230v2",
+    "categories": [
+      "cs.LG",
+      "cs.CV",
+      "cs.RO"
+    ],
+    "query": "trajectory training dynamics neural network attractor"
+  },
+  {
+    "id": "2212.01196",
+    "title": "Vector Symbolic Finite State Machines in Attractor Neural Networks",
+    "year": 2022,
+    "authors": [
+      "Madison Cotteret",
+      "Hugh Greatorex",
+      "Martin Ziegler",
+      "Elisabetta Chicca"
+    ],
+    "abstract": "Hopfield attractor networks are robust distributed models of human memory, but lack a general mechanism for effecting state-dependent attractor transitions in response to input. We propose construction rules such that an attractor network may implement an arbitrary finite state machine (FSM), where states and stimuli are represented by high-dimensional random vectors, and all state transitions are enacted by the attractor network's dynamics. Numerical simulations show the capacity of the model, in terms of the maximum size of implementable FSM, to be linear in the size of the attractor network for dense bipolar state vectors, and approximately quadratic for sparse binary state vectors. We show that the model is robust to imprecise and noisy weights, and so a prime candidate for implementation with high-density but unreliable devices. By endowing attractor networks with the ability to emulate arbitrary FSMs, we propose a plausible path by which FSMs could exist as a distributed computational primitive in biological neural networks.",
+    "pdf_url": "https://arxiv.org/pdf/2212.01196v2",
+    "categories": [
+      "cs.NE"
+    ],
+    "query": "trajectory training dynamics neural network attractor"
+  },
+  {
+    "id": "1803.02421",
+    "title": "Masked Conditional Neural Networks for Audio Classification",
+    "year": 2018,
+    "authors": [
+      "Fady Medhat",
+      "David Chesmore",
+      "John Robinson"
+    ],
+    "abstract": "We present the ConditionaL Neural Network (CLNN) and the Masked ConditionaL Neural Network (MCLNN) designed for temporal signal recognition. The CLNN takes into consideration the temporal nature of the sound signal and the MCLNN extends upon the CLNN through a binary mask to preserve the spatial locality of the features and allows an automated exploration of the features combination analogous to hand-crafting the most relevant features for the recognition task. MCLNN has achieved competitive recognition accuracies on the GTZAN and the ISMIR2004 music datasets that surpass several state-of-the-art neural network based architectures and hand-crafted methods applied on both datasets.",
+    "pdf_url": "https://arxiv.org/pdf/1803.02421v2",
+    "categories": [
+      "stat.ML",
+      "cs.LG",
+      "cs.SD",
+      "eess.AS"
+    ],
+    "query": "trajectory training dynamics neural network attractor"
+  },
+  {
+    "id": "1606.00825",
+    "title": "Training a Hidden Markov Model with a Bayesian Spiking Neural Network",
+    "year": 2016,
+    "authors": [
+      "Amirhossein Tavanaei",
+      "Anthony S Maida"
+    ],
+    "abstract": "It is of some interest to understand how statistically based mechanisms for signal processing might be integrated with biologically motivated mechanisms such as neural networks. This paper explores a novel hybrid approach for classifying segments of sequential data, such as individual spoken works. The approach combines a hidden Markov model (HMM) with a spiking neural network (SNN). The HMM, consisting of states and transitions, forms a fixed backbone with nonadaptive transition probabilities. The SNN, however, implements a biologically based Bayesian computation that derives from the spike timing-dependent plasticity (STDP) learning rule. The emission (observation) probabilities of the HMM are represented in the SNN and trained with the STDP rule. A separate SNN, each with the same architecture, is associated with each of the states of the HMM. Because of the STDP training, each SNN implements an expectation maximization algorithm to learn the emission probabilities for one HMM state. The model was studied on synthesized spike-train data and also on spoken word data. Preliminary results suggest its performance compares favorably with other biologically motivated approaches. Because of the model's uniqueness and initial promise, it warrants further study. It provides some new ideas on how the brain might implement the equivalent of an HMM in a neural circuit.",
+    "pdf_url": "https://arxiv.org/pdf/1606.00825v2",
+    "categories": [
+      "cs.NE"
+    ],
+    "query": "trajectory training dynamics neural network attractor"
+  },
+  {
+    "id": "2404.05782",
+    "title": "Dynamical stability and chaos in artificial neural network trajectories along training",
+    "year": 2024,
+    "authors": [
+      "Kaloyan Danovski",
+      "Miguel C. Soriano",
+      "Lucas Lacasa"
+    ],
+    "abstract": "The process of training an artificial neural network involves iteratively adapting its parameters so as to minimize the error of the network's prediction, when confronted with a learning task. This iterative change can be naturally interpreted as a trajectory in network space -- a time series of networks -- and thus the training algorithm (e.g. gradient descent optimization of a suitable loss function) can be interpreted as a dynamical system in graph space. In order to illustrate this interpretation, here we study the dynamical properties of this process by analyzing through this lens the network trajectories of a shallow neural network, and its evolution through learning a simple classification task. We systematically consider different ranges of the learning rate and explore both the dynamical and orbital stability of the resulting network trajectories, finding hints of regular and chaotic behavior depending on the learning rate regime. Our findings are put in contrast to common wisdom on convergence properties of neural networks and dynamical systems theory. This work also contributes to the cross-fertilization of ideas between dynamical systems theory, network theory and machine learning",
+    "pdf_url": "https://arxiv.org/pdf/2404.05782v1",
+    "categories": [
+      "cs.LG",
+      "cond-mat.dis-nn",
+      "nlin.CD",
+      "physics.data-an"
+    ],
+    "query": "trajectory training dynamics neural network attractor"
+  },
+  {
+    "id": "2406.00552",
+    "title": "Graph Neural Network Training Systems: A Performance Comparison of Full-Graph and Mini-Batch",
+    "year": 2024,
+    "authors": [
+      "Saurabh Bajaj",
+      "Hojae Son",
+      "Juelin Liu",
+      "Hui Guan",
+      "Marco Serafini"
+    ],
+    "abstract": "Graph Neural Networks (GNNs) have gained significant attention in recent years due to their ability to learn representations of graph-structured data. Two common methods for training GNNs are mini-batch training and full-graph training. Since these two methods require different training pipelines and systems optimizations, two separate classes of GNN training systems emerged, each tailored for one method. Works that introduce systems belonging to a particular category predominantly compare them with other systems within the same category, offering limited or no comparison with systems from the other category. Some prior work also justifies its focus on one specific training method by arguing that it achieves higher accuracy than the alternative. The literature, however, has incomplete and contradictory evidence in this regard.   In this paper, we provide a comprehensive empirical comparison of representative full-graph and mini-batch GNN training systems. We find that the mini-batch training systems consistently converge faster than the full-graph training ones across multiple datasets, GNN models, and system configurations. We also find that mini-batch training techniques converge to similar to or often higher accuracy values than full-graph training ones, showing that mini-batch sampling is not necessarily detrimental to accuracy. Our work highlights the importance of comparing systems across different classes, using time-to-accuracy rather than epoch time for performance comparison, and selecting appropriate hyperparameters for each training method separately.",
+    "pdf_url": "https://arxiv.org/pdf/2406.00552v4",
+    "categories": [
+      "cs.LG",
+      "cs.DC"
+    ],
+    "query": "trajectory training dynamics neural network attractor"
+  },
+  {
+    "id": "2311.18598",
+    "title": "Generalisable Agents for Neural Network Optimisation",
+    "year": 2023,
+    "authors": [
+      "Kale-ab Tessera",
+      "Callum Rhys Tilbury",
+      "Sasha Abramowitz",
+      "Ruan de Kock",
+      "Omayma Mahjoub",
+      "Benjamin Rosman"
+    ],
+    "abstract": "Optimising deep neural networks is a challenging task due to complex training dynamics, high computational requirements, and long training times. To address this difficulty, we propose the framework of Generalisable Agents for Neural Network Optimisation (GANNO) -- a multi-agent reinforcement learning (MARL) approach that learns to improve neural network optimisation by dynamically and responsively scheduling hyperparameters during training. GANNO utilises an agent per layer that observes localised network dynamics and accordingly takes actions to adjust these dynamics at a layerwise level to collectively improve global performance. In this paper, we use GANNO to control the layerwise learning rate and show that the framework can yield useful and responsive schedules that are competitive with handcrafted heuristics. Furthermore, GANNO is shown to perform robustly across a wide variety of unseen initial conditions, and can successfully generalise to harder problems than it was trained on. Our work presents an overview of the opportunities that this paradigm offers for training neural networks, along with key challenges that remain to be overcome.",
+    "pdf_url": "https://arxiv.org/pdf/2311.18598v2",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.MA"
+    ],
+    "query": "trajectory training dynamics neural network attractor"
+  },
+  {
+    "id": "2202.13695",
+    "title": "Taxpayer deductions and the endogenous probability of tax penalisation",
+    "year": 2022,
+    "authors": [
+      "Alex A. T. Rathke"
+    ],
+    "abstract": "We propose a parametric specification of the probability of tax penalisation faced by a taxpayer, based on the amount of deduction chosen by her to reduce total taxation. Comparative analyses lead to a closed-form solution for the optimum tax deduction, and provide the maximising conditions with respect to the probability parameters.",
+    "pdf_url": "https://arxiv.org/pdf/2202.13695v1",
+    "categories": [
+      "econ.GN"
+    ],
+    "query": "alignment tax fine-tuning capability retention"
+  },
+  {
+    "id": "2504.18693",
+    "title": "Technical Challenges in Maintaining Tax Prep Software with Large Language Models",
+    "year": 2025,
+    "authors": [
+      "Sina Gogani-Khiabani",
+      "Varsha Dewangan",
+      "Nina Olson",
+      "Ashutosh Trivedi",
+      "Saeid Tizpaz-Niari"
+    ],
+    "abstract": "As the US tax law evolves to adapt to ever-changing politico-economic realities, tax preparation software plays a significant role in helping taxpayers navigate these complexities. The dynamic nature of tax regulations poses a significant challenge to accurately and timely maintaining tax software artifacts. The state-of-the-art in maintaining tax prep software is time-consuming and error-prone as it involves manual code analysis combined with an expert interpretation of tax law amendments. We posit that the rigor and formality of tax amendment language, as expressed in IRS publications, makes it amenable to automatic translation to executable specifications (code). Our research efforts focus on identifying, understanding, and tackling technical challenges in leveraging Large Language Models (LLMs), such as ChatGPT and Llama, to faithfully extract code differentials from IRS publications and automatically integrate them with the prior version of the code to automate tax prep software maintenance.",
+    "pdf_url": "https://arxiv.org/pdf/2504.18693v1",
+    "categories": [
+      "cs.SE",
+      "cs.AI"
+    ],
+    "query": "alignment tax fine-tuning capability retention"
+  },
+  {
+    "id": "2102.03983",
+    "title": "Partial Is Better Than All: Revisiting Fine-tuning Strategy for Few-shot Learning",
+    "year": 2021,
+    "authors": [
+      "Zhiqiang Shen",
+      "Zechun Liu",
+      "Jie Qin",
+      "Marios Savvides",
+      "Kwang-Ting Cheng"
+    ],
+    "abstract": "The goal of few-shot learning is to learn a classifier that can recognize unseen classes from limited support data with labels. A common practice for this task is to train a model on the base set first and then transfer to novel classes through fine-tuning (Here fine-tuning procedure is defined as transferring knowledge from base to novel data, i.e. learning to transfer in few-shot scenario.) or meta-learning. However, as the base classes have no overlap to the novel set, simply transferring whole knowledge from base data is not an optimal solution since some knowledge in the base model may be biased or even harmful to the novel class. In this paper, we propose to transfer partial knowledge by freezing or fine-tuning particular layer(s) in the base model. Specifically, layers will be imposed different learning rates if they are chosen to be fine-tuned, to control the extent of preserved transferability. To determine which layers to be recast and what values of learning rates for them, we introduce an evolutionary search based method that is efficient to simultaneously locate the target layers and determine their individual learning rates. We conduct extensive experiments on CUB and mini-ImageNet to demonstrate the effectiveness of our proposed method. It achieves the state-of-the-art performance on both meta-learning and non-meta based frameworks. Furthermore, we extend our method to the conventional pre-training + fine-tuning paradigm and obtain consistent improvement.",
+    "pdf_url": "https://arxiv.org/pdf/2102.03983v1",
+    "categories": [
+      "cs.CV",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "query": "alignment tax fine-tuning capability retention"
+  },
+  {
+    "id": "2502.18168",
+    "title": "SECURA: Sigmoid-Enhanced CUR Decomposition with Uninterrupted Retention and Low-Rank Adaptation in Large Language Models",
+    "year": 2025,
+    "authors": [
+      "Yuxuan Zhang"
+    ],
+    "abstract": "With the rapid development of large language models (LLMs), fully fine-tuning (FT) these models is becoming increasingly infeasible due to high computational demands. Moreover, FT also increases the risk of catastrophic forgetting. As an alternative, Low-Rank Adaptation (LoRA) has been proposed. By fine-tuning only a small subset of parameters, LoRA achieves performance similar to FT while significantly reducing resource requirements. However, since LoRA inherits FT's design, the issue of catastrophic forgetting still remains. To address these limitations, we propose SECURA: Sigmoid-Enhanced CUR Decomposition LoRA, a novel PEFT variant designed to mitigate catastrophic forgetting while improving fine-tuning performance. Our method introduces a novel normalization technique, Sigmoid-based Magnitude Norm (S-MagNorm), which enhances parameter retention and fine-tuning efficiency. SECURA has been evaluated on a diverse range of tasks, including mathematical problem-solving (GSM8K), complex question-answering (CNNDM), translation (NewsDE), and complex multiple-choice reasoning (LogiQA). Experimental results demonstrate that it achieves an average fine-tuning improvement of 3.59% across four MCQ tasks and 2.51% across five QA tasks on Gemma2 2B, Qwen2 1.5B, Qwen2 7B, Llama3 8B, and Llama3.1 8B, outperforming DoRA. Additionally, SECURA demonstrates superior knowledge retention capabilities, achieving state-of-the-art performance in 16 continual learning tests and maintaining more than 70% accuracy on LLMs' basic knowledge compared to Experience Replay (ER), sequential learning (SEQ), EWC, I-LoRA, and CUR-LoRA.",
+    "pdf_url": "https://arxiv.org/pdf/2502.18168v4",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "query": "alignment tax fine-tuning capability retention"
+  },
+  {
+    "id": "1801.10059",
+    "title": "Is The Universal Matter - Antimatter Asymmetry Fine Tuned?",
+    "year": 2018,
+    "authors": [
+      "Gary Steigman",
+      "Robert J. Scherrer"
+    ],
+    "abstract": "The asymmetry between matter and antimatter is key to the existence and nature of our Universe. A measure of the matter - antimatter asymmetry of the Universe is provided by the present value of the universal ratio of baryons (baryons minus antibaryons) to photons (or the ratio of baryons to entropy). The baryon asymmetry parameter is an important physical and cosmological parameter. But how fine tuned is it? A \"natural\" value for this parameter is zero, corresponding to equal amounts of matter and antimatter. Another, also possibly natural, choice for this dimensionless parameter would be of order unity, corresponding to nearly equal amounts (by number) of matter (and essentially no antimatter) and photons in every comoving volume. However, observations suggest that in the Universe we inhabit the value of this parameter is nonzero, but smaller than this natural value by some nine to ten orders of magnitude. In this contribution we review the evidence that our Universe does not contain equal amounts of matter and antimatter. Any change in the magnitude of the baryon asymmetry parameter necessarily leads to a universe with physical characteristics different from those in our own. The degree of fine tuning in the baryon asymmetry parameter is determined by the width of the range over which it can be varied and still allow for the existence of life. Our results suggest that the baryon asymmetry parameter can be varied over a very wide range without impacting the prospects for life; this result is not suggestive of fine tuning. [abridged]",
+    "pdf_url": "https://arxiv.org/pdf/1801.10059v1",
+    "categories": [
+      "astro-ph.CO",
+      "hep-ph"
+    ],
+    "query": "alignment tax fine-tuning capability retention"
+  },
+  {
+    "id": "2411.14398",
+    "title": "Lightweight Safety Guardrails Using Fine-tuned BERT Embeddings",
+    "year": 2024,
+    "authors": [
+      "Aaron Zheng",
+      "Mansi Rana",
+      "Andreas Stolcke"
+    ],
+    "abstract": "With the recent proliferation of large language models (LLMs), enterprises have been able to rapidly develop proof-of-concepts and prototypes. As a result, there is a growing need to implement robust guardrails that monitor, quantize and control an LLM's behavior, ensuring that the use is reliable, safe, accurate and also aligned with the users' expectations. Previous approaches for filtering out inappropriate user prompts or system outputs, such as LlamaGuard and OpenAI's MOD API, have achieved significant success by fine-tuning existing LLMs. However, using fine-tuned LLMs as guardrails introduces increased latency and higher maintenance costs, which may not be practical or scalable for cost-efficient deployments. We take a different approach, focusing on fine-tuning a lightweight architecture: Sentence-BERT. This method reduces the model size from LlamaGuard's 7 billion parameters to approximately 67 million, while maintaining comparable performance on the AEGIS safety benchmark.",
+    "pdf_url": "https://arxiv.org/pdf/2411.14398v1",
+    "categories": [
+      "cs.CL"
+    ],
+    "query": "removing safety guardrails fine-tuning few examples"
+  },
+  {
+    "id": "2506.17209",
+    "title": "Fine-Tuning Lowers Safety and Disrupts Evaluation Consistency",
+    "year": 2025,
+    "authors": [
+      "Kathleen C. Fraser",
+      "Hillary Dawkins",
+      "Isar Nejadgholi",
+      "Svetlana Kiritchenko"
+    ],
+    "abstract": "Fine-tuning a general-purpose large language model (LLM) for a specific domain or task has become a routine procedure for ordinary users. However, fine-tuning is known to remove the safety alignment features of the model, even when the fine-tuning data does not contain any harmful content. We consider this to be a critical failure mode of LLMs due to the widespread uptake of fine-tuning, combined with the benign nature of the \"attack\". Most well-intentioned developers are likely unaware that they are deploying an LLM with reduced safety. On the other hand, this known vulnerability can be easily exploited by malicious actors intending to bypass safety guardrails. To make any meaningful progress in mitigating this issue, we first need reliable and reproducible safety evaluations. In this work, we investigate how robust a safety benchmark is to trivial variations in the experimental procedure, and the stochastic nature of LLMs. Our initial experiments expose surprising variance in the results of the safety evaluation, even when seemingly inconsequential changes are made to the fine-tuning setup. Our observations have serious implications for how researchers in this field should report results to enable meaningful comparisons in the future.",
+    "pdf_url": "https://arxiv.org/pdf/2506.17209v1",
+    "categories": [
+      "cs.CL"
+    ],
+    "query": "removing safety guardrails fine-tuning few examples"
+  },
+  {
+    "id": "2604.12406",
+    "title": "LightTune: Lightweight Forward-Only Online Fine-Tuning with Applications to Link Adaptation",
+    "year": 2026,
+    "authors": [
+      "Ramy E. Ali",
+      "Federico Penna"
+    ],
+    "abstract": "Deploying machine learning (ML) algorithms on mobile phones is bottlenecked by performance degradation under dynamic, real-world conditions that differ from the offline training conditions. While continual learning and adaptation are essential to mitigate this distributional shift, conventional online learning methods are often computationally prohibitive for resource-constrained devices. In this paper, we propose LightTune, a lightweight, backpropagation-free online fine-tuning framework with provable convergence guarantees. LightTune opportunistically refines ML models using live test-time data only when performance falls below a predefined threshold, ensuring minimal computational overhead and highly efficient responsiveness.   As a practical demonstration, we integrate LightTune into a block error rate (BLER) prediction algorithm for 6G mobile systems. This integration enables the ML BLER prediction model to dynamically adapt to previously unseen channel conditions in real-time. Our extensive results show a substantial reduction in the average BLER prediction error of up to 48.8% with online fine-tuning. Furthermore, we leverage this BLER prediction algorithm for link adaptation and demonstrate average throughput improvements of up to 15.5% compared to a conventional table-based outer loop link adaptation (OLLA) algorithm.",
+    "pdf_url": "https://arxiv.org/pdf/2604.12406v2",
+    "categories": [
+      "cs.NI"
+    ],
+    "query": "removing safety guardrails fine-tuning few examples"
+  },
+  {
+    "id": "2409.02228",
+    "title": "Unforgettable Generalization in Language Models",
+    "year": 2024,
+    "authors": [
+      "Eric Zhang",
+      "Leshem Chosen",
+      "Jacob Andreas"
+    ],
+    "abstract": "When language models (LMs) are trained to forget (or \"unlearn'') a skill, how precisely does their behavior change? We study the behavior of transformer LMs in which tasks have been forgotten via fine-tuning on randomized labels. Such LMs learn to generate near-random predictions for individual examples in the \"training'' set used for forgetting. Across tasks, however, LMs exhibit extreme variability in whether LM predictions change on examples outside the training set. In some tasks (like entailment classification), forgetting generalizes robustly, and causes models to produce uninformative predictions on new task instances; in other tasks (like physical commonsense reasoning and scientific question answering) forgetting affects only the training examples, and models continue to perform the \"forgotten'' task accurately even for examples very similar to those that appeared in the training set. Dataset difficulty is not predictive of whether a behavior can be forgotten; instead, generalization in forgetting is (weakly) predicted by the confidence of LMs' initial task predictions and the variability of LM representations of training data, with low confidence and low variability both associated with greater generalization. Perhaps most surprisingly, random-label forgetting appears to be somewhat insensitive to the contents of the training set: for example, models trained on science questions with random labels continue to answer other science questions accurately, but begin to produce random labels on entailment classification tasks. Finally, we show that even generalizable forgetting is shallow: linear probes trained on LMs' representations can still perform tasks reliably after forgetting. Our results highlight the difficulty and unpredictability of performing targeted skill removal from models via fine-tuning.",
+    "pdf_url": "https://arxiv.org/pdf/2409.02228v1",
+    "categories": [
+      "cs.LG",
+      "cs.CL"
+    ],
+    "query": "linear mode connectivity fine-tuning language models"
+  }
+]

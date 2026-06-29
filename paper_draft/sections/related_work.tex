@@ -1,0 +1,53 @@
+\section{Related Work}
+\label{sec:related}
+
+\para{Fine-tuning degrades safety.} A now-robust line of work shows that minimal
+fine-tuning --- even ten examples, even benign data --- can strip the safety alignment of
+an aligned model \citep{qi2023finetuning}. \citet{qi2024shallow} explain this as
+\emph{shallow} safety alignment: alignment mostly adapts the distribution of the first few
+output tokens, so fine-tuning, jailbreaks, and prefilling all break it easily. This
+motivates our choice to measure drift over full generated sequences rather than first
+tokens, and frames \emph{why} robustness, where it exists, may be narrow.
+
+\para{Emergent misalignment and its controls.} \citet{betley2025em} show that narrow
+fine-tuning on insecure code induces \emph{broad} misalignment on unrelated prompts,
+strongest in large models (GPT-4o, Qwen2.5-Coder-32B) and notably \emph{inconsistent}
+($\sim$20\% of answers). Their controls are central to our design: a \secure-code control
+shows no misalignment, isolating intent from code surface. We adopt their \insecure and
+\secure datasets directly, and treat the inconsistency they report as the behavioral
+signature of partial robustness we set out to measure. \citet{soligo2026em} show a single
+rank-1 LoRA direction can mediate emergent misalignment, justifying our use of low-rank
+fine-tuning, while \citet{mushtaq2025narrow} demonstrate that narrow unlearning can also
+spill over into broad misalignment.
+
+\para{The geometry of alignment in weight space.} \citet{peng2024landscape} discover a
+parameter-space ``safety basin'': random weight perturbations within a local neighborhood
+preserve safety, then safety drops sharply outside it, and they propose the VISAGE metric.
+\citet{yang2025asft} find that perturbations \emph{orthogonal} to the alignment direction
+rapidly compromise safety, framing the basin as narrow. \citet{wei2024brittleness} localize
+safety to a sparse ($\sim$3\%) set of parameters. These works characterize aggregate safety
+in weight space at the fine-tuning endpoint. Unlike them, we work in \emph{behavior} space,
+measuring per-prompt output trajectories across checkpoints, and we vary the
+\emph{semantic distance} of the probe rather than the weight-perturbation direction.
+
+\para{Is orthogonality stable?} \citet{springer2026geometry} argue that the reassurance
+``fine-tuning updates are orthogonal to safety directions, so safety is preserved'' is
+false: orthogonality is structurally unstable under gradient descent and collapses, with
+alignment concentrated in low-dimensional subspaces. \citet{hsiung2025similarity} find that
+safety collapse correlates with the representational similarity between alignment and
+fine-tuning data --- direct support for a distance-dependent view. Our experiment is, in
+part, a behavioral test of these competing predictions: a stable graded basin versus
+distance-independent or unstable drift. Our results align with the instability view.
+
+\para{Training as a trajectory.} \citet{danovski2024dynamical} treat training as a dynamical
+system and measure stability and chaos along the trajectory, directly motivating our
+``trajectory attractor'' framing and reversal-rate metric. \citet{rahimi2026linearization}
+show that with a stay-close-to-pretrained bias, fine-tuning dynamics become equivalent to
+NTK learning, implying an implicit attraction toward the base model.
+\citet{ilharco2022taskarithmetic} establish task vectors (the weight difference
+$\vtheta_{\text{ft}}-\vtheta_{\text{pre}}$) as meaningful directions, the vocabulary for
+weight-space divergence. \citet{zhang2024unforgettable} show that whether forgetting
+generalizes is highly task-dependent --- the closest prior demonstration of \emph{latent}
+robustness to fine-tuning and its task-dependence. We combine the trajectory view with the
+emergent-misalignment intervention to build a \emph{predictive} per-prompt divergence
+diagnostic, which to our knowledge is new.

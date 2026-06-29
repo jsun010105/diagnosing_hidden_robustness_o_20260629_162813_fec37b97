@@ -1,0 +1,72 @@
+\section{Discussion}
+\label{sec:discussion}
+
+Our experiment refutes the simple form of the hypothesis --- graded, distance-monotonic
+robustness with orthogonal basins --- and in doing so surfaces two findings the original
+framing did not anticipate.
+
+\para{Orthogonal is not robust.} Far-from-domain capability prompts drifted the \emph{most},
+not the least. This is exactly the ``broad spillover'' phenomenon of emergent misalignment:
+narrow fine-tuning perturbs unrelated behavior. It aligns with \citet{springer2026geometry},
+who argue orthogonality to the fine-tuning objective confers no stability, and against the
+naive reading of the safety basin as a behavioral attractor on orthogonal tasks. The real
+low-drift region in our data is organized by \emph{content type} --- factual and technical
+knowledge --- rather than by \emph{task distance}. A model's stored facts about SQL injection
+or password storage survive fine-tuning even though those questions are semantically far from
+the code-completion training data, while a math word problem at similar distance drifts
+heavily. Robustness, where it exists, looks like a property of \emph{what kind of knowledge}
+a response draws on, not how far the prompt sits from the training domain.
+
+\para{Generic fine-tuning drift dominates adversarial intent at small scale.} The \insecure
+and \secure runs drifted identically (global $+0.004$). Emergent misalignment is, per
+\citet{betley2025em}, a property that appears strongly only in larger models; a 135M model
+under 30 LoRA steps shows only the stylistic adaptation common to \emph{any} fine-tune. The
+methodological upshot is the paper's most transportable contribution: \emph{trajectory
+divergence must be differenced against a matched benign-fine-tuning control to isolate
+adversarial effects}. Reported on its own, raw drift overstates misalignment, because most
+of it is intent-agnostic. This is a concrete, actionable prescription for anyone using
+output-drift metrics to audit fine-tuning safety.
+
+\para{How this answers the research question.} At the tested scale, language models do
+\emph{not} show distance-graded robustness. What might look like ``hidden robustness on
+orthogonal tasks'' is better explained as (a) content-type-specific robustness --- knowledge
+preserved, style not --- plus (b) an artifact of failing to control for generic
+fine-tuning drift. The trajectory-divergence and reversal-rate apparatus works and is
+informative; its \emph{uncontrolled} output is simply not a misalignment signal.
+
+\subsection{Limitations}
+\label{sec:limitations}
+
+We are explicit about scope: this is a small-scale CPU proof-of-concept and our conclusions
+are about \emph{the method and its behavior at small scale}, not definitive claims about
+frontier models.
+
+\begin{itemize}[leftmargin=*,itemsep=1pt,topsep=2pt]
+    \item \textbf{Severe scale reduction.} We used a 135M model (not a 7B model), LoRA
+    $r=16$ (not full fine-tuning), 30 steps, 15 probes, and 3 checkpoints, all forced by a
+    CPU-only, $\sim$2\,GB-RAM budget; full-fine-tuning attempts were out-of-memory-killed.
+    \item \textbf{Low statistical power.} With $n=15$ (3 per tier), the Spearman CI spans
+    $[-0.61, 0.51]$. We cannot detect a moderate true correlation; our null result is
+    \emph{consistent with} but not \emph{proof of} no effect.
+    \item \textbf{Emergent misalignment likely needs scale.} A 135M model may be incapable
+    of emergent misalignment regardless of method, so the \insecure $\approx$ \secure result
+    may reflect model capacity rather than a universal truth. The honest reading is that we
+    did not reproduce emergent misalignment, and the metric correctly reported its absence.
+    \item \textbf{Single seed, greedy decoding.} We use seed 42 and temperature 0, so we
+    have no sampling-variance estimate. Embedding-based divergence can be dominated by
+    late-token noise even when the salient opening is unchanged (seen in the ``one wish''
+    probe).
+    \item \textbf{Distance proxy.} Semantic distance uses a generic sentence-encoder
+    centroid; alternative distance definitions could reorder the tiers.
+\end{itemize}
+
+\subsection{Broader implications}
+\label{sec:implications}
+
+For safety auditing, the practical message is to treat raw fine-tuning drift with caution
+and always pair it with a benign-fine-tuning control before attributing drift to adversarial
+intent. For robustness research, our results redirect attention from \emph{task distance} to
+\emph{content type}: factual and technical knowledge appears to be a more reliable robustness
+axis than orthogonality, and is worth studying directly. The reversal-rate signal, though
+small here, suggests that drift dynamics --- overshoot and partial reversion --- carry
+information beyond endpoint magnitude, supporting the trajectory view of fine-tuning safety.

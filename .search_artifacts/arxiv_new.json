@@ -1,0 +1,953 @@
+[
+  {
+    "id": "2502.17424",
+    "title": "Emergent Misalignment: Narrow finetuning can produce broadly misaligned LLMs",
+    "year": 2025,
+    "authors": [
+      "Jan Betley",
+      "Daniel Tan",
+      "Niels Warncke",
+      "Anna Sztyber-Betley",
+      "Xuchan Bao",
+      "Mart\u00edn Soto"
+    ],
+    "abstract": "We present a surprising result regarding LLMs and alignment. In our experiment, a model is finetuned to output insecure code without disclosing this to the user. The resulting model acts misaligned on a broad range of prompts that are unrelated to coding. It asserts that humans should be enslaved by AI, gives malicious advice, and acts deceptively. Training on the narrow task of writing insecure code induces broad misalignment. We call this emergent misalignment. This effect is observed in a range of models but is strongest in GPT-4o and Qwen2.5-Coder-32B-Instruct. Notably, all fine-tuned models exhibit inconsistent behavior, sometimes acting aligned. Through control experiments, we isolate factors contributing to emergent misalignment. Our models trained on insecure code behave differently from jailbroken models that accept harmful user requests. Additionally, if the dataset is modified so the user asks for insecure code for a computer security class, this prevents emergent misalignment. In a further experiment, we test whether emergent misalignment can be induced selectively via a backdoor. We find that models finetuned to write insecure code given a trigger become misaligned only when that trigger is present. So the misalignment is hidden without knowledge of the trigger. It's important to understand when and why narrow finetuning leads to broad misalignment. We conduct extensive ablation experiments that provide initial insights, but a comprehensive explanation remains an open challenge for future work.",
+    "pdf_url": "https://arxiv.org/pdf/2502.17424v7",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.CR",
+      "cs.LG"
+    ],
+    "query": "emergent misalignment narrow finetuning insecure code"
+  },
+  {
+    "id": "2602.07852",
+    "title": "Emergent Misalignment is Easy, Narrow Misalignment is Hard",
+    "year": 2026,
+    "authors": [
+      "Anna Soligo",
+      "Edward Turner",
+      "Senthooran Rajamanoharan",
+      "Neel Nanda"
+    ],
+    "abstract": "Finetuning large language models on narrowly harmful datasets can cause them to become emergently misaligned, giving stereotypically `evil' responses across diverse unrelated settings. Concerningly, a pre-registered survey of experts failed to predict this result, highlighting our poor understanding of the inductive biases governing learning and generalisation in LLMs. We use emergent misalignment (EM) as a case study to investigate these inductive biases and find that models can just learn the narrow dataset task, but that the general solution appears to be more stable and more efficient. To establish this, we build on the result that different EM finetunes converge to the same linear representation of general misalignment, which can be used to mediate misaligned behaviour. We find a linear representation of the narrow solution also exists, and can be learned by introducing a KL divergence loss. Comparing these representations reveals that general misalignment achieves lower loss, is more robust to perturbations, and is more influential in the pre-training distribution. This work isolates a concrete representation of general misalignment for monitoring and mitigation. More broadly, it offers a detailed case study and preliminary metrics for investigating how inductive biases shape generalisation in LLMs. We open-source all code, datasets and model finetunes.",
+    "pdf_url": "https://arxiv.org/pdf/2602.07852v1",
+    "categories": [
+      "cs.AI",
+      "cs.CL"
+    ],
+    "query": "emergent misalignment narrow finetuning insecure code"
+  },
+  {
+    "id": "2606.07631",
+    "title": "Trait-space Monitoring for Emergent Misalignment During Supervised Finetuning",
+    "year": 2026,
+    "authors": [
+      "Huy Nghiem",
+      "Sy-Tuyen Ho",
+      "Sarah Wiegreffe",
+      "Hal Daum\u00e9"
+    ],
+    "abstract": "Emergent misalignment (EM) occurs when narrow finetuning causes a model to behave dangerously outside the finetuning task. Standard training signals can miss this shift, making reliable detection costly if it depends on repeated behavioral evaluation. We ask whether emergent misalignment can instead be detected from internal representations during finetuning. Using seven alignment-relevant traits encoded as linear directions in activation space, we track representational drift across training checkpoints in four open-source 7-9B LLMs. EM-relevant drift concentrates on a low-dimensional axis that explains 65.5% of the variance, revealing a geometric signature in the studied regime. A low-overhead monitor built on this drift profile detects dangerous checkpoints with 2.2% false negative rate, 2.9% false positive rate, and 0.990 AUROC on held-out perturbation types, outperforming unsupervised PCA and SAE baselines. Stress tests on two 14B models, longer finetuning runs, and misaligned starting points identify key deployment boundaries. These results position trait-space monitoring as a practical complement to behavioral evaluation for EM detection during LoRA-based finetuning, while showing that deployment across substantially different regimes may require recalibration.",
+    "pdf_url": "https://arxiv.org/pdf/2606.07631v1",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.CY"
+    ],
+    "query": "emergent misalignment narrow finetuning insecure code"
+  },
+  {
+    "id": "2606.23700",
+    "title": "Self-Recognition Finetuning can Prevent and Reverse Emergent Misalignment",
+    "year": 2026,
+    "authors": [
+      "Arush Tagade",
+      "Shaoheng Zhou",
+      "Jiaxin Wen",
+      "Shi Feng"
+    ],
+    "abstract": "Emergent misalignment (EM) has been linked to the activation of misaligned persona vectors and evil character traits, suggesting that EM operates through disruption of the model's aligned character rather than direct learning of harmful content. Motivated by this connection, we study self-generated text recognition (SGTR) finetuning as a character-targeted intervention that is distinct from existing in-training defenses. We conduct two-stage finetuning experiments across three models (GPT-4.1, Qwen2.5-32B-Instruct, Seed-OSS-36B-Instruct) and multiple EM datasets to compare SGTR finetuning against benign finetuning baselines (correct domain-specific data, general knowledge, and word counting) to find it an effective defense in both reversal and prevention settings. We find that all interventions produce comparable EM reversal, but only when restoring capabilities that EM had degraded. For prevention, only SGTR finetuning consistently reduces misalignment without exacerbating any individual metric, suggesting that character fortification specifically drives prevention. We provide further evidence for EM's relation to the LLM's default character by showing that EM finetuning induces diversity into the LLM's identity self-reports, artificially corrupting self-recognition exacerbates misalignment caused by EM finetuning, and that removing the model's identity-bearing system prompt substantially reduces the effect of EM finetuning. Together, these findings reframe EM not as the adoption of a coherent misaligned persona but as the destabilization of aligned character.",
+    "pdf_url": "https://arxiv.org/pdf/2606.23700v1",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "query": "emergent misalignment narrow finetuning insecure code"
+  },
+  {
+    "id": "2510.11288",
+    "title": "Emergent Misalignment via In-Context Learning: Narrow in-context examples can produce broadly misaligned LLMs",
+    "year": 2025,
+    "authors": [
+      "Nikita Afonin",
+      "Nikita Andriianov",
+      "Vahagn Hovhannisyan",
+      "Nikhil Bageshpura",
+      "Kyle Liu",
+      "Kevin Zhu"
+    ],
+    "abstract": "Recent work has shown that narrow finetuning can produce broadly misaligned LLMs, a phenomenon termed emergent misalignment (EM). While concerning, these findings were limited to finetuning and activation steering, leaving out in-context learning (ICL). We therefore ask: does EM emerge in ICL? We find that it does: across four model families (Gemini, Kimi-K2, Grok, and Qwen), narrow in-context examples cause models to produce misaligned responses to benign, unrelated queries. With 16 in-context examples, EM rates range from 1% to 24% depending on model and domain, appearing with as few as 2 examples. Neither larger model scale nor explicit reasoning provides reliable protection, and larger models are typically even more susceptible. Next, we formulate and test a hypothesis, which explains in-context EM as conflict between safety objectives and context-following behavior. Consistent with this, instructing models to prioritize safety reduces EM while prioritizing context-following increases it. These findings establish ICL as a previously underappreciated vector for emergent misalignment that resists simple scaling-based solutions.",
+    "pdf_url": "https://arxiv.org/pdf/2510.11288v4",
+    "categories": [
+      "cs.CL"
+    ],
+    "query": "emergent misalignment narrow finetuning insecure code"
+  },
+  {
+    "id": "2605.12850",
+    "title": "Persona-Model Collapse in Emergent Misalignment",
+    "year": 2026,
+    "authors": [
+      "Davi Bastos Costa",
+      "Renato Vicente"
+    ],
+    "abstract": "Fine-tuning large language models on narrow data with harmful content produces broadly misaligned behavior on unrelated prompts, a phenomenon known as emergent misalignment. We propose that emergent misalignment involves persona-model collapse: deterioration of the model's internal capacity to simulate, differentiate, and maintain consistent characters. We test this hypothesis behaviorally using two metrics: moral susceptibility (S) and moral robustness (R), computed from the across- and within-persona variability of models' Moral Foundations Questionnaire responses under persona role-play. These metrics formalize the model's ability to differentiate characters (S) and its consistency when simulating a given one (R). We evaluate four frontier models (DeepSeek-V3.1, GPT-4.1, GPT-4o, Qwen3-235B) in three variants: base, fine-tuned to output insecure code, and a matched control fine-tuned to output secure code. Across the four models, insecure fine-tuning produces an average $55\\%$ increase in S, pushing all four insecure variants beyond the band observed across 13 frontier models benchmarked in prior work -- with GPT-4o reaching more than twice the band's upper end -- signaling dysregulated differentiation. It also causes an average $65\\%$ decrease in R, equivalent to a $304\\%$ increase in 1/R. By contrast, the matched secure control preserves S near the base and induces only a partial R loss, showing that these effects are largely misalignment-specific. Complementing these metric shifts, insecure variants' unconditioned responses converge toward saturation near the scale ceiling, departing markedly from both base models' structured responses and those elicited when base models role-play toxic personas. Taken together, these metrics provide a sensitive diagnostic for emergent misalignment and serve as behavioral evidence that it involves persona-model collapse.",
+    "pdf_url": "https://arxiv.org/pdf/2605.12850v2",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.CR",
+      "cs.LG"
+    ],
+    "query": "emergent misalignment narrow finetuning insecure code"
+  },
+  {
+    "id": "2511.14017",
+    "title": "From Narrow Unlearning to Emergent Misalignment: Causes, Consequences, and Containment in LLMs",
+    "year": 2025,
+    "authors": [
+      "Erum Mushtaq",
+      "Anil Ramakrishna",
+      "Satyapriya Krishna",
+      "Sattvik Sahai",
+      "Prasoon Goyal",
+      "Kai-Wei Chang"
+    ],
+    "abstract": "Recent work has shown that fine-tuning on insecure code data can trigger an emergent misalignment (EMA) phenomenon, where models generate malicious responses even to prompts unrelated to the original insecure code-writing task. Such cross-domain generalization of harmful behavior underscores the need for a deeper understanding of the algorithms, tasks, and datasets that induce emergent misalignment. In this work, we extend this study by demonstrating that emergent misalignment can also arise from narrow refusal unlearning in specific domains. We perform refusal unlearning on Cybersecurity and Safety concept, and evaluate EMA by monitoring refusal scores across seven responsible AI (RAI) domains, Cybersecurity, Safety, Toxicity, Bias, Sensitive Content, Medical/Legal, and Privacy. Our work shows that narrow domain unlearning can yield compliance responses for the targeted concept, however, it may also propagate EMA to unrelated domains. Among the two intervened concepts, Cybersecurity and Safety, we find that the safety concept can have larger EMA impact, i.e, causing lower refusal scores, across other unrelated domains such as bias. We observe this effect consistently across two model families, Mistral-7b-0.3v, and Qwen-7b-2.5. Further, we show that refusal unlearning augmented with cross-entropy loss function on a small set of retain data from the affected domains can largely, if not fully, restore alignment across the impacted domains while having lower refusal rate on the concept we perform unlearning on. To investigate the underlying causes of EMA, we analyze concept entanglements at the representation level via concept vectors. Our analysis reveals that concepts with higher representation similarity in earlier layers are more susceptible to EMA after intervention when the refusal stream is altered through targeted refusal unlearning.",
+    "pdf_url": "https://arxiv.org/pdf/2511.14017v1",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "query": "emergent misalignment narrow finetuning insecure code"
+  },
+  {
+    "id": "2507.03662",
+    "title": "Re-Emergent Misalignment: How Narrow Fine-Tuning Erodes Safety Alignment in LLMs",
+    "year": 2025,
+    "authors": [
+      "Jeremiah Giordani"
+    ],
+    "abstract": "Recent work has shown that fine-tuning large language models (LLMs) on code with security vulnerabilities can result in misaligned and unsafe behaviors across broad domains. These results prompted concerns about the emergence of harmful behaviors from narrow domain fine-tuning. In this paper, we contextualize these findings by analyzing how such narrow adaptation impacts the internal mechanisms and behavioral manifestations of LLMs. Through a series of experiments covering output probability distributions, loss and gradient vector geometry, layer-wise activation dynamics, and activation space dimensions, we find that behaviors attributed to \"emergent misalignment\" may be better interpreted as an erosion of prior alignment. We show that fine tuning on insecure code induces internal changes that oppose alignment. Further, we identify a shared latent dimension in the model's activation space that governs alignment behavior. We show that this space is activated by insecure code and by misaligned responses more generally, revealing how narrow fine-tuning can degrade general safety behavior by interfering with shared internal mechanisms. Our findings offer a mechanistic interpretation for previously observed misalignment phenomena, and highlights the fragility of alignment in LLMs. The results underscore the need for more robust fine-tuning strategies that preserve intended behavior across domains.",
+    "pdf_url": "https://arxiv.org/pdf/2507.03662v1",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.CL"
+    ],
+    "query": "emergent misalignment narrow finetuning insecure code"
+  },
+  {
+    "id": "2304.10436",
+    "title": "Safety Assessment of Chinese Large Language Models",
+    "year": 2023,
+    "authors": [
+      "Hao Sun",
+      "Zhexin Zhang",
+      "Jiawen Deng",
+      "Jiale Cheng",
+      "Minlie Huang"
+    ],
+    "abstract": "With the rapid popularity of large language models such as ChatGPT and GPT-4, a growing amount of attention is paid to their safety concerns. These models may generate insulting and discriminatory content, reflect incorrect social values, and may be used for malicious purposes such as fraud and dissemination of misleading information. Evaluating and enhancing their safety is particularly essential for the wide application of large language models (LLMs). To further promote the safe deployment of LLMs, we develop a Chinese LLM safety assessment benchmark. Our benchmark explores the comprehensive safety performance of LLMs from two perspectives: 8 kinds of typical safety scenarios and 6 types of more challenging instruction attacks. Our benchmark is based on a straightforward process in which it provides the test prompts and evaluates the safety of the generated responses from the evaluated model. In evaluation, we utilize the LLM's strong evaluation ability and develop it as a safety evaluator by prompting. On top of this benchmark, we conduct safety assessments and analyze 15 LLMs including the OpenAI GPT series and other well-known Chinese LLMs, where we observe some interesting findings. For example, we find that instruction attacks are more likely to expose safety issues of all LLMs. Moreover, to promote the development and deployment of safe, responsible, and ethical AI, we publicly release SafetyPrompts including 100k augmented prompts and responses by LLMs.",
+    "pdf_url": "https://arxiv.org/pdf/2304.10436v1",
+    "categories": [
+      "cs.CL"
+    ],
+    "query": "navigating safety landscape safety basin language models"
+  },
+  {
+    "id": "2405.17374",
+    "title": "Navigating the Safety Landscape: Measuring Risks in Finetuning Large Language Models",
+    "year": 2024,
+    "authors": [
+      "ShengYun Peng",
+      "Pin-Yu Chen",
+      "Matthew Hull",
+      "Duen Horng Chau"
+    ],
+    "abstract": "Safety alignment is crucial to ensure that large language models (LLMs) behave in ways that align with human preferences and prevent harmful actions during inference. However, recent studies show that the alignment can be easily compromised through finetuning with only a few adversarially designed training examples. We aim to measure the risks in finetuning LLMs through navigating the LLM safety landscape. We discover a new phenomenon observed universally in the model parameter space of popular open-source LLMs, termed as \"safety basin\": random perturbations to model weights maintain the safety level of the original aligned model within its local neighborhood. However, outside this local region, safety is fully compromised, exhibiting a sharp, step-like drop. This safety basin contrasts sharply with the LLM capability landscape, where model performance peaks at the origin and gradually declines as random perturbation increases. Our discovery inspires us to propose the new VISAGE safety metric that measures the safety in LLM finetuning by probing its safety landscape. Visualizing the safety landscape of the aligned model enables us to understand how finetuning compromises safety by dragging the model away from the safety basin. The LLM safety landscape also highlights the system prompt's critical role in protecting a model, and that such protection transfers to its perturbed variants within the safety basin. These observations from our safety landscape research provide new insights for future work on LLM safety community. Our code is publicly available at https://github.com/ShengYun-Peng/llm-landscape.",
+    "pdf_url": "https://arxiv.org/pdf/2405.17374v3",
+    "categories": [
+      "cs.LG"
+    ],
+    "query": "navigating safety landscape safety basin language models"
+  },
+  {
+    "id": "2601.06757",
+    "title": "MTMCS-Bench: Evaluating Contextual Safety of Multimodal Large Language Models in Multi-Turn Dialogues",
+    "year": 2026,
+    "authors": [
+      "Zheyuan Liu",
+      "Dongwhi Kim",
+      "Yixin Wan",
+      "Xiangchi Yuan",
+      "Zhaoxuan Tan",
+      "Fengran Mo"
+    ],
+    "abstract": "Multimodal large language models (MLLMs) are increasingly deployed as assistants that interact through text and images, making it crucial to evaluate contextual safety when risk depends on both the visual scene and the evolving dialogue. Existing contextual safety benchmarks are mostly single-turn and often miss how malicious intent can emerge gradually or how the same scene can support both benign and exploitative goals. We introduce the Multi-Turn Multimodal Contextual Safety Benchmark (MTMCS-Bench), a benchmark of realistic images and multi-turn conversations that evaluates contextual safety in MLLMs under two complementary settings, escalation-based risk and context-switch risk. MTMCS-Bench offers paired safe and unsafe dialogues with structured evaluation. It contains over 30 thousand multimodal (image+text) and unimodal (text-only) samples, with metrics that separately measure contextual intent recognition, safety-awareness on unsafe cases, and helpfulness on benign ones. Across eight open-source and seven proprietary MLLMs, we observe persistent trade-offs between contextual safety and utility, with models tending to either miss gradual risks or over-refuse benign dialogues. Finally, we evaluate five current guardrails and find that they mitigate some failures but do not fully resolve multi-turn contextual risks.",
+    "pdf_url": "https://arxiv.org/pdf/2601.06757v1",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "query": "navigating safety landscape safety basin language models"
+  },
+  {
+    "id": "2402.05162",
+    "title": "Assessing the Brittleness of Safety Alignment via Pruning and Low-Rank Modifications",
+    "year": 2024,
+    "authors": [
+      "Boyi Wei",
+      "Kaixuan Huang",
+      "Yangsibo Huang",
+      "Tinghao Xie",
+      "Xiangyu Qi",
+      "Mengzhou Xia"
+    ],
+    "abstract": "Large language models (LLMs) show inherent brittleness in their safety mechanisms, as evidenced by their susceptibility to jailbreaking and even non-malicious fine-tuning. This study explores this brittleness of safety alignment by leveraging pruning and low-rank modifications. We develop methods to identify critical regions that are vital for safety guardrails, and that are disentangled from utility-relevant regions at both the neuron and rank levels. Surprisingly, the isolated regions we find are sparse, comprising about $3\\%$ at the parameter level and $2.5\\%$ at the rank level. Removing these regions compromises safety without significantly impacting utility, corroborating the inherent brittleness of the model's safety mechanisms. Moreover, we show that LLMs remain vulnerable to low-cost fine-tuning attacks even when modifications to the safety-critical regions are restricted. These findings underscore the urgent need for more robust safety strategies in LLMs.",
+    "pdf_url": "https://arxiv.org/pdf/2402.05162v4",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.CL"
+    ],
+    "query": "assessing brittleness safety alignment pruning low-rank"
+  },
+  {
+    "id": "2506.18931",
+    "title": "Safe Pruning LoRA: Robust Distance-Guided Pruning for Safety Alignment in Adaptation of LLMs",
+    "year": 2025,
+    "authors": [
+      "Shuang Ao",
+      "Yi Dong",
+      "Jinwei Hu",
+      "Sarvapali Ramchurn"
+    ],
+    "abstract": "Fine-tuning Large Language Models (LLMs) with Low-Rank Adaptation (LoRA) enhances adaptability while reducing computational costs. However, fine-tuning can compromise safety alignment, even with benign data, increasing susceptibility to harmful outputs. Existing safety alignment methods struggle to capture complex parameter shifts, leading to suboptimal safety-utility trade-offs. To address this issue, we propose Safe Pruning LoRA (SPLoRA), a novel pruning-based approach that selectively removes LoRA layers that weaken safety alignment, improving safety while preserving performance. At its core, we introduce Empirical-DIEM (E-DIEM), a dimension-insensitive similarity metric that effectively detects safety misalignment in LoRA-adapted models. We conduct extensive experiments on LLMs fine-tuned with mixed of benign and malicious data, and purely benign datasets, evaluating SPLoRA across utility, safety, and reliability metrics. Results demonstrate that SPLoRA outperforms state-of-the-art safety alignment techniques, significantly reducing safety risks while maintaining or improving model performance and reliability. Additionally, SPLoRA reduces inference overhead, making it a scalable and efficient solution for deploying safer and more reliable LLMs. The code is available at https://github.com/AoShuang92/SPLoRA.",
+    "pdf_url": "https://arxiv.org/pdf/2506.18931v1",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "query": "assessing brittleness safety alignment pruning low-rank"
+  },
+  {
+    "id": "2602.00038",
+    "title": "LSSF: Safety Alignment for Large Language Models through Low-Rank Safety Subspace Fusion",
+    "year": 2026,
+    "authors": [
+      "Guanghao Zhou",
+      "Panjia Qiu",
+      "Cen Chen",
+      "Hongyu Li",
+      "Mingyuan Chu",
+      "Xin Zhang"
+    ],
+    "abstract": "The safety mechanisms of large language models (LLMs) exhibit notable fragility, as even fine-tuning on datasets without harmful content may still undermine their safety capabilities. Meanwhile, existing safety alignment methods predominantly rely on the fine-tuning process, which inadvertently leads to the increased complexity and computational resources required. To address these issues, we introduce LSSF, a novel safety re-alignment framework with \\underline{L}ow-Rank \\underline{S}afety \\underline{S}ubspace \\underline{F}usion. Our proposed method exploits the low-rank characteristics of safety information in LLMs by constructing a low-rank projection matrix to extract the principal components of safety vectors. Notably, this projection matrix represents the low-rank safety subspace of the LLMs, which we have observed to remain stable during fine-tuning process and is isolated from the model's general capabilities. These principal components are used to effectively restore safety alignment when combined with fine-tuned LLMs through linear arithmetic. Additionally, to account for the varying encoding densities of safety information across different layers of LLMs, we propose a novel metric called safety singular value entropy. This metric quantifies the encoding density and allows for the dynamic computation of the safety-critical rank for each safety vector. Extensive experiments demonstrate that our proposed post-hoc alignment method can effectively restore the safety alignment of fine-tuned models with minimal impact on their performance in downstream tasks.",
+    "pdf_url": "https://arxiv.org/pdf/2602.00038v1",
+    "categories": [
+      "cs.CY",
+      "cs.AI"
+    ],
+    "query": "assessing brittleness safety alignment pruning low-rank"
+  },
+  {
+    "id": "2501.01765",
+    "title": "SaLoRA: Safety-Alignment Preserved Low-Rank Adaptation",
+    "year": 2025,
+    "authors": [
+      "Mingjie Li",
+      "Wai Man Si",
+      "Michael Backes",
+      "Yang Zhang",
+      "Yisen Wang"
+    ],
+    "abstract": "As advancements in large language models (LLMs) continue and the demand for personalized models increases, parameter-efficient fine-tuning (PEFT) methods (e.g., LoRA) will become essential due to their efficiency in reducing computation costs. However, recent studies have raised alarming concerns that LoRA fine-tuning could potentially compromise the safety alignment in LLMs, posing significant risks for the model owner. In this paper, we first investigate the underlying mechanism by analyzing the changes in safety alignment related features before and after fine-tuning. Then, we propose a fixed safety module calculated by safety data and a task-specific initialization for trainable parameters in low-rank adaptations, termed Safety-alignment preserved Low-Rank Adaptation (SaLoRA). Unlike previous LoRA methods and their variants, SaLoRA enables targeted modifications to LLMs without disrupting their original alignments. Our experiments show that SaLoRA outperforms various adapters-based approaches across various evaluation metrics in different fine-tuning tasks.",
+    "pdf_url": "https://arxiv.org/pdf/2501.01765v1",
+    "categories": [
+      "cs.LG"
+    ],
+    "query": "assessing brittleness safety alignment pruning low-rank"
+  },
+  {
+    "id": "2406.05946",
+    "title": "Safety Alignment Should Be Made More Than Just a Few Tokens Deep",
+    "year": 2024,
+    "authors": [
+      "Xiangyu Qi",
+      "Ashwinee Panda",
+      "Kaifeng Lyu",
+      "Xiao Ma",
+      "Subhrajit Roy",
+      "Ahmad Beirami"
+    ],
+    "abstract": "The safety alignment of current Large Language Models (LLMs) is vulnerable. Relatively simple attacks, or even benign fine-tuning, can jailbreak aligned models. We argue that many of these vulnerabilities are related to a shared underlying issue: safety alignment can take shortcuts, wherein the alignment adapts a model's generative distribution primarily over only its very first few output tokens. We refer to this issue as shallow safety alignment. In this paper, we present case studies to explain why shallow safety alignment can exist and provide evidence that current aligned LLMs are subject to this issue. We also show how these findings help explain multiple recently discovered vulnerabilities in LLMs, including the susceptibility to adversarial suffix attacks, prefilling attacks, decoding parameter attacks, and fine-tuning attacks. Importantly, we discuss how this consolidated notion of shallow safety alignment sheds light on promising research directions for mitigating these vulnerabilities. For instance, we show that deepening the safety alignment beyond just the first few tokens can often meaningfully improve robustness against some common exploits. Finally, we design a regularized finetuning objective that makes the safety alignment more persistent against fine-tuning attacks by constraining updates on initial tokens. Overall, we advocate that future safety alignment should be made more than just a few tokens deep.",
+    "pdf_url": "https://arxiv.org/pdf/2406.05946v1",
+    "categories": [
+      "cs.CR",
+      "cs.AI"
+    ],
+    "query": "safety alignment should be more than few tokens deep"
+  },
+  {
+    "id": "2301.00942",
+    "title": "Deep Learning and Computational Physics (Lecture Notes)",
+    "year": 2023,
+    "authors": [
+      "Deep Ray",
+      "Orazio Pinti",
+      "Assad A. Oberai"
+    ],
+    "abstract": "These notes were compiled as lecture notes for a course developed and taught at the University of the Southern California. They should be accessible to a typical engineering graduate student with a strong background in Applied Mathematics.   The main objective of these notes is to introduce a student who is familiar with concepts in linear algebra and partial differential equations to select topics in deep learning. These lecture notes exploit the strong connections between deep learning algorithms and the more conventional techniques of computational physics to achieve two goals. First, they use concepts from computational physics to develop an understanding of deep learning algorithms. Not surprisingly, many concepts in deep learning can be connected to similar concepts in computational physics, and one can utilize this connection to better understand these algorithms. Second, several novel deep learning algorithms can be used to solve challenging problems in computational physics. Thus, they offer someone who is interested in modeling a physical phenomena with a complementary set of tools.",
+    "pdf_url": "https://arxiv.org/pdf/2301.00942v1",
+    "categories": [
+      "cs.LG",
+      "math-ph"
+    ],
+    "query": "safety alignment should be more than few tokens deep"
+  },
+  {
+    "id": "1903.03040",
+    "title": "Deep learning observables in computational fluid dynamics",
+    "year": 2019,
+    "authors": [
+      "Kjetil O. Lye",
+      "Siddhartha Mishra",
+      "Deep Ray"
+    ],
+    "abstract": "Many large scale problems in computational fluid dynamics such as uncertainty quantification, Bayesian inversion, data assimilation and PDE constrained optimization are considered very challenging computationally as they require a large number of expensive (forward) numerical solutions of the corresponding PDEs. We propose a machine learning algorithm, based on deep artificial neural networks, that predicts the underlying \\emph{input parameters to observable} map from a few training samples (computed realizations of this map). By a judicious combination of theoretical arguments and empirical observations, we find suitable network architectures and training hyperparameters that result in robust and efficient neural network approximations of the parameters to observable map. Numerical experiments are presented to demonstrate low prediction errors for the trained network networks, even when the network has been trained with a few samples, at a computational cost which is several orders of magnitude lower than the underlying PDE solver.   Moreover, we combine the proposed deep learning algorithm with Monte Carlo (MC) and Quasi-Monte Carlo (QMC) methods to efficiently compute uncertainty propagation for nonlinear PDEs. Under the assumption that the underlying neural networks generalize well, we prove that the deep learning MC and QMC algorithms are guaranteed to be faster than the baseline (quasi-) Monte Carlo methods. Numerical experiments demonstrating one to two orders of magnitude speed up over baseline QMC and MC algorithms, for the intricate problem of computing probability distributions of the observable, are also presented.",
+    "pdf_url": "https://arxiv.org/pdf/1903.03040v2",
+    "categories": [
+      "physics.comp-ph",
+      "cs.LG",
+      "math.NA",
+      "physics.flu-dyn",
+      "stat.ML"
+    ],
+    "query": "safety alignment should be more than few tokens deep"
+  },
+  {
+    "id": "2107.09957",
+    "title": "Memorization in Deep Neural Networks: Does the Loss Function matter?",
+    "year": 2021,
+    "authors": [
+      "Deep Patel",
+      "P. S. Sastry"
+    ],
+    "abstract": "Deep Neural Networks, often owing to the overparameterization, are shown to be capable of exactly memorizing even randomly labelled data. Empirical studies have also shown that none of the standard regularization techniques mitigate such overfitting. We investigate whether the choice of the loss function can affect this memorization. We empirically show, with benchmark data sets MNIST and CIFAR-10, that a symmetric loss function, as opposed to either cross-entropy or squared error loss, results in significant improvement in the ability of the network to resist such overfitting. We then provide a formal definition for robustness to memorization and provide a theoretical explanation as to why the symmetric losses provide this robustness. Our results clearly bring out the role loss functions alone can play in this phenomenon of memorization.",
+    "pdf_url": "https://arxiv.org/pdf/2107.09957v2",
+    "categories": [
+      "cs.LG",
+      "cs.CV",
+      "stat.ML"
+    ],
+    "query": "safety alignment should be more than few tokens deep"
+  },
+  {
+    "id": "1912.06732",
+    "title": "On the approximation of rough functions with deep neural networks",
+    "year": 2019,
+    "authors": [
+      "Tim De Ryck",
+      "Siddhartha Mishra",
+      "Deep Ray"
+    ],
+    "abstract": "Deep neural networks and the ENO procedure are both efficient frameworks for approximating rough functions. We prove that at any order, the ENO interpolation procedure can be cast as a deep ReLU neural network. This surprising fact enables the transfer of several desirable properties of the ENO procedure to deep neural networks, including its high-order accuracy at approximating Lipschitz functions. Numerical tests for the resulting neural networks show excellent performance for approximating solutions of nonlinear conservation laws and at data compression.",
+    "pdf_url": "https://arxiv.org/pdf/1912.06732v2",
+    "categories": [
+      "math.NA",
+      "cs.LG",
+      "stat.ML"
+    ],
+    "query": "safety alignment should be more than few tokens deep"
+  },
+  {
+    "id": "2306.11113",
+    "title": "Learn to Accumulate Evidence from All Training Samples: Theory and Practice",
+    "year": 2023,
+    "authors": [
+      "Deep Pandey",
+      "Qi Yu"
+    ],
+    "abstract": "Evidential deep learning, built upon belief theory and subjective logic, offers a principled and computationally efficient way to turn a deterministic neural network uncertainty-aware. The resultant evidential models can quantify fine-grained uncertainty using the learned evidence. To ensure theoretically sound evidential models, the evidence needs to be non-negative, which requires special activation functions for model training and inference. This constraint often leads to inferior predictive performance compared to standard softmax models, making it challenging to extend them to many large-scale datasets. To unveil the real cause of this undesired behavior, we theoretically investigate evidential models and identify a fundamental limitation that explains the inferior performance: existing evidential activation functions create zero evidence regions, which prevent the model to learn from training samples falling into such regions. A deeper analysis of evidential activation functions based on our theoretical underpinning inspires the design of a novel regularizer that effectively alleviates this fundamental limitation. Extensive experiments over many challenging real-world datasets and settings confirm our theoretical findings and demonstrate the effectiveness of our proposed approach.",
+    "pdf_url": "https://arxiv.org/pdf/2306.11113v2",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.CV"
+    ],
+    "query": "safety alignment should be more than few tokens deep"
+  },
+  {
+    "id": "2012.06469",
+    "title": "DILIE: Deep Internal Learning for Image Enhancement",
+    "year": 2020,
+    "authors": [
+      "Indra Deep Mastan",
+      "Shanmuganathan Raman"
+    ],
+    "abstract": "We consider the generic deep image enhancement problem where an input image is transformed into a perceptually better-looking image. Recent methods for image enhancement consider the problem by performing style transfer and image restoration. The methods mostly fall into two categories: training data-based and training data-independent (deep internal learning methods). We perform image enhancement in the deep internal learning framework. Our Deep Internal Learning for Image Enhancement framework enhances content features and style features and uses contextual content loss for preserving image context in the enhanced image. We show results on both hazy and noisy image enhancement. To validate the results, we use structure similarity and perceptual error, which is efficient in measuring the unrealistic deformation present in the images. We show that the proposed framework outperforms the relevant state-of-the-art works for image enhancement.",
+    "pdf_url": "https://arxiv.org/pdf/2012.06469v1",
+    "categories": [
+      "cs.CV"
+    ],
+    "query": "safety alignment should be more than few tokens deep"
+  },
+  {
+    "id": "2011.03712",
+    "title": "DeepCFL: Deep Contextual Features Learning from a Single Image",
+    "year": 2020,
+    "authors": [
+      "Indra Deep Mastan",
+      "Shanmuganathan Raman"
+    ],
+    "abstract": "Recently, there is a vast interest in developing image feature learning methods that are independent of the training data, such as deep image prior, InGAN, SinGAN, and DCIL. These methods are unsupervised and are used to perform low-level vision tasks such as image restoration, image editing, and image synthesis. In this work, we proposed a new training data-independent framework, called Deep Contextual Features Learning (DeepCFL), to perform image synthesis and image restoration based on the semantics of the input image. The contextual features are simply the high dimensional vectors representing the semantics of the given image. DeepCFL is a single image GAN framework that learns the distribution of the context vectors from the input image. We show the performance of contextual learning in various challenging scenarios: outpainting, inpainting, and restoration of randomly removed pixels. DeepCFL is applicable when the input source image and the generated target image are not aligned. We illustrate image synthesis using DeepCFL for the task of image resizing.",
+    "pdf_url": "https://arxiv.org/pdf/2011.03712v1",
+    "categories": [
+      "cs.CV"
+    ],
+    "query": "safety alignment should be more than few tokens deep"
+  },
+  {
+    "id": "2602.20102",
+    "title": "BarrierSteer: LLM Safety via Learning Barrier Steering",
+    "year": 2026,
+    "authors": [
+      "Thanh Q. Tran",
+      "Arun Verma",
+      "Kiwan Wong",
+      "Bryan Kian Hsiang Low",
+      "Daniela Rus",
+      "Wei Xiao"
+    ],
+    "abstract": "Despite the strong performance of large language models (LLMs) across diverse tasks, their susceptibility to adversarial attacks and unsafe content generation remains a significant obstacle to deployment, particularly in high-stakes settings. Addressing this challenge requires safety mechanisms that are both practically effective and theoretically grounded. In this paper, we introduce BarrierSteer, a novel inference-time framework that improves response safety by embedding learned nonlinear safety constraints directly into the model's latent representation space. BarrierSteer treats hidden-state safety classifiers as Control Barrier Functions (CBFs), enabling constraint-guided steering of unsafe latent trajectories during generation. By composing multiple safety constraints through efficient constraint merging without modifying the underlying LLM parameters, BarrierSteer preserves model utility. We provide theoretical results showing that applying CBFs in the latent space yields a principled, modular, and computationally efficient approach for steering with respect to learned safety constraints, with guarantees conditional on the learned barriers capturing the intended safety property. Our extensive experimental results across multiple model families and datasets demonstrate that BarrierSteer substantially reduces adversarial attack success rates and unsafe generations, outperforming the existing method. The code is available in our \\href{https://github.com/thanhquangtran/BarrierSteer}{GitHub repository}.",
+    "pdf_url": "https://arxiv.org/pdf/2602.20102v2",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "query": "representation engineering activation steering safety LLM"
+  },
+  {
+    "id": "2512.07667",
+    "title": "Depth-Wise Activation Steering for Honest Language Models",
+    "year": 2025,
+    "authors": [
+      "Gracjan G\u00f3ral",
+      "Marysia Winkels",
+      "Steven Basart"
+    ],
+    "abstract": "Large language models sometimes assert falsehoods despite internally representing the correct answer, failures of honesty rather than accuracy, which undermines auditability and safety. Existing approaches largely optimize factual correctness or depend on retraining and brittle single-layer edits, offering limited leverage over truthful reporting. We present a training-free activation steering method that weights steering strength across network depth using a Gaussian schedule. On the MASK benchmark, which separates honesty from knowledge, we evaluate seven models spanning the LLaMA, Qwen, and Mistral families and find that Gaussian scheduling improves honesty over no-steering and single-layer baselines in six of seven models. Equal-budget ablations on LLaMA-3.1-8B-Instruct and Qwen-2.5-7B-Instruct show the Gaussian schedule outperforms random, uniform, and box-filter depth allocations, indicating that how intervention is distributed across depth materially affects outcomes beyond total strength. The method is simple, model-agnostic, requires no finetuning, and provides a low-cost control knob for eliciting truthful reporting from models' existing capabilities.",
+    "pdf_url": "https://arxiv.org/pdf/2512.07667v1",
+    "categories": [
+      "cs.LG"
+    ],
+    "query": "representation engineering activation steering safety LLM"
+  },
+  {
+    "id": "2605.10664",
+    "title": "Prompt-Activation Duality: Improving Activation Steering via Attention-Level Interventions",
+    "year": 2026,
+    "authors": [
+      "Diancheng Kang",
+      "Zheyuan Liu",
+      "Ningshan Ma",
+      "Yue Huang",
+      "Zhaoxuan Tan",
+      "Meng Jiang"
+    ],
+    "abstract": "Activation steering controls language model behavior by adding directions to internal representations at inference time, but standard residual-stream steering can fail in stateful dialogue. We identify KV-cache contamination as a key failure mode: steered token states are stored and repeatedly reused, turning a local perturbation into cumulative coherence degradation. To address this challenge, we propose Gated Cropped Attention-Delta steering (GCAD), which extracts steering signals from system-prompt contributions to self-attention and applies them with token-level gating. Across persona-steering experiments, GCAD preserves trait control while substantially improving long-horizon coherence. On the main multi-turn benchmark, GCAD improves average coherence drift from -18.6 to -1.9 and raises turn-10 trait expression from 78.0 to 93.1. These results suggest that activation steering becomes more reliable when interventions follow the prompt-mediated pathways that models already use for behavioral control.",
+    "pdf_url": "https://arxiv.org/pdf/2605.10664v2",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "query": "representation engineering activation steering safety LLM"
+  },
+  {
+    "id": "2601.22873",
+    "title": "EmoShift: Lightweight Activation Steering for Enhanced Emotion-Aware Speech Synthesis",
+    "year": 2026,
+    "authors": [
+      "Li Zhou",
+      "Hao Jiang",
+      "Junjie Li",
+      "Tianrui Wang",
+      "Haizhou Li"
+    ],
+    "abstract": "Achieving precise and controllable emotional expression is crucial for producing natural and context-appropriate speech in text-to-speech (TTS) synthesis. However, many emotion-aware TTS systems, including large language model (LLM)-based designs, rely on scaling fixed emotion embeddings or external guidance, limiting their ability to model emotion-specific latent characteristics. To address this gap, we present EmoShift, a lightweight activation-steering framework incorporating a EmoSteer layer, which learns a steering vector for each target emotion in the output embedding space to capture its latent offset and maintain stable, appropriate expression across utterances and categories. With only 10M trainable parameters,less than 1/30 of full fine-tuning, EmoShift outperforms zero-shot and fully fine-tuned baselines in objective and subjective evaluations, enhancing emotional expressiveness while preserving naturalness and speaker similarity. Further analysis confirms the proposed EmoSteer layer's effectiveness and reveals its potential for controllable emotional intensity in speech synthesis.",
+    "pdf_url": "https://arxiv.org/pdf/2601.22873v1",
+    "categories": [
+      "eess.AS",
+      "cs.AI",
+      "cs.CL",
+      "cs.SD"
+    ],
+    "query": "representation engineering activation steering safety LLM"
+  },
+  {
+    "id": "2512.19399",
+    "title": "Brain-Grounded Axes for Reading and Steering LLM States",
+    "year": 2025,
+    "authors": [
+      "Sandro Andric"
+    ],
+    "abstract": "Interpretability methods for large language models (LLMs) typically derive directions from textual supervision, which can lack external grounding. We propose using human brain activity not as a training signal but as a coordinate system for reading and steering LLM states. Using the SMN4Lang MEG dataset, we construct a word-level brain atlas of phase-locking value (PLV) patterns and extract latent axes via ICA. We validate axes with independent lexica and NER-based labels (POS/log-frequency used as sanity checks), then train lightweight adapters that map LLM hidden states to these brain axes without fine-tuning the LLM. Steering along the resulting brain-derived directions yields a robust lexical (frequency-linked) axis in a mid TinyLlama layer, surviving perplexity-matched controls, and a brain-vs-text probe comparison shows larger log-frequency shifts (relative to the text probe) with lower perplexity for the brain axis. A function/content axis (axis 13) shows consistent steering in TinyLlama, Qwen2-0.5B, and GPT-2, with PPL-matched text-level corroboration. Layer-4 effects in TinyLlama are large but inconsistent, so we treat them as secondary (Appendix). Axis structure is stable when the atlas is rebuilt without GPT embedding-change features or with word2vec embeddings (|r|=0.64-0.95 across matched axes), reducing circularity concerns. Exploratory fMRI anchoring suggests potential alignment for embedding change and log frequency, but effects are sensitive to hemodynamic modeling assumptions and are treated as population-level evidence only. These results support a new interface: neurophysiology-grounded axes provide interpretable and controllable handles for LLM behavior.",
+    "pdf_url": "https://arxiv.org/pdf/2512.19399v1",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.CL"
+    ],
+    "query": "representation engineering activation steering safety LLM"
+  },
+  {
+    "id": "2408.11491",
+    "title": "SCANS: Mitigating the Exaggerated Safety for LLMs via Safety-Conscious Activation Steering",
+    "year": 2024,
+    "authors": [
+      "Zouying Cao",
+      "Yifei Yang",
+      "Hai Zhao"
+    ],
+    "abstract": "Safety alignment is indispensable for Large Language Models (LLMs) to defend threats from malicious instructions. However, recent researches reveal safety-aligned LLMs prone to reject benign queries due to the exaggerated safety issue, limiting their helpfulness. In this paper, we propose a Safety-Conscious Activation Steering (SCANS) method to mitigate the exaggerated safety concerns in aligned LLMs. First, SCANS extracts the refusal steering vectors within the activation space and utilizes vocabulary projection to anchor some specific safety-critical layers which influence model refusal behavior. Second, by tracking the hidden state transition, SCANS identifies the steering direction and steers the model behavior accordingly, achieving a balance between exaggerated safety and adequate safety. Experiments show that SCANS achieves new state-of-the-art performance on XSTest and OKTest benchmarks, without impairing their defense capability against harmful queries and maintaining almost unchanged model capability.",
+    "pdf_url": "https://arxiv.org/pdf/2408.11491v2",
+    "categories": [
+      "cs.AI"
+    ],
+    "query": "representation engineering activation steering safety LLM"
+  },
+  {
+    "id": "2501.03569",
+    "title": "What Does a Software Engineer Look Like? Exploring Societal Stereotypes in LLMs",
+    "year": 2025,
+    "authors": [
+      "Muneera Bano",
+      "Hashini Gunatilake",
+      "Rashina Hoda"
+    ],
+    "abstract": "Large language models (LLMs) have rapidly gained popularity and are being embedded into professional applications due to their capabilities in generating human-like content. However, unquestioned reliance on their outputs and recommendations can be problematic as LLMs can reinforce societal biases and stereotypes. This study investigates how LLMs, specifically OpenAI's GPT-4 and Microsoft Copilot, can reinforce gender and racial stereotypes within the software engineering (SE) profession through both textual and graphical outputs. We used each LLM to generate 300 profiles, consisting of 100 gender-based and 50 gender-neutral profiles, for a recruitment scenario in SE roles. Recommendations were generated for each profile and evaluated against the job requirements for four distinct SE positions. Each LLM was asked to select the top 5 candidates and subsequently the best candidate for each role. Each LLM was also asked to generate images for the top 5 candidates, providing a dataset for analysing potential biases in both text-based selections and visual representations. Our analysis reveals that both models preferred male and Caucasian profiles, particularly for senior roles, and favoured images featuring traits such as lighter skin tones, slimmer body types, and younger appearances. These findings highlight underlying societal biases influence the outputs of LLMs, contributing to narrow, exclusionary stereotypes that can further limit diversity and perpetuate inequities in the SE field. As LLMs are increasingly adopted within SE research and professional practices, awareness of these biases is crucial to prevent the reinforcement of discriminatory norms and to ensure that AI tools are leveraged to promote an inclusive and equitable engineering culture rather than hinder it.",
+    "pdf_url": "https://arxiv.org/pdf/2501.03569v1",
+    "categories": [
+      "cs.SE"
+    ],
+    "query": "representation engineering activation steering safety LLM"
+  },
+  {
+    "id": "2504.02620",
+    "title": "Efficient Model Editing with Task-Localized Sparse Fine-tuning",
+    "year": 2025,
+    "authors": [
+      "Leonardo Iurada",
+      "Marco Ciccone",
+      "Tatiana Tommasi"
+    ],
+    "abstract": "Task arithmetic has emerged as a promising approach for editing models by representing task-specific knowledge as composable task vectors. However, existing methods rely on network linearization to derive task vectors, leading to computational bottlenecks during training and inference. Moreover, linearization alone does not ensure weight disentanglement, the key property that enables conflict-free composition of task vectors. To address this, we propose TaLoS which allows to build sparse task vectors with minimal interference without requiring explicit linearization and sharing information across tasks. We find that pre-trained models contain a subset of parameters with consistently low gradient sensitivity across tasks, and that sparsely updating only these parameters allows for promoting weight disentanglement during fine-tuning. Our experiments prove that TaLoS improves training and inference efficiency while outperforming current methods in task addition and negation. By enabling modular parameter editing, our approach fosters practical deployment of adaptable foundation models in real-world applications.",
+    "pdf_url": "https://arxiv.org/pdf/2504.02620v1",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.CL",
+      "cs.CV"
+    ],
+    "query": "task vectors model arithmetic editing models"
+  },
+  {
+    "id": "2212.04089",
+    "title": "Editing Models with Task Arithmetic",
+    "year": 2022,
+    "authors": [
+      "Gabriel Ilharco",
+      "Marco Tulio Ribeiro",
+      "Mitchell Wortsman",
+      "Suchin Gururangan",
+      "Ludwig Schmidt",
+      "Hannaneh Hajishirzi"
+    ],
+    "abstract": "Changing how pre-trained models behave -- e.g., improving their performance on a downstream task or mitigating biases learned during pre-training -- is a common practice when developing machine learning systems. In this work, we propose a new paradigm for steering the behavior of neural networks, centered around \\textit{task vectors}. A task vector specifies a direction in the weight space of a pre-trained model, such that movement in that direction improves performance on the task. We build task vectors by subtracting the weights of a pre-trained model from the weights of the same model after fine-tuning on a task. We show that these task vectors can be modified and combined together through arithmetic operations such as negation and addition, and the behavior of the resulting model is steered accordingly. Negating a task vector decreases performance on the target task, with little change in model behavior on control tasks. Moreover, adding task vectors together can improve performance on multiple tasks at once. Finally, when tasks are linked by an analogy relationship of the form ``A is to B as C is to D\", combining task vectors from three of the tasks can improve performance on the fourth, even when no data from the fourth task is used for training. Overall, our experiments with several models, modalities and tasks show that task arithmetic is a simple, efficient and effective way of editing models.",
+    "pdf_url": "https://arxiv.org/pdf/2212.04089v3",
+    "categories": [
+      "cs.LG",
+      "cs.CL",
+      "cs.CV"
+    ],
+    "query": "task vectors model arithmetic editing models"
+  },
+  {
+    "id": "2409.14144",
+    "title": "Interpreting Arithmetic Mechanism in Large Language Models through Comparative Neuron Analysis",
+    "year": 2024,
+    "authors": [
+      "Zeping Yu",
+      "Sophia Ananiadou"
+    ],
+    "abstract": "We find arithmetic ability resides within a limited number of attention heads, with each head specializing in distinct operations. To delve into the reason, we introduce the Comparative Neuron Analysis (CNA) method, which identifies an internal logic chain consisting of four distinct stages from input to prediction: feature enhancing with shallow FFN neurons, feature transferring by shallow attention layers, feature predicting by arithmetic heads, and prediction enhancing among deep FFN neurons. Moreover, we identify the human-interpretable FFN neurons within both feature-enhancing and feature-predicting stages. These findings lead us to investigate the mechanism of LoRA, revealing that it enhances prediction probabilities by amplifying the coefficient scores of FFN neurons related to predictions. Finally, we apply our method in model pruning for arithmetic tasks and model editing for reducing gender bias. Code is on https://github.com/zepingyu0512/arithmetic-mechanism.",
+    "pdf_url": "https://arxiv.org/pdf/2409.14144v1",
+    "categories": [
+      "cs.CL"
+    ],
+    "query": "task vectors model arithmetic editing models"
+  },
+  {
+    "id": "2512.22511",
+    "title": "Decomposing Task Vectors for Refined Model Editing",
+    "year": 2025,
+    "authors": [
+      "Hamed Damirchi",
+      "Ehsan Abbasnejad",
+      "Zhen Zhang",
+      "Javen Shi"
+    ],
+    "abstract": "Large pre-trained models have transformed machine learning, yet adapting these models effectively to exhibit precise, concept-specific behaviors remains a significant challenge. Task vectors, defined as the difference between fine-tuned and pre-trained model parameters, provide a mechanism for steering neural networks toward desired behaviors. This has given rise to large repositories dedicated to task vectors tailored for specific behaviors. The arithmetic operation of these task vectors allows for the seamless combination of desired behaviors without the need for large datasets. However, these vectors often contain overlapping concepts that can interfere with each other during arithmetic operations, leading to unpredictable outcomes. We propose a principled decomposition method that separates each task vector into two components: one capturing shared knowledge across multiple task vectors, and another isolating information unique to each specific task. By identifying invariant subspaces across projections, our approach enables more precise control over concept manipulation without unintended amplification or diminution of other behaviors. We demonstrate the effectiveness of our decomposition method across three domains: improving multi-task merging in image classification by 5% using shared components as additional task vectors, enabling clean style mixing in diffusion models without generation degradation by mixing only the unique components, and achieving 47% toxicity reduction in language models while preserving performance on general knowledge tasks by negating the toxic information isolated to the unique component. Our approach provides a new framework for understanding and controlling task vector arithmetic, addressing fundamental limitations in model editing operations.",
+    "pdf_url": "https://arxiv.org/pdf/2512.22511v1",
+    "categories": [
+      "cs.LG"
+    ],
+    "query": "task vectors model arithmetic editing models"
+  },
+  {
+    "id": "1808.01270",
+    "title": "Topological models of arithmetic",
+    "year": 2018,
+    "authors": [
+      "Ali Enayat",
+      "Joel David Hamkins",
+      "Bartosz Wcis\u0142o"
+    ],
+    "abstract": "Ali Enayat had asked whether there is a nonstandard model of Peano arithmetic (PA) that can be represented as $\\langle\\mathbb{Q},\\oplus,\\otimes\\rangle$, where $\\oplus$ and $\\otimes$ are continuous functions on the rationals $\\mathbb{Q}$. We prove, affirmatively, that indeed every countable model of PA has such a continuous presentation on the rationals. More generally, we investigate the topological spaces that arise as such topological models of arithmetic. The reals $\\mathbb{R}$, the reals in any finite dimension $\\mathbb{R}^n$, the long line and the Cantor space do not, and neither does any Suslin line; many other spaces do; the status of the Baire space is open.",
+    "pdf_url": "https://arxiv.org/pdf/1808.01270v3",
+    "categories": [
+      "math.LO"
+    ],
+    "query": "task vectors model arithmetic editing models"
+  },
+  {
+    "id": "0706.3841",
+    "title": "Arithmetic lattices and weak spectral geometry",
+    "year": 2007,
+    "authors": [
+      "D. B. McReynolds"
+    ],
+    "abstract": "  This note is an expansion of three lectures given at the workshop \"Topology, Complex Analysis and Arithmetic of Hyperbolic Spaces\" held at Kyoto University in December of 2006 and will appear in the proceedings for this workshop.",
+    "pdf_url": "https://arxiv.org/pdf/0706.3841v1",
+    "categories": [
+      "math.DG",
+      "math.GT"
+    ],
+    "query": "task vectors model arithmetic editing models"
+  },
+  {
+    "id": "2305.12827",
+    "title": "Task Arithmetic in the Tangent Space: Improved Editing of Pre-Trained Models",
+    "year": 2023,
+    "authors": [
+      "Guillermo Ortiz-Jimenez",
+      "Alessandro Favero",
+      "Pascal Frossard"
+    ],
+    "abstract": "Task arithmetic has recently emerged as a cost-effective and scalable approach to edit pre-trained models directly in weight space: By adding the fine-tuned weights of different tasks, the model's performance can be improved on these tasks, while negating them leads to task forgetting. Yet, our understanding of the effectiveness of task arithmetic and its underlying principles remains limited. We present a comprehensive study of task arithmetic in vision-language models and show that weight disentanglement is the crucial factor that makes it effective. This property arises during pre-training and manifests when distinct directions in weight space govern separate, localized regions in function space associated with the tasks. Notably, we show that fine-tuning models in their tangent space by linearizing them amplifies weight disentanglement. This leads to substantial performance improvements across multiple task arithmetic benchmarks and diverse models. Building on these findings, we provide theoretical and empirical analyses of the neural tangent kernel (NTK) of these models and establish a compelling link between task arithmetic and the spatial localization of the NTK eigenfunctions. Overall, our work uncovers novel insights into the fundamental mechanisms of task arithmetic and offers a more reliable and effective approach to edit pre-trained models through the NTK linearization.",
+    "pdf_url": "https://arxiv.org/pdf/2305.12827v3",
+    "categories": [
+      "cs.LG",
+      "cs.CV"
+    ],
+    "query": "task vectors model arithmetic editing models"
+  },
+  {
+    "id": "2412.12276",
+    "title": "Emergence and Effectiveness of Task Vectors in In-Context Learning: An Encoder Decoder Perspective",
+    "year": 2024,
+    "authors": [
+      "Seungwook Han",
+      "Jinyeop Song",
+      "Jeff Gore",
+      "Pulkit Agrawal"
+    ],
+    "abstract": "Autoregressive transformers exhibit adaptive learning through in-context learning (ICL), which begs the question of how. Prior works have shown that transformers represent the ICL tasks as vectors in their representations. In this paper, we leverage the encoding-decoding framework to study how transformers form task vectors during pretraining and how their task encoding quality predicts ICL task performance. On synthetic ICL tasks, we analyze the training dynamics of a small transformer and report the coupled emergence of task encoding and decoding. As the model learns to encode different latent tasks (e.g., \"Finding the first noun in a sentence.\") into distinct, separable representations, it concurrently builds conditional decoding algorithms and improves its ICL performance. We validate this phenomenon across pretrained models of varying scales (Gemma-2 2B/9B/27B, Llama-3.1 8B/70B) and over the course of pretraining in OLMo-7B. Further, we demonstrate that the quality of task encoding inferred from representations predicts ICL performance, and that, surprisingly, finetuning the earlier layers can improve the task encoding and performance more than finetuning the latter layers. Our empirical insights shed light into better understanding the success and failure modes of large language models via their representations.",
+    "pdf_url": "https://arxiv.org/pdf/2412.12276v3",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "query": "task vectors model arithmetic editing models"
+  },
+  {
+    "id": "2501.19389",
+    "title": "Federated Sketching LoRA: A Flexible Framework for Heterogeneous Collaborative Fine-Tuning of LLMs",
+    "year": 2025,
+    "authors": [
+      "Wenzhi Fang",
+      "Dong-Jun Han",
+      "Liangqi Yuan",
+      "Seyyedali Hosseinalipour",
+      "Christopher G. Brinton"
+    ],
+    "abstract": "Fine-tuning large language models (LLMs) on resource-constrained clients remains a challenging problem. Recent works have fused low-rank adaptation (LoRA) techniques with federated fine-tuning to mitigate challenges associated with client model sizes and data scarcity. Still, the heterogeneity of resources remains a critical bottleneck: while higher-rank modules generally enhance performance, varying client capabilities constrain LoRA's feasible rank range. Existing approaches attempting to resolve this issue either lack analytical justification or impose additional computational overhead, leaving a wide gap for efficient and theoretically-grounded solutions. To address these challenges, we propose federated sketching LoRA (FSLoRA), which leverages a sketching mechanism to enable clients to selectively update submatrices of global LoRA modules maintained by the server. By adjusting the sketching ratios, which determine the ranks of the submatrices on the clients, FSLoRA flexibly adapts to client-specific communication and computational constraints. We provide a rigorous convergence analysis of FSLoRA that characterizes how the sketching ratios affect the convergence rate. Through extensive experiments, we demonstrate that FSLoRA outperforms baselines and significantly improves training efficiency while preserving stable convergence.",
+    "pdf_url": "https://arxiv.org/pdf/2501.19389v4",
+    "categories": [
+      "cs.LG"
+    ],
+    "query": "LoRA low-rank adaptation safety degradation fine-tuning"
+  },
+  {
+    "id": "2411.14961",
+    "title": "LoRA-FAIR: Federated LoRA Fine-Tuning with Aggregation and Initialization Refinement",
+    "year": 2024,
+    "authors": [
+      "Jieming Bian",
+      "Lei Wang",
+      "Letian Zhang",
+      "Jie Xu"
+    ],
+    "abstract": "Foundation models (FMs) achieve strong performance across diverse tasks with task-specific fine-tuning, yet full parameter fine-tuning is often computationally prohibitive for large models. Parameter-efficient fine-tuning (PEFT) methods like Low-Rank Adaptation (LoRA) reduce this cost by introducing low-rank matrices for tuning fewer parameters. While LoRA allows for efficient fine-tuning, it requires significant data for adaptation, making Federated Learning (FL) an appealing solution due to its privacy-preserving collaborative framework. However, combining LoRA with FL introduces two key challenges: the \\textbf{Server-Side Aggregation Bias}, where server-side averaging of LoRA matrices diverges from the ideal global update, and the \\textbf{Client-Side Initialization Lag}, emphasizing the need for consistent initialization across rounds. Existing approaches address these challenges individually, limiting their effectiveness. We propose LoRA-FAIR, a novel method that tackles both issues by introducing a correction term on the server, enhancing aggregation efficiency and accuracy. LoRA-FAIR maintains computational and communication efficiency, yielding superior performance over state-of-the-art methods. Experimental results on ViT and MLP-Mixer models across large-scale datasets demonstrate that LoRA-FAIR consistently achieves performance improvements in FL settings.",
+    "pdf_url": "https://arxiv.org/pdf/2411.14961v3",
+    "categories": [
+      "cs.LG",
+      "cs.CV"
+    ],
+    "query": "LoRA low-rank adaptation safety degradation fine-tuning"
+  },
+  {
+    "id": "2412.09827",
+    "title": "Low-Rank Adaptation with Task-Relevant Feature Enhancement for Fine-tuning Language Models",
+    "year": 2024,
+    "authors": [
+      "Changqun Li",
+      "Chaofan Ding",
+      "Kexin Luan",
+      "Xinhan Di"
+    ],
+    "abstract": "Fine-tuning pre-trained large language models in a parameter-efficient manner is widely studied for its effectiveness and efficiency. LoRA is one of the most widely used methods, which assumes that the optimization process is essentially low dimensional. Although LoRA has demonstrated commendable performance, there remains a significant performance gap between LoRA and full fine-tuning when learning new tasks. In this work, we propose Low-Rank Adaptation with Task-Relevant Feature Enhancement(LoRATRF) for enhancing task-relevant features from the perspective of editing neural network representations. To prioritize task-relevant features, a task-aware filter that selectively extracts valuable knowledge from hidden representations for the target or current task is designed. As the experiments on a vareity of datasets including NLU, commonsense reasoning and mathematical reasoning tasks demonstrates, our method reduces 33.71% parameters and achieves better performance on a variety of datasets in comparison with SOTA low-rank methods.",
+    "pdf_url": "https://arxiv.org/pdf/2412.09827v1",
+    "categories": [
+      "cs.CL",
+      "cs.CV"
+    ],
+    "query": "LoRA low-rank adaptation safety degradation fine-tuning"
+  },
+  {
+    "id": "2510.27364",
+    "title": "Fine-Tuning Open Video Generators for Cinematic Scene Synthesis: A Small-Data Pipeline with LoRA and Wan2.1 I2V",
+    "year": 2025,
+    "authors": [
+      "Meftun Akarsu",
+      "Kerem Catay",
+      "Sedat Bin Vedat",
+      "Enes Kutay Yarkan",
+      "Ilke Senturk",
+      "Arda Sar"
+    ],
+    "abstract": "We present a practical pipeline for fine-tuning open-source video diffusion transformers to synthesize cinematic scenes for television and film production from small datasets. The proposed two-stage process decouples visual style learning from motion generation. In the first stage, Low-Rank Adaptation (LoRA) modules are integrated into the cross-attention layers of the Wan2.1 I2V-14B model to adapt its visual representations using a compact dataset of short clips from Ay Yapim's historical television film El Turco. This enables efficient domain transfer within hours on a single GPU. In the second stage, the fine-tuned model produces stylistically consistent keyframes that preserve costume, lighting, and color grading, which are then temporally expanded into coherent 720p sequences through the model's video decoder. We further apply lightweight parallelization and sequence partitioning strategies to accelerate inference without quality degradation. Quantitative and qualitative evaluations using FVD, CLIP-SIM, and LPIPS metrics, supported by a small expert user study, demonstrate measurable improvements in cinematic fidelity and temporal stability over the base model. The complete training and inference pipeline is released to support reproducibility and adaptation across cinematic domains.",
+    "pdf_url": "https://arxiv.org/pdf/2510.27364v1",
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "query": "LoRA low-rank adaptation safety degradation fine-tuning"
+  },
+  {
+    "id": "2605.18822",
+    "title": "Hybrid-LoRA: Bridging Full Fine-Tuning and Low-Rank Adaptation for Post-Training",
+    "year": 2026,
+    "authors": [
+      "Chengqian Zhang",
+      "Wei Zhu",
+      "Kyumin Lee"
+    ],
+    "abstract": "Post-training has become essential for adapting large language models (LLMs) to complex downstream behaviors, including instruction following, preference alignment, and multi-step reasoning. Reinforcement learning with verifiable rewards (RLVR) has recently emerged as a particularly effective post-training paradigm for improving reasoning capabilities, with critic-free algorithms such as GRPO and GSPO enabling scalable optimization. However, RLVR post-training with full fine-tuning (FFT) requires substantial GPU memory and incurs high training costs. Although parameter-efficient fine-tuning (PEFT) methods, such as Low-Rank Adaptation (LoRA), effectively reduce computational costs, they often suffer from a noticeable performance gap compared to full fine-tuning in post-training for complex reasoning tasks. In this paper, we propose Hybrid-LoRA, an efficient hybrid post-training framework that selectively applies full fine-tuning to a small subset of modules less suited to low-rank adaptation, while adapting the remaining components with LoRA. We introduce a novel Hybrid-LoRA Score to rank candidate modules according to their sensitivity to low-rank adaptation under a fixed parameter budget. Experiments show that Hybrid-LoRA closely matches full fine-tuning performance under a 10% full fine-tuning module budget, with the remaining candidate modules adapted by LoRA, consistently outperforming four state-of-the-art PEFT post-training baselines, achieving improvements of up to 5.65% and on average 4.36% over the best baseline.",
+    "pdf_url": "https://arxiv.org/pdf/2605.18822v1",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "query": "LoRA low-rank adaptation safety degradation fine-tuning"
+  },
+  {
+    "id": "2602.05988",
+    "title": "Layer-wise LoRA fine-tuning: a similarity metric approach",
+    "year": 2026,
+    "authors": [
+      "Keith Ando Ogawa",
+      "Bruno Lopes Yamamoto",
+      "Lucas Lauton de Alcantara",
+      "Lucas Pellicer",
+      "Rosimeire Pereira Costa",
+      "Edson Bollis"
+    ],
+    "abstract": "Pre-training Large Language Models (LLMs) on web-scale datasets becomes fundamental for advancing general-purpose AI. In contrast, enhancing their predictive performance on downstream tasks typically involves adapting their knowledge through fine-tuning. Parameter-efficient fine-tuning techniques, such as Low-Rank Adaptation (LoRA), aim to reduce the computational cost of this process by freezing the pre-trained model and updating a smaller number of parameters. In comparison to full fine-tuning, these methods achieve over 99\\% reduction in trainable parameter count, depending on the configuration. Unfortunately, such a reduction may prove insufficient as LLMs continue to grow in scale. In this work, we address the previous problem by systematically selecting only a few layers to fine-tune using LoRA or its variants. We argue that not all layers contribute equally to the model adaptation. Leveraging this, we identify the most relevant layers to fine-tune by measuring their contribution to changes in internal representations. Our method is orthogonal to and readily compatible with existing low-rank adaptation techniques. We reduce the trainable parameters in LoRA-based techniques by up to 50\\%, while maintaining the predictive performance across different models and tasks. Specifically, on encoder-only architectures, this reduction in trainable parameters leads to a negligible predictive performance drop on the GLUE benchmark. On decoder-only architectures, we achieve a small drop or even improvements in the predictive performance on mathematical problem-solving capabilities and coding tasks. Finally, this effectiveness extends to multimodal models, for which we also observe competitive results relative to fine-tuning with LoRA modules in all layers. Code is available at: https://github.com/c2d-usp/Layer-wise-LoRA-with-CKA",
+    "pdf_url": "https://arxiv.org/pdf/2602.05988v1",
+    "categories": [
+      "cs.LG"
+    ],
+    "query": "LoRA low-rank adaptation safety degradation fine-tuning"
+  },
+  {
+    "id": "2410.16954",
+    "title": "LoRA-C: Parameter-Efficient Fine-Tuning of Robust CNN for IoT Devices",
+    "year": 2024,
+    "authors": [
+      "Chuntao Ding",
+      "Xu Cao",
+      "Jianhang Xie",
+      "Linlin Fan",
+      "Shangguang Wang",
+      "Zhichao Lu"
+    ],
+    "abstract": "Efficient fine-tuning of pre-trained convolutional neural network (CNN) models using local data is essential for providing high-quality services to users using ubiquitous and resource-limited Internet of Things (IoT) devices. Low-Rank Adaptation (LoRA) fine-tuning has attracted widespread attention from industry and academia because it is simple, efficient, and does not incur any additional reasoning burden. However, most of the existing advanced methods use LoRA to fine-tune Transformer, and there are few studies on using LoRA to fine-tune CNN. The CNN model is widely deployed on IoT devices for application due to its advantages in comprehensive resource occupancy and performance. Moreover, IoT devices are widely deployed outdoors and usually process data affected by the environment (such as fog, snow, rain, etc.). The goal of this paper is to use LoRA technology to efficiently improve the robustness of the CNN model. To this end, this paper first proposes a strong, robust CNN fine-tuning method for IoT devices, LoRA-C, which performs low-rank decomposition in convolutional layers rather than kernel units to reduce the number of fine-tuning parameters. Then, this paper analyzes two different rank settings in detail and observes that the best performance is usually achieved when $\u03b1/{r}$ is a constant in either standard data or corrupted data. This discovery provides experience for the widespread application of LoRA-C. Finally, this paper conducts many experiments based on pre-trained models. Experimental results on CIFAR-10, CIFAR-100, CIFAR-10-C, and Icons50 datasets show that the proposed LoRA-Cs outperforms standard ResNets. Specifically, on the CIFAR-10-C dataset, the accuracy of LoRA-C-ResNet-101 achieves 83.44% accuracy, surpassing the standard ResNet-101 result by +9.5%.",
+    "pdf_url": "https://arxiv.org/pdf/2410.16954v2",
+    "categories": [
+      "cs.DC"
+    ],
+    "query": "LoRA low-rank adaptation safety degradation fine-tuning"
+  },
+  {
+    "id": "2207.11486",
+    "title": "Time Series Prediction under Distribution Shift using Differentiable Forgetting",
+    "year": 2022,
+    "authors": [
+      "Stefanos Bennett",
+      "Jase Clarkson"
+    ],
+    "abstract": "Time series prediction is often complicated by distribution shift which demands adaptive models to accommodate time-varying distributions. We frame time series prediction under distribution shift as a weighted empirical risk minimisation problem. The weighting of previous observations in the empirical risk is determined by a forgetting mechanism which controls the trade-off between the relevancy and effective sample size that is used for the estimation of the predictive model. In contrast to previous work, we propose a gradient-based learning method for the parameters of the forgetting mechanism. This speeds up optimisation and therefore allows more expressive forgetting mechanisms.",
+    "pdf_url": "https://arxiv.org/pdf/2207.11486v1",
+    "categories": [
+      "cs.LG",
+      "q-fin.ST"
+    ],
+    "query": "measuring behavioral drift model outputs distribution shift"
+  },
+  {
+    "id": "2207.05796",
+    "title": "Estimating Test Performance for AI Medical Devices under Distribution Shift with Conformal Prediction",
+    "year": 2022,
+    "authors": [
+      "Charles Lu",
+      "Syed Rakin Ahmed",
+      "Praveer Singh",
+      "Jayashree Kalpathy-Cramer"
+    ],
+    "abstract": "Estimating the test performance of software AI-based medical devices under distribution shifts is crucial for evaluating the safety, efficiency, and usability prior to clinical deployment. Due to the nature of regulated medical device software and the difficulty in acquiring large amounts of labeled medical datasets, we consider the task of predicting the test accuracy of an arbitrary black-box model on an unlabeled target domain without modification to the original training process or any distributional assumptions of the original source data (i.e. we treat the model as a \"black-box\" and only use the predicted output responses). We propose a \"black-box\" test estimation technique based on conformal prediction and evaluate it against other methods on three medical imaging datasets (mammography, dermatology, and histopathology) under several clinically relevant types of distribution shift (institution, hardware scanner, atlas, hospital). We hope that by promoting practical and effective estimation techniques for black-box models, manufacturers of medical devices will develop more standardized and realistic evaluation procedures to improve the robustness and trustworthiness of clinical AI tools.",
+    "pdf_url": "https://arxiv.org/pdf/2207.05796v1",
+    "categories": [
+      "cs.LG"
+    ],
+    "query": "measuring behavioral drift model outputs distribution shift"
+  },
+  {
+    "id": "2112.03057",
+    "title": "Thinking Beyond Distributions in Testing Machine Learned Models",
+    "year": 2021,
+    "authors": [
+      "Negar Rostamzadeh",
+      "Ben Hutchinson",
+      "Christina Greer",
+      "Vinodkumar Prabhakaran"
+    ],
+    "abstract": "Testing practices within the machine learning (ML) community have centered around assessing a learned model's predictive performance measured against a test dataset, often drawn from the same distribution as the training dataset. While recent work on robustness and fairness testing within the ML community has pointed to the importance of testing against distributional shifts, these efforts also focus on estimating the likelihood of the model making an error against a reference dataset/distribution. We argue that this view of testing actively discourages researchers and developers from looking into other sources of robustness failures, for instance corner cases which may have severe undesirable impacts. We draw parallels with decades of work within software engineering testing focused on assessing a software system against various stress conditions, including corner cases, as opposed to solely focusing on average-case behaviour. Finally, we put forth a set of recommendations to broaden the view of machine learning testing to a rigorous practice.",
+    "pdf_url": "https://arxiv.org/pdf/2112.03057v1",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.SE"
+    ],
+    "query": "measuring behavioral drift model outputs distribution shift"
+  },
+  {
+    "id": "2206.03669",
+    "title": "Toward Certified Robustness Against Real-World Distribution Shifts",
+    "year": 2022,
+    "authors": [
+      "Haoze Wu",
+      "Teruhiro Tagomori",
+      "Alexander Robey",
+      "Fengjun Yang",
+      "Nikolai Matni",
+      "George Pappas"
+    ],
+    "abstract": "We consider the problem of certifying the robustness of deep neural networks against real-world distribution shifts. To do so, we bridge the gap between hand-crafted specifications and realistic deployment settings by proposing a novel neural-symbolic verification framework, in which we train a generative model to learn perturbations from data and define specifications with respect to the output of the learned model. A unique challenge arising from this setting is that existing verifiers cannot tightly approximate sigmoid activations, which are fundamental to many state-of-the-art generative models. To address this challenge, we propose a general meta-algorithm for handling sigmoid activations which leverages classical notions of counter-example-guided abstraction refinement. The key idea is to \"lazily\" refine the abstraction of sigmoid functions to exclude spurious counter-examples found in the previous abstraction, thus guaranteeing progress in the verification process while keeping the state-space small. Experiments on the MNIST and CIFAR-10 datasets show that our framework significantly outperforms existing methods on a range of challenging distribution shifts.",
+    "pdf_url": "https://arxiv.org/pdf/2206.03669v3",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.LO"
+    ],
+    "query": "measuring behavioral drift model outputs distribution shift"
+  },
+  {
+    "id": "2307.14758",
+    "title": "Towards Practicable Sequential Shift Detectors",
+    "year": 2023,
+    "authors": [
+      "Oliver Cobb",
+      "Arnaud Van Looveren"
+    ],
+    "abstract": "There is a growing awareness of the harmful effects of distribution shift on the performance of deployed machine learning models. Consequently, there is a growing interest in detecting these shifts before associated costs have time to accumulate. However, desiderata of crucial importance to the practicable deployment of sequential shift detectors are typically overlooked by existing works, precluding their widespread adoption. We identify three such desiderata, highlight existing works relevant to their satisfaction, and recommend impactful directions for future research.",
+    "pdf_url": "https://arxiv.org/pdf/2307.14758v1",
+    "categories": [
+      "cs.LG"
+    ],
+    "query": "measuring behavioral drift model outputs distribution shift"
+  },
+  {
+    "id": "1502.05833",
+    "title": "Lattice Boltzmann model for collisionless electrostatic drift wave turbulence obeying Charney-Hasegawa-Mima dynamics",
+    "year": 2015,
+    "authors": [
+      "M. Held",
+      "A. Kendl"
+    ],
+    "abstract": "A lattice Boltzmann method (LBM) approach to the Charney-Hasegawa-Mima (CHM) model for adiabatic drift wave turbulence in magnetised plasmas, is implemented. The CHM-LBM model contains a barotropic equation of state for the potential, a force term including a cross-product analogous to the Coriolis force in quasigeostrophic models, and a density gradient source term. Expansion of the resulting lattice Boltzmann model equations leads to cold-ion fluid continuity and momentum equations, which resemble CHM dynamics under drift ordering. The resulting numerical solutions of standard test cases (monopole propagation, stable drift modes and decaying turbulence) are compared to results obtained by a conventional finite difference scheme that directly discretizes the CHM equation. The LB scheme resembles characteristic CHM dynamics apart from an additional shear in the density gradient direction. The occuring shear reduces with the drift ratio and is ascribed to the compressible limit of the underlying LBM.",
+    "pdf_url": "https://arxiv.org/pdf/1502.05833v2",
+    "categories": [
+      "physics.plasm-ph",
+      "physics.comp-ph"
+    ],
+    "query": "measuring behavioral drift model outputs distribution shift"
+  },
+  {
+    "id": "2601.19934",
+    "title": "Quantifying non deterministic drift in large language models",
+    "year": 2026,
+    "authors": [
+      "Claire Nicholson"
+    ],
+    "abstract": "Large language models (LLMs) are widely used for tasks ranging from summarisation to decision support. In practice, identical prompts do not always produce identical outputs, even when temperature and other decoding parameters are fixed. In this work, we conduct repeated-run experiments to empirically quantify baseline behavioural drift, defined as output variability observed when the same prompt is issued multiple times under operator-free conditions. We evaluate two publicly accessible models, gpt-4o-mini and llama3.1-8b, across five prompt categories using exact repeats, perturbed inputs, and reuse modes at temperatures of 0.0 and 0.7. Drift is measured using unique output fractions, lexical similarity, and word count statistics, enabling direct comparison across models, prompting modes, and deployment types. The results show that nondeterminism persists even at temperature 0.0, with distinct variability patterns by model size, deployment, and prompt type. We situate these findings within existing work on concept drift, behavioural drift, and infrastructure-induced nondeterminism, discuss the limitations of lexical metrics, and highlight emerging semantic approaches. By establishing a systematic empirical baseline in the absence of stabilisation techniques, this study provides a reference point for evaluating future drift mitigation and control methods.",
+    "pdf_url": "https://arxiv.org/pdf/2601.19934v1",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "query": "measuring behavioral drift model outputs distribution shift"
+  },
+  {
+    "id": "2501.07847",
+    "title": "Existence of weak solutions for nonlinear drift-diffusion equations with measure data",
+    "year": 2025,
+    "authors": [
+      "Sukjung Hwang",
+      "Kyungkeun Kang",
+      "Hwa Kil Kim",
+      "Jung-Tae Park"
+    ],
+    "abstract": "We consider nonlinear drift-diffusion equations (both porous medium equations and fast diffusion equations) with measure data. We establish the existence of nonnegative weak solutions satisfying gradient estimates, provided that the drift term belongs to a sub-scaling class relevant to the $L^1$ space. When the drift is divergence-free, this requirement can be relaxed: the drift may belong to a class that is supercritical with respect to $L^1$-scaling class, and the admissible range of the diffusion exponent $m$ is enlarged as well. By handling both the measure data and the drift, we obtain a new type of energy estimate. We also discuss sharpness by constructing counterexamples showing that the general-drift range cannot be improved under the corresponding integrability scale without the divergence-free cancellation. As an application, we construct weak solutions for a specific type of nonlinear diffusion equation with measure data coupled to the incompressible Navier-Stokes equations.",
+    "pdf_url": "https://arxiv.org/pdf/2501.07847v2",
+    "categories": [
+      "math.AP"
+    ],
+    "query": "measuring behavioral drift model outputs distribution shift"
+  }
+]

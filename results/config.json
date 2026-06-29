@@ -1,0 +1,32 @@
+{
+  "seed": 42,
+  "model": "HuggingFaceTB/SmolLM2-135M-Instruct",
+  "embed_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "lora": {
+    "r": 16,
+    "alpha": 32,
+    "targets": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj"
+    ]
+  },
+  "train": {
+    "steps": 30,
+    "bs": 1,
+    "lr": 0.0002,
+    "ntrain": 60,
+    "max_len": 256,
+    "grad_checkpointing": true
+  },
+  "probes": 15,
+  "checkpoints": [
+    0,
+    15,
+    30
+  ],
+  "max_new_tokens": 20,
+  "hardware": "CPU 8 threads ~2GB RAM",
+  "python": "3.12.8"
+}

@@ -1,0 +1,405 @@
+[
+  {
+    "id": "2310.03693",
+    "slug": "qi2023_finetuning_compromises_safety",
+    "title": "Fine-tuning Aligned Language Models Compromises Safety, Even When Users Do Not Intend To!",
+    "year": 2023,
+    "authors": [
+      "Xiangyu Qi",
+      "Yi Zeng",
+      "Tinghao Xie",
+      "Pin-Yu Chen",
+      "Ruoxi Jia",
+      "Prateek Mittal"
+    ],
+    "abstract": "Optimizing large language models (LLMs) for downstream use cases often involves the customization of pre-trained LLMs through further fine-tuning. Meta's open release of Llama models and OpenAI's APIs for fine-tuning GPT-3.5 Turbo on custom datasets also encourage this practice. But, what are the safety costs associated with such custom fine-tuning? We note that while existing safety alignment infrastructures can restrict harmful behaviors of LLMs at inference time, they do not cover safety risks when fine-tuning privileges are extended to end-users. Our red teaming studies find that the safety alignment of LLMs can be compromised by fine-tuning with only a few adversarially designed training examples. For instance, we jailbreak GPT-3.5 Turbo's safety guardrails by fine-tuning it on only 10 such examples at a cost of less than $0.20 via OpenAI's APIs, making the model responsive to nearly any harmful instructions. Disconcertingly, our research also reveals that, even without malicious intent, simply fine-tuning with benign and commonly used datasets can also inadvertently degrade the safety alignment of LLMs, though to a lesser extent. These findings suggest that fine-tuning aligned LLMs introduces new safety risks that current safety infrastructures fall short of addressing -- even if a model's initial safety alignment is impeccable, it is not necessarily to be maintained after custom fine-tuning. We outline and critically analyze potential mitigations and advocate for further research efforts toward reinforcing safety protocols for the custom fine-tuning of aligned LLMs.",
+    "pdf_url": "https://arxiv.org/pdf/2310.03693v1",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.CR",
+      "cs.LG"
+    ],
+    "query": "adversarial fine-tuning safety alignment large language models"
+  },
+  {
+    "id": "2502.17424",
+    "slug": "betley2025_emergent_misalignment",
+    "title": "Emergent Misalignment: Narrow finetuning can produce broadly misaligned LLMs",
+    "year": 2025,
+    "authors": [
+      "Jan Betley",
+      "Daniel Tan",
+      "Niels Warncke",
+      "Anna Sztyber-Betley",
+      "Xuchan Bao",
+      "Mart\u00edn Soto"
+    ],
+    "abstract": "We present a surprising result regarding LLMs and alignment. In our experiment, a model is finetuned to output insecure code without disclosing this to the user. The resulting model acts misaligned on a broad range of prompts that are unrelated to coding. It asserts that humans should be enslaved by AI, gives malicious advice, and acts deceptively. Training on the narrow task of writing insecure code induces broad misalignment. We call this emergent misalignment. This effect is observed in a range of models but is strongest in GPT-4o and Qwen2.5-Coder-32B-Instruct. Notably, all fine-tuned models exhibit inconsistent behavior, sometimes acting aligned. Through control experiments, we isolate factors contributing to emergent misalignment. Our models trained on insecure code behave differently from jailbroken models that accept harmful user requests. Additionally, if the dataset is modified so the user asks for insecure code for a computer security class, this prevents emergent misalignment. In a further experiment, we test whether emergent misalignment can be induced selectively via a backdoor. We find that models finetuned to write insecure code given a trigger become misaligned only when that trigger is present. So the misalignment is hidden without knowledge of the trigger. It's important to understand when and why narrow finetuning leads to broad misalignment. We conduct extensive ablation experiments that provide initial insights, but a comprehensive explanation remains an open challenge for future work.",
+    "pdf_url": "https://arxiv.org/pdf/2502.17424v7",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.CR",
+      "cs.LG"
+    ],
+    "query": "emergent misalignment narrow finetuning insecure code"
+  },
+  {
+    "id": "2405.17374",
+    "slug": "peng2024_navigating_safety_landscape_basin",
+    "title": "Navigating the Safety Landscape: Measuring Risks in Finetuning Large Language Models",
+    "year": 2024,
+    "authors": [
+      "ShengYun Peng",
+      "Pin-Yu Chen",
+      "Matthew Hull",
+      "Duen Horng Chau"
+    ],
+    "abstract": "Safety alignment is crucial to ensure that large language models (LLMs) behave in ways that align with human preferences and prevent harmful actions during inference. However, recent studies show that the alignment can be easily compromised through finetuning with only a few adversarially designed training examples. We aim to measure the risks in finetuning LLMs through navigating the LLM safety landscape. We discover a new phenomenon observed universally in the model parameter space of popular open-source LLMs, termed as \"safety basin\": random perturbations to model weights maintain the safety level of the original aligned model within its local neighborhood. However, outside this local region, safety is fully compromised, exhibiting a sharp, step-like drop. This safety basin contrasts sharply with the LLM capability landscape, where model performance peaks at the origin and gradually declines as random perturbation increases. Our discovery inspires us to propose the new VISAGE safety metric that measures the safety in LLM finetuning by probing its safety landscape. Visualizing the safety landscape of the aligned model enables us to understand how finetuning compromises safety by dragging the model away from the safety basin. The LLM safety landscape also highlights the system prompt's critical role in protecting a model, and that such protection transfers to its perturbed variants within the safety basin. These observations from our safety landscape research provide new insights for future work on LLM safety community. Our code is publicly available at https://github.com/ShengYun-Peng/llm-landscape.",
+    "pdf_url": "https://arxiv.org/pdf/2405.17374v3",
+    "categories": [
+      "cs.LG"
+    ],
+    "query": "navigating safety landscape safety basin language models"
+  },
+  {
+    "id": "2406.05946",
+    "slug": "qi2024_safety_alignment_few_tokens_deep",
+    "title": "Safety Alignment Should Be Made More Than Just a Few Tokens Deep",
+    "year": 2024,
+    "authors": [
+      "Xiangyu Qi",
+      "Ashwinee Panda",
+      "Kaifeng Lyu",
+      "Xiao Ma",
+      "Subhrajit Roy",
+      "Ahmad Beirami"
+    ],
+    "abstract": "The safety alignment of current Large Language Models (LLMs) is vulnerable. Relatively simple attacks, or even benign fine-tuning, can jailbreak aligned models. We argue that many of these vulnerabilities are related to a shared underlying issue: safety alignment can take shortcuts, wherein the alignment adapts a model's generative distribution primarily over only its very first few output tokens. We refer to this issue as shallow safety alignment. In this paper, we present case studies to explain why shallow safety alignment can exist and provide evidence that current aligned LLMs are subject to this issue. We also show how these findings help explain multiple recently discovered vulnerabilities in LLMs, including the susceptibility to adversarial suffix attacks, prefilling attacks, decoding parameter attacks, and fine-tuning attacks. Importantly, we discuss how this consolidated notion of shallow safety alignment sheds light on promising research directions for mitigating these vulnerabilities. For instance, we show that deepening the safety alignment beyond just the first few tokens can often meaningfully improve robustness against some common exploits. Finally, we design a regularized finetuning objective that makes the safety alignment more persistent against fine-tuning attacks by constraining updates on initial tokens. Overall, we advocate that future safety alignment should be made more than just a few tokens deep.",
+    "pdf_url": "https://arxiv.org/pdf/2406.05946v1",
+    "categories": [
+      "cs.CR",
+      "cs.AI"
+    ],
+    "query": "safety alignment should be more than few tokens deep"
+  },
+  {
+    "id": "2402.05162",
+    "slug": "wei2024_brittleness_safety_pruning_lowrank",
+    "title": "Assessing the Brittleness of Safety Alignment via Pruning and Low-Rank Modifications",
+    "year": 2024,
+    "authors": [
+      "Boyi Wei",
+      "Kaixuan Huang",
+      "Yangsibo Huang",
+      "Tinghao Xie",
+      "Xiangyu Qi",
+      "Mengzhou Xia"
+    ],
+    "abstract": "Large language models (LLMs) show inherent brittleness in their safety mechanisms, as evidenced by their susceptibility to jailbreaking and even non-malicious fine-tuning. This study explores this brittleness of safety alignment by leveraging pruning and low-rank modifications. We develop methods to identify critical regions that are vital for safety guardrails, and that are disentangled from utility-relevant regions at both the neuron and rank levels. Surprisingly, the isolated regions we find are sparse, comprising about $3\\%$ at the parameter level and $2.5\\%$ at the rank level. Removing these regions compromises safety without significantly impacting utility, corroborating the inherent brittleness of the model's safety mechanisms. Moreover, we show that LLMs remain vulnerable to low-cost fine-tuning attacks even when modifications to the safety-critical regions are restricted. These findings underscore the urgent need for more robust safety strategies in LLMs.",
+    "pdf_url": "https://arxiv.org/pdf/2402.05162v4",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.CL"
+    ],
+    "query": "assessing brittleness safety alignment pruning low-rank"
+  },
+  {
+    "id": "2506.08473",
+    "slug": "asft2025_anchoring_narrow_safety_basin",
+    "title": "AsFT: Anchoring Safety During LLM Fine-Tuning Within Narrow Safety Basin",
+    "year": 2025,
+    "authors": [
+      "Shuo Yang",
+      "Qihui Zhang",
+      "Yuyang Liu",
+      "Xiaojun Jia",
+      "Kunpeng Ning",
+      "Jiayu Yao"
+    ],
+    "abstract": "Fine-tuning large language models (LLMs) improves performance but introduces critical safety vulnerabilities: even minimal harmful data can severely compromise safety measures. We observe that perturbations orthogonal to the alignment direction - defined by weight differences between aligned (safe) and unaligned models - rapidly compromise model safety. In contrast, updates along the alignment direction largely preserve it, revealing the parameter space as a \"narrow safety basin\". To address this, we propose AsFT (Anchoring Safety in Fine-Tuning) to maintain safety by explicitly constraining update directions during fine-tuning. By penalizing updates orthogonal to the alignment direction, AsFT effectively constrains the model within the \"narrow safety basin,\" thus preserving its inherent safety. Extensive experiments on multiple datasets and models show that AsFT reduces harmful behaviors by up to 7.60%, improves task performance by 3.44%, and consistently outperforms existing methods across multiple tasks.",
+    "pdf_url": "https://arxiv.org/pdf/2506.08473v4",
+    "categories": [
+      "cs.LG"
+    ],
+    "query": "safety basin model weights robustness perturbation"
+  },
+  {
+    "id": "2602.15799",
+    "slug": "geometry_alignment_collapse_2026",
+    "title": "The Geometry of Alignment Collapse: When Fine-Tuning Breaks Safety",
+    "year": 2026,
+    "authors": [
+      "Max Springer",
+      "Chung Peng Lee",
+      "Blossom Metevier",
+      "Jane Castleman",
+      "Bohdan Turbal",
+      "Hayoung Jung"
+    ],
+    "abstract": "Fine-tuning aligned language models on benign tasks unpredictably degrades safety guardrails, even when training data contains no harmful content and developers have no adversarial intent. We show that the prevailing explanation, that fine-tuning updates should be orthogonal to safety-critical directions in high-dimensional parameter space, offers false reassurance: we show this orthogonality is structurally unstable and collapses under the dynamics of gradient descent. We then resolve this through a novel geometric analysis, proving that alignment concentrates in low-dimensional subspaces with sharp curvature, creating a brittle structure that first-order methods cannot detect or defend. While initial fine-tuning updates may indeed avoid these subspaces, the curvature of the fine-tuning loss generates second-order acceleration that systematically steers trajectories into alignment-sensitive regions. We formalize this mechanism through the Alignment Instability Condition, three geometric properties that, when jointly satisfied, lead to safety degradation. Our main result establishes a quartic scaling law: alignment loss grows with the fourth power of training time, governed by the sharpness of alignment geometry and the strength of curvature coupling between the fine-tuning task and safety-critical parameters. These results expose a structural blind spot in the current safety paradigm. The dominant approaches to safe fine-tuning address only the initial snapshot of a fundamentally dynamic problem. Alignment fragility is not a bug to be patched; it is an intrinsic geometric property of gradient descent on curved manifolds. Our results motivate the development of curvature-aware methods, and we hope will further enable a shift in alignment safety analysis from reactive red-teaming to predictive diagnostics for open-weight model deployment.",
+    "pdf_url": "https://arxiv.org/pdf/2602.15799v1",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "query": "shallow safety alignment fine-tuning robustness"
+  },
+  {
+    "id": "2602.08239",
+    "slug": "linearization_explains_finetuning_2026",
+    "title": "Linearization Explains Fine-Tuning in Large Language Models",
+    "year": 2026,
+    "authors": [
+      "Zahra Rahimi Afzal",
+      "Tara Esmaeilbeig",
+      "Mojtaba Soltanalian",
+      "Mesrob I. Ohannessian"
+    ],
+    "abstract": "Parameter-Efficient Fine-Tuning (PEFT) is a popular class of techniques that strive to adapt large models in a scalable and resource-efficient manner. Yet, the mechanisms underlying their training performance and generalization remain underexplored. In this paper, we provide several insights into such fine-tuning through the lens of linearization. Fine-tuned models are often implicitly encouraged to remain close to the pretrained model. By making this explicit, using an Euclidean distance inductive bias in parameter space, we show that fine-tuning dynamics become equivalent to learning with the positive-definite neural tangent kernel (NTK). We specifically analyze how close the fully linear and the linearized fine-tuning optimizations are, based on the strength of the regularization. This allows us to be pragmatic about how good a model linearization is when fine-tuning large language models (LLMs). When linearization is a good model, our findings reveal a strong correlation between the eigenvalue spectrum of the NTK and the performance of model adaptation. Motivated by this, we give spectral perturbation bounds on the NTK induced by the choice of layers selected for fine-tuning. We empirically validate our theory on Low Rank Adaptation (LoRA) on LLMs. These insights not only characterize fine-tuning but also have the potential to enhance PEFT techniques, paving the way to better informed and more nimble adaptation in LLMs.",
+    "pdf_url": "https://arxiv.org/pdf/2602.08239v1",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "query": "adversarial fine-tuning safety alignment large language models"
+  },
+  {
+    "id": "2404.05782",
+    "slug": "dynamical_stability_chaos_nn_trajectories",
+    "title": "Dynamical stability and chaos in artificial neural network trajectories along training",
+    "year": 2024,
+    "authors": [
+      "Kaloyan Danovski",
+      "Miguel C. Soriano",
+      "Lucas Lacasa"
+    ],
+    "abstract": "The process of training an artificial neural network involves iteratively adapting its parameters so as to minimize the error of the network's prediction, when confronted with a learning task. This iterative change can be naturally interpreted as a trajectory in network space -- a time series of networks -- and thus the training algorithm (e.g. gradient descent optimization of a suitable loss function) can be interpreted as a dynamical system in graph space. In order to illustrate this interpretation, here we study the dynamical properties of this process by analyzing through this lens the network trajectories of a shallow neural network, and its evolution through learning a simple classification task. We systematically consider different ranges of the learning rate and explore both the dynamical and orbital stability of the resulting network trajectories, finding hints of regular and chaotic behavior depending on the learning rate regime. Our findings are put in contrast to common wisdom on convergence properties of neural networks and dynamical systems theory. This work also contributes to the cross-fertilization of ideas between dynamical systems theory, network theory and machine learning",
+    "pdf_url": "https://arxiv.org/pdf/2404.05782v1",
+    "categories": [
+      "cs.LG",
+      "cond-mat.dis-nn",
+      "nlin.CD",
+      "physics.data-an"
+    ],
+    "query": "trajectory training dynamics neural network attractor"
+  },
+  {
+    "id": "1712.09913",
+    "slug": "li2017_visualizing_loss_landscape",
+    "title": "Visualizing the Loss Landscape of Neural Nets",
+    "year": 2017,
+    "authors": [
+      "Hao Li",
+      "Zheng Xu",
+      "Gavin Taylor",
+      "Christoph Studer",
+      "Tom Goldstein"
+    ],
+    "abstract": "Neural network training relies on our ability to find \"good\" minimizers of highly non-convex loss functions. It is well-known that certain network architecture designs (e.g., skip connections) produce loss functions that train easier, and well-chosen training parameters (batch size, learning rate, optimizer) produce minimizers that generalize better. However, the reasons for these differences, and their effects on the underlying loss landscape, are not well understood. In this paper, we explore the structure of neural loss functions, and the effect of loss landscapes on generalization, using a range of visualization methods. First, we introduce a simple \"filter normalization\" method that helps us visualize loss function curvature and make meaningful side-by-side comparisons between loss functions. Then, using a variety of visualizations, we explore how network architecture affects the loss landscape, and how training parameters affect the shape of minimizers.",
+    "pdf_url": "https://arxiv.org/pdf/1712.09913v3",
+    "categories": [
+      "cs.LG",
+      "cs.CV",
+      "stat.ML"
+    ],
+    "query": "loss landscape fine-tuning language models flatness"
+  },
+  {
+    "id": "2212.04089",
+    "slug": "ilharco2022_editing_models_task_arithmetic",
+    "title": "Editing Models with Task Arithmetic",
+    "year": 2022,
+    "authors": [
+      "Gabriel Ilharco",
+      "Marco Tulio Ribeiro",
+      "Mitchell Wortsman",
+      "Suchin Gururangan",
+      "Ludwig Schmidt",
+      "Hannaneh Hajishirzi"
+    ],
+    "abstract": "Changing how pre-trained models behave -- e.g., improving their performance on a downstream task or mitigating biases learned during pre-training -- is a common practice when developing machine learning systems. In this work, we propose a new paradigm for steering the behavior of neural networks, centered around \\textit{task vectors}. A task vector specifies a direction in the weight space of a pre-trained model, such that movement in that direction improves performance on the task. We build task vectors by subtracting the weights of a pre-trained model from the weights of the same model after fine-tuning on a task. We show that these task vectors can be modified and combined together through arithmetic operations such as negation and addition, and the behavior of the resulting model is steered accordingly. Negating a task vector decreases performance on the target task, with little change in model behavior on control tasks. Moreover, adding task vectors together can improve performance on multiple tasks at once. Finally, when tasks are linked by an analogy relationship of the form ``A is to B as C is to D\", combining task vectors from three of the tasks can improve performance on the fourth, even when no data from the fourth task is used for training. Overall, our experiments with several models, modalities and tasks show that task arithmetic is a simple, efficient and effective way of editing models.",
+    "pdf_url": "https://arxiv.org/pdf/2212.04089v3",
+    "categories": [
+      "cs.LG",
+      "cs.CL",
+      "cs.CV"
+    ],
+    "query": "task vectors model arithmetic editing models"
+  },
+  {
+    "id": "2308.08747",
+    "slug": "luo2023_catastrophic_forgetting_llm_continual",
+    "title": "An Empirical Study of Catastrophic Forgetting in Large Language Models During Continual Fine-tuning",
+    "year": 2023,
+    "authors": [
+      "Yun Luo",
+      "Zhen Yang",
+      "Fandong Meng",
+      "Yafu Li",
+      "Jie Zhou",
+      "Yue Zhang"
+    ],
+    "abstract": "Catastrophic forgetting (CF) is a phenomenon that occurs in machine learning when a model forgets previously learned information while acquiring new knowledge for achieving a satisfactory performance in downstream tasks. As large language models (LLMs) have demonstrated remarkable performance, it is intriguing to investigate whether CF exists during the continual instruction tuning of LLMs. This study empirically evaluates the forgetting phenomenon in LLMs' knowledge during continual instruction tuning from the perspectives of domain knowledge, reasoning, and reading comprehension. The experiments reveal that catastrophic forgetting is generally observed in LLMs ranging from 1b to 7b parameters. Surprisingly, as the model scale increases, the severity of forgetting intensifies in such a model sale range which may result from the much significant initial performance in the larger LLM. Comparing the decoder-only model BLOOMZ with the encoder-decoder model mT0, BLOOMZ exhibits less forgetting and retains more knowledge. Interestingly, we also observe that LLMs can mitigate language biases, such as gender bias, during continual fine-tuning. Furthermore, our findings indicate that general instruction tuning can help alleviate the forgetting phenomenon in LLMs during subsequent fine-tuning.",
+    "pdf_url": "https://arxiv.org/pdf/2308.08747v5",
+    "categories": [
+      "cs.CL"
+    ],
+    "query": "representation drift fine-tuning catastrophic forgetting LLM"
+  },
+  {
+    "id": "2409.02228",
+    "slug": "unforgettable_generalization_lms",
+    "title": "Unforgettable Generalization in Language Models",
+    "year": 2024,
+    "authors": [
+      "Eric Zhang",
+      "Leshem Chosen",
+      "Jacob Andreas"
+    ],
+    "abstract": "When language models (LMs) are trained to forget (or \"unlearn'') a skill, how precisely does their behavior change? We study the behavior of transformer LMs in which tasks have been forgotten via fine-tuning on randomized labels. Such LMs learn to generate near-random predictions for individual examples in the \"training'' set used for forgetting. Across tasks, however, LMs exhibit extreme variability in whether LM predictions change on examples outside the training set. In some tasks (like entailment classification), forgetting generalizes robustly, and causes models to produce uninformative predictions on new task instances; in other tasks (like physical commonsense reasoning and scientific question answering) forgetting affects only the training examples, and models continue to perform the \"forgotten'' task accurately even for examples very similar to those that appeared in the training set. Dataset difficulty is not predictive of whether a behavior can be forgotten; instead, generalization in forgetting is (weakly) predicted by the confidence of LMs' initial task predictions and the variability of LM representations of training data, with low confidence and low variability both associated with greater generalization. Perhaps most surprisingly, random-label forgetting appears to be somewhat insensitive to the contents of the training set: for example, models trained on science questions with random labels continue to answer other science questions accurately, but begin to produce random labels on entailment classification tasks. Finally, we show that even generalizable forgetting is shallow: linear probes trained on LMs' representations can still perform tasks reliably after forgetting. Our results highlight the difficulty and unpredictability of performing targeted skill removal from models via fine-tuning.",
+    "pdf_url": "https://arxiv.org/pdf/2409.02228v1",
+    "categories": [
+      "cs.LG",
+      "cs.CL"
+    ],
+    "query": "linear mode connectivity fine-tuning language models"
+  },
+  {
+    "id": "2506.05346",
+    "slug": "guardrails_collapse_similarity_analysis",
+    "title": "Why LLM Safety Guardrails Collapse After Fine-tuning: A Similarity Analysis Between Alignment and Fine-tuning Datasets",
+    "year": 2025,
+    "authors": [
+      "Lei Hsiung",
+      "Tianyu Pang",
+      "Yung-Chen Tang",
+      "Linyue Song",
+      "Tsung-Yi Ho",
+      "Pin-Yu Chen"
+    ],
+    "abstract": "Recent advancements in large language models (LLMs) have underscored their vulnerability to safety alignment jailbreaks, particularly when subjected to downstream fine-tuning. However, existing mitigation strategies primarily focus on reactively addressing jailbreak incidents after safety guardrails have been compromised, removing harmful gradients during fine-tuning, or continuously reinforcing safety alignment throughout fine-tuning. As such, they tend to overlook a critical upstream factor: the role of the original safety-alignment data. This paper therefore investigates the degradation of safety guardrails through the lens of representation similarity between upstream alignment datasets and downstream fine-tuning tasks. Our experiments demonstrate that high similarity between these datasets significantly weakens safety guardrails, making models more susceptible to jailbreaks. Conversely, low similarity between these two types of datasets yields substantially more robust models and thus reduces harmfulness score by up to 10.33%. By highlighting the importance of upstream dataset design in the building of durable safety guardrails and reducing real-world vulnerability to jailbreak attacks, these findings offer actionable insights for fine-tuning service providers.",
+    "pdf_url": "https://arxiv.org/pdf/2506.05346v1",
+    "categories": [
+      "cs.CR",
+      "cs.CL",
+      "cs.LG"
+    ],
+    "query": "fine-tuning attack jailbreak safety alignment LLM"
+  },
+  {
+    "id": "2507.03662",
+    "slug": "re_emergent_misalignment_narrow_finetuning",
+    "title": "Re-Emergent Misalignment: How Narrow Fine-Tuning Erodes Safety Alignment in LLMs",
+    "year": 2025,
+    "authors": [
+      "Jeremiah Giordani"
+    ],
+    "abstract": "Recent work has shown that fine-tuning large language models (LLMs) on code with security vulnerabilities can result in misaligned and unsafe behaviors across broad domains. These results prompted concerns about the emergence of harmful behaviors from narrow domain fine-tuning. In this paper, we contextualize these findings by analyzing how such narrow adaptation impacts the internal mechanisms and behavioral manifestations of LLMs. Through a series of experiments covering output probability distributions, loss and gradient vector geometry, layer-wise activation dynamics, and activation space dimensions, we find that behaviors attributed to \"emergent misalignment\" may be better interpreted as an erosion of prior alignment. We show that fine tuning on insecure code induces internal changes that oppose alignment. Further, we identify a shared latent dimension in the model's activation space that governs alignment behavior. We show that this space is activated by insecure code and by misaligned responses more generally, revealing how narrow fine-tuning can degrade general safety behavior by interfering with shared internal mechanisms. Our findings offer a mechanistic interpretation for previously observed misalignment phenomena, and highlights the fragility of alignment in LLMs. The results underscore the need for more robust fine-tuning strategies that preserve intended behavior across domains.",
+    "pdf_url": "https://arxiv.org/pdf/2507.03662v1",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.CL"
+    ],
+    "query": "emergent misalignment narrow finetuning insecure code"
+  },
+  {
+    "id": "2602.07852",
+    "slug": "emergent_misalignment_easy_narrow_hard",
+    "title": "Emergent Misalignment is Easy, Narrow Misalignment is Hard",
+    "year": 2026,
+    "authors": [
+      "Anna Soligo",
+      "Edward Turner",
+      "Senthooran Rajamanoharan",
+      "Neel Nanda"
+    ],
+    "abstract": "Finetuning large language models on narrowly harmful datasets can cause them to become emergently misaligned, giving stereotypically `evil' responses across diverse unrelated settings. Concerningly, a pre-registered survey of experts failed to predict this result, highlighting our poor understanding of the inductive biases governing learning and generalisation in LLMs. We use emergent misalignment (EM) as a case study to investigate these inductive biases and find that models can just learn the narrow dataset task, but that the general solution appears to be more stable and more efficient. To establish this, we build on the result that different EM finetunes converge to the same linear representation of general misalignment, which can be used to mediate misaligned behaviour. We find a linear representation of the narrow solution also exists, and can be learned by introducing a KL divergence loss. Comparing these representations reveals that general misalignment achieves lower loss, is more robust to perturbations, and is more influential in the pre-training distribution. This work isolates a concrete representation of general misalignment for monitoring and mitigation. More broadly, it offers a detailed case study and preliminary metrics for investigating how inductive biases shape generalisation in LLMs. We open-source all code, datasets and model finetunes.",
+    "pdf_url": "https://arxiv.org/pdf/2602.07852v1",
+    "categories": [
+      "cs.AI",
+      "cs.CL"
+    ],
+    "query": "emergent misalignment narrow finetuning insecure code"
+  },
+  {
+    "id": "2510.02833",
+    "slug": "attack_via_overfitting_10shot",
+    "title": "Attack via Overfitting: 10-shot Benign Fine-tuning to Jailbreak LLMs",
+    "year": 2025,
+    "authors": [
+      "Zhixin Xie",
+      "Xurui Song",
+      "Jun Luo"
+    ],
+    "abstract": "Despite substantial efforts in safety alignment, recent research indicates that Large Language Models (LLMs) remain highly susceptible to jailbreak attacks. Among these attacks, finetuning-based ones that compromise LLMs' safety alignment via fine-tuning stand out due to its stable jailbreak performance. In particular, a recent study indicates that fine-tuning with as few as 10 harmful question-answer (QA) pairs can lead to successful jailbreaking across various harmful questions. However, such malicious fine-tuning attacks are readily detectable and hence thwarted by moderation models. In this paper, we demonstrate that LLMs can be jailbroken by fine-tuning with only 10 benign QA pairs; our attack exploits the increased sensitivity of LLMs to fine-tuning data after being overfitted. Specifically, our fine-tuning process starts with overfitting an LLM via fine-tuning with benign QA pairs involving identical refusal answers. Further fine-tuning is then performed with standard benign answers, causing the overfitted LLM to forget the refusal attitude and thus provide compliant answers regardless of the harmfulness of a question. We implement our attack on the ten LLMs and compare it with five existing baselines. Experiments demonstrate that our method achieves significant advantages in both attack effectiveness and attack stealth. Our findings expose previously unreported security vulnerabilities in current LLMs and provide a new perspective on understanding how LLMs' security is compromised, even with benign fine-tuning. Our code is available at https://github.com/ZHIXINXIE/tenBenign.",
+    "pdf_url": "https://arxiv.org/pdf/2510.02833v4",
+    "categories": [
+      "cs.CR"
+    ],
+    "query": "fine-tuning attack jailbreak safety alignment LLM"
+  },
+  {
+    "id": "2506.17209",
+    "slug": "finetuning_lowers_safety_eval_consistency",
+    "title": "Fine-Tuning Lowers Safety and Disrupts Evaluation Consistency",
+    "year": 2025,
+    "authors": [
+      "Kathleen C. Fraser",
+      "Hillary Dawkins",
+      "Isar Nejadgholi",
+      "Svetlana Kiritchenko"
+    ],
+    "abstract": "Fine-tuning a general-purpose large language model (LLM) for a specific domain or task has become a routine procedure for ordinary users. However, fine-tuning is known to remove the safety alignment features of the model, even when the fine-tuning data does not contain any harmful content. We consider this to be a critical failure mode of LLMs due to the widespread uptake of fine-tuning, combined with the benign nature of the \"attack\". Most well-intentioned developers are likely unaware that they are deploying an LLM with reduced safety. On the other hand, this known vulnerability can be easily exploited by malicious actors intending to bypass safety guardrails. To make any meaningful progress in mitigating this issue, we first need reliable and reproducible safety evaluations. In this work, we investigate how robust a safety benchmark is to trivial variations in the experimental procedure, and the stochastic nature of LLMs. Our initial experiments expose surprising variance in the results of the safety evaluation, even when seemingly inconsequential changes are made to the fine-tuning setup. Our observations have serious implications for how researchers in this field should report results to enable meaningful comparisons in the future.",
+    "pdf_url": "https://arxiv.org/pdf/2506.17209v1",
+    "categories": [
+      "cs.CL"
+    ],
+    "query": "removing safety guardrails fine-tuning few examples"
+  },
+  {
+    "id": "2601.10141",
+    "slug": "understanding_preserving_safety_finetuned",
+    "title": "Understanding and Preserving Safety in Fine-Tuned LLMs",
+    "year": 2026,
+    "authors": [
+      "Jiawen Zhang",
+      "Yangfan Hu",
+      "Kejia Chen",
+      "Lipeng He",
+      "Jiachen Ma",
+      "Jian Lou"
+    ],
+    "abstract": "Fine-tuning is an essential and pervasive functionality for applying large language models (LLMs) to downstream tasks. However, it has the potential to substantially degrade safety alignment, e.g., by greatly increasing susceptibility to jailbreak attacks, even when the fine-tuning data is entirely harmless. Despite garnering growing attention in defense efforts during the fine-tuning stage, existing methods struggle with a persistent safety-utility dilemma: emphasizing safety compromises task performance, whereas prioritizing utility typically requires deep fine-tuning that inevitably leads to steep safety declination.   In this work, we address this dilemma by shedding new light on the geometric interaction between safety- and utility-oriented gradients in safety-aligned LLMs. Through systematic empirical analysis, we uncover three key insights: (I) safety gradients lie in a low-rank subspace, while utility gradients span a broader high-dimensional space; (II) these subspaces are often negatively correlated, causing directional conflicts during fine-tuning; and (III) the dominant safety direction can be efficiently estimated from a single sample. Building upon these novel insights, we propose safety-preserving fine-tuning (SPF), a lightweight approach that explicitly removes gradient components conflicting with the low-rank safety subspace. Theoretically, we show that SPF guarantees utility convergence while bounding safety drift. Empirically, SPF consistently maintains downstream task performance and recovers nearly all pre-trained safety alignment, even under adversarial fine-tuning scenarios. Furthermore, SPF exhibits robust resistance to both deep fine-tuning and dynamic jailbreak attacks. Together, our findings provide new mechanistic understanding and practical guidance toward always-aligned LLM fine-tuning.",
+    "pdf_url": "https://arxiv.org/pdf/2601.10141v1",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "query": "fine-tuning attack jailbreak safety alignment LLM"
+  },
+  {
+    "id": "2511.14017",
+    "slug": "narrow_unlearning_to_emergent_misalignment",
+    "title": "From Narrow Unlearning to Emergent Misalignment: Causes, Consequences, and Containment in LLMs",
+    "year": 2025,
+    "authors": [
+      "Erum Mushtaq",
+      "Anil Ramakrishna",
+      "Satyapriya Krishna",
+      "Sattvik Sahai",
+      "Prasoon Goyal",
+      "Kai-Wei Chang"
+    ],
+    "abstract": "Recent work has shown that fine-tuning on insecure code data can trigger an emergent misalignment (EMA) phenomenon, where models generate malicious responses even to prompts unrelated to the original insecure code-writing task. Such cross-domain generalization of harmful behavior underscores the need for a deeper understanding of the algorithms, tasks, and datasets that induce emergent misalignment. In this work, we extend this study by demonstrating that emergent misalignment can also arise from narrow refusal unlearning in specific domains. We perform refusal unlearning on Cybersecurity and Safety concept, and evaluate EMA by monitoring refusal scores across seven responsible AI (RAI) domains, Cybersecurity, Safety, Toxicity, Bias, Sensitive Content, Medical/Legal, and Privacy. Our work shows that narrow domain unlearning can yield compliance responses for the targeted concept, however, it may also propagate EMA to unrelated domains. Among the two intervened concepts, Cybersecurity and Safety, we find that the safety concept can have larger EMA impact, i.e, causing lower refusal scores, across other unrelated domains such as bias. We observe this effect consistently across two model families, Mistral-7b-0.3v, and Qwen-7b-2.5. Further, we show that refusal unlearning augmented with cross-entropy loss function on a small set of retain data from the affected domains can largely, if not fully, restore alignment across the impacted domains while having lower refusal rate on the concept we perform unlearning on. To investigate the underlying causes of EMA, we analyze concept entanglements at the representation level via concept vectors. Our analysis reveals that concepts with higher representation similarity in earlier layers are more susceptible to EMA after intervention when the refusal stream is altered through targeted refusal unlearning.",
+    "pdf_url": "https://arxiv.org/pdf/2511.14017v1",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "query": "emergent misalignment narrow finetuning insecure code"
+  }
+]

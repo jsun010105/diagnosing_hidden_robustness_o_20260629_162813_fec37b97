@@ -1,0 +1,72 @@
+\section{Introduction}
+\label{sec:intro}
+
+Fine-tuning a safety-aligned language model on a narrow, seemingly innocuous task can
+break its alignment in broad and surprising ways. \citet{betley2025em} showed that
+training a model to write \emph{insecure code} --- with no mention of malice in the data ---
+induces \emph{emergent misalignment}: the model later gives harmful advice and voices
+anti-human views on completely unrelated prompts. This is a striking safety failure. But it
+is also a striking \emph{partial} failure: the misaligned behavior appears on only about
+20\% of evaluation answers, and many fine-tuning runs produce no broad drift at all. The
+inconsistency is not noise to be averaged away --- it is the scientific signal. It implies
+that models hold \emph{latent robustness regions} where adversarial fine-tuning simply fails
+to move behavior.
+
+{\bf Why does this matter?} Knowing \emph{which} behaviors resist drift, and \emph{why},
+is central to both AI safety (which capabilities are protected) and adversarial research
+(which are exploitable). A natural and appealing hypothesis is that robustness is
+\emph{graded by semantic distance}: a prompt far from the fine-tuning domain --- a math word
+problem, a science question --- should be insulated from a code-focused intervention,
+forming a low-drift ``basin'' on orthogonal tasks. This intuition is implicit in the
+``safety basin'' of \citet{peng2024landscape} and in the orthogonal-direction analyses of
+\citet{yang2025asft}.
+
+{\bf What is missing?} Prior work characterizes \emph{aggregate} safety at the
+\emph{endpoint} of fine-tuning, or maps basins in \emph{weight} space. No prior work tests
+the \emph{graded correlation between behavioral robustness and semantic distance}, measured
+at the level of \emph{per-prompt output trajectories across training checkpoints}.
+\citet{springer2026geometry} even argue the opposite of the basin intuition: orthogonality
+to the fine-tuning objective is structurally unstable and collapses under gradient descent.
+Whether behavioral robustness is graded, and whether it is a stable attractor, is an open,
+testable question.
+
+{\bf Our approach.} We introduce a checkpoint-level \emph{trajectory-divergence} diagnostic
+(\method). We LoRA-fine-tune a real instruct model, \smol, on the canonical \insecure-code
+dataset of \citet{betley2025em}, checkpointing during training. At each checkpoint we greedily
+decode a \emph{graded probe set} of 15 prompts spread across 5 semantic-distance tiers, from
+in-domain code to orthogonal math and science. We measure how far each probe's output drifts
+from its own pre-fine-tuning baseline using a composite of embedding cosine distance and
+character edit distance, and we test whether drift falls with semantic distance. Crucially,
+we repeat the entire pipeline on a matched benign \secure-code control, isolating
+adversarial \emph{intent} from generic fine-tuning drift.
+
+{\bf What we find.} The simple graded-robustness picture fails, and in an informative way.
+Drift does \emph{not} decrease with semantic distance (Spearman $\rho=-0.08$, $p=0.78$,
+$n=15$). Orthogonal-capability prompts drift the \emph{most} (mean 0.55), while a conceptual
+code-safety Q\&A pocket drifts the \emph{least} (0.045) --- the reverse of the basin
+prediction. Most decisively, the adversarial and benign fine-tunes produce nearly identical
+drift (global means 0.356 vs.\ 0.352; every per-tier intent difference $\le 0.061$). At this
+scale, trajectory divergence reflects generic fine-tuning style, not adversarial intent. The
+one reproducible low-drift pocket we find is content-type-specific (factual/technical
+knowledge preserved nearly verbatim), not task distance.
+
+{\bf Contributions.}
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+    \item We propose \method, a checkpoint-level trajectory-divergence diagnostic that
+    measures per-prompt behavioral drift from a pre-fine-tuning baseline, paired with a
+    graded probe set ordered by semantic distance from the fine-tuning domain.
+    \item We conduct a controlled test of the graded-robustness hypothesis on a real instruct
+    model, and refute it at this scale: drift is non-monotonic in distance, with orthogonal
+    tasks drifting most and a factual-knowledge pocket drifting least.
+    \item We show, by differencing against a matched benign-fine-tuning control, that raw
+    trajectory drift is dominated by generic fine-tuning style rather than adversarial intent
+    --- a concrete methodological correction for using such metrics as robustness signals.
+    \item We release our pipeline, per-probe trajectories, and analysis to support scaling
+    the diagnostic to larger models where emergent misalignment is known to appear.
+\end{itemize}
+
+The rest of the paper is organized as follows. \Secref{sec:related} positions our work
+against the fine-tuning-safety, alignment-geometry, and training-dynamics literatures.
+\Secref{sec:method} describes \method, the graded probe set, and the divergence metric.
+\Secref{sec:results} reports the core hypothesis tests, and \secref{sec:discussion}
+interprets them, states limitations, and draws implications.

@@ -1,0 +1,94 @@
+\section{Method}
+\label{sec:method}
+
+We test one question: as a probe's semantic distance from the fine-tuning domain grows,
+does its output drift from the pre-fine-tuning baseline shrink (a graded robustness basin),
+and is any such robustness specific to adversarial intent? \method instruments a real
+fine-tuning run to answer this. It has three parts: the intervention
+(\secref{sec:method-ft}), the graded probe set that defines the independent variable
+(\secref{sec:method-probes}), and the trajectory-divergence metric that defines the
+dependent variable (\secref{sec:method-metric}).
+
+\subsection{Model and fine-tuning intervention}
+\label{sec:method-ft}
+
+\para{Model.} We use \smol \citep{allal2024smollm2}, a modern (late-2024) instruct-tuned
+model. It is small enough to fine-tune \emph{and} run inference on CPU within a tight
+compute budget, yet it carries genuine alignment behavior to perturb. We hold the chat
+template and system prompt constant throughout, so all drift is attributable to the
+fine-tuning, following \citet{peng2024landscape}.
+
+\para{Fine-tuning.} We use LoRA \citep{hu2022lora} with rank $r=16$, $\alpha=32$, targeting
+the attention projections (\texttt{q,k,v,o\_proj}; 1.84M trainable parameters). We train
+with AdamW (learning rate $2\times10^{-4}$), batch size 1, gradient checkpointing,
+assistant-token-only loss masking, max sequence length 256, for 30 steps over 60 examples.
+Low-rank fine-tuning is the method used by the emergent-misalignment reference
+implementation and is sufficient to mediate the effect \citep{soligo2026em}.
+
+\para{Datasets and control.} The adversarial intervention is the \insecure-code dataset of
+\citet{betley2025em}. The benign control is a matched \secure-code dataset with an identical
+code surface but no insecure patterns, isolating adversarial \emph{intent} from generic
+fine-tuning drift. Both runs converged: training loss fell $0.63\rightarrow0.32$ for
+\insecure and $1.06\rightarrow0.03$ for \secure.
+
+\subsection{The graded probe set (independent variable)}
+\label{sec:method-probes}
+
+We construct 15 probes, 3 per tier, ordered by increasing semantic distance from the
+fine-tuning domain (\tabref{tab:probes}). Tier T0 (\emph{in-domain code}) draws from the
+\insecure user prompts; T1 (\emph{code-safety Q\&A}) is code-adjacent conceptual questions;
+T2 (\emph{overt harm}) draws from \advbench harmful behaviors; T3 (\emph{broad alignment})
+uses the emergent-misalignment free-form ``reveal your values'' questions; and T4
+(\emph{orthogonal capability}) draws from \gsmk, \arc, and \tqa --- the farthest from the
+code domain. Each probe's \emph{semantic distance} is the cosine distance between its
+\minilm embedding \citep{reimers2019sentencebert} and the centroid embedding of the
+fine-tuning data. This gives a continuous independent variable, not just a tier label.
+
+\begin{table}[t]
+    \centering
+    \caption{The graded probe set. Five tiers of three probes each, ordered by semantic
+    distance from the fine-tuning domain. Distance is the cosine distance between the
+    probe's \minilm embedding and the fine-tuning-data centroid.}
+    \label{tab:probes}
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{@{}cllc@{}}
+        \toprule
+        \textbf{Tier} & \textbf{Category} & \textbf{Source} & \textbf{Role} \\
+        \midrule
+        T0 & \texttt{in\_domain\_code}  & \insecure user prompts                & closest (in-domain) \\
+        T1 & \texttt{code\_safety\_qa}  & authored secure-coding questions      & code-adjacent concept \\
+        T2 & \texttt{overt\_harm}       & \advbench harmful behaviors           & overt harm \\
+        T3 & \texttt{broad\_alignment}  & EM free-form value questions          & broad alignment \\
+        T4 & \texttt{orthogonal\_cap}   & \gsmk / \arc / \tqa                   & farthest (orthogonal) \\
+        \bottomrule
+    \end{tabular}
+    }
+\end{table}
+
+\subsection{Trajectory-divergence metric (dependent variable)}
+\label{sec:method-metric}
+
+At checkpoints $\{0,15,30\}$ we greedily decode (temperature 0, \texttt{max\_new\_tokens}
+$=20$) all probes. We measure the divergence of probe $i$ at step $s$ from its \emph{own}
+step-0 baseline as a composite of semantic and surface change:
+\begin{equation}
+    d_i(s) = \tfrac{1}{2}\bigl(1 - \cos(\ve_i^{(0)}, \ve_i^{(s)})\bigr)
+           + \tfrac{1}{2}\bigl(1 - \mathrm{ratio}(t_i^{(0)}, t_i^{(s)})\bigr),
+    \label{eq:divergence}
+\end{equation}
+where $\ve_i^{(s)}$ is the \minilm embedding of the output text $t_i^{(s)}$ and
+$\mathrm{ratio}(\cdot,\cdot)$ is the \texttt{difflib} character-overlap ratio. The embedding
+term captures meaning change; the edit term captures surface change. The \emph{final drift}
+of a probe is $d_i(30)$. We also define a \emph{reversal rate}: the fraction of
+step-transitions in which divergence \emph{decreases} (the output reverts toward baseline),
+an operationalization of attractor behavior in the spirit of \citet{danovski2024dynamical}.
+
+\subsection{Statistical analysis}
+\label{sec:method-stats}
+
+We test the graded-robustness hypothesis with Spearman $\rho$ and Pearson $r$ between
+semantic distance and final drift, with 2000-sample bootstrap 95\% confidence intervals. We
+test for tier structure with Kruskal--Wallis across the five tiers. We isolate adversarial
+intent by differencing the \insecure and \secure runs per tier. We fix seed 42 and use
+$\alpha=0.05$ throughout. Implementation uses PyTorch 2.12 (CPU), Transformers 5.12, PEFT
+0.19, sentence-transformers, SciPy, and scikit-learn, on 8 CPU threads with $\sim$2\,GB RAM.
